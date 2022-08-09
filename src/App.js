@@ -7,15 +7,19 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          This is UNDRDOG! A place for restaurants working can post 
+          about their experiences at their establishment. People will 
+          know ahead of time how much they can make, if they are respected 
+          by their co-workers, managers, the owner, and the guests of the 
+          restaurant.
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://www.ratemyprofessors.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Rate My Professors for reference
         </a>
       </header>
     </div>
