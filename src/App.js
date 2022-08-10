@@ -1,6 +1,8 @@
 import './App.css';
 import { FaStar } from 'react-icons/fa';
 import { useState } from 'react';
+import NavBar from './components/nav-bar/nav-bar.component';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const colors = {
   orange: "#FFBA5A",
@@ -23,9 +25,10 @@ function App() {
   const handleMouseLeave = () => {
     setHoverValue(undefined)
   }
-  
   return (
+    <Router>
     <div style={styles.container}>
+      <NavBar />
       <h2>Rate your Restaurant</h2>
       <div style={styles.stars}>
         {stars.map((_,index) => {
@@ -51,6 +54,7 @@ function App() {
       />
       <button style={styles.button}>Submit</button>
     </div>
+    </Router>
   );
 };
 
