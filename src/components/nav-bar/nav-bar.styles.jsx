@@ -3,26 +3,53 @@ import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Nav = styled.nav`
-  background: #000;
+  background: #151619;
   height: 80px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+
   padding: 0.5rem calc((100vw - 1000px) / 2);
   z-index: 10;
   /* Third Nav */
   /* justify-content: flex-start; */
+  
 `;
 
+export const Logo = styled(Link)`
+  color: #969696;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 0px;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 3px;
+  height: 100%;
+  cursor: pointer;
+`
+
 export const NavLink = styled(Link)`
-  color: #fff;
+  backdrop-filter: blur(20px);
+  color: #969696;
+  margin-left: 60px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 14px 16px;
+  line-height: 0px;
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0 1rem;
+  padding: 0 5px;
   height: 100%;
   cursor: pointer;
+  
   &.active {
-    color: #15cdfc;
+    color: #fff;
+    border-bottom: 2px solid #FF4763;
+    transition: all 0.1s ease-in-out;
   }
 `;
 
@@ -59,7 +86,7 @@ export const NavBtn = styled.nav`
   align-items: center;
   margin-right: 24px;
   /* Third Nav */
-  /* justify-content: flex-end;
+  justify-content: flex-end;
   width: 100vw; */
   @media screen and (max-width: 768px) {
     display: none;
@@ -67,12 +94,14 @@ export const NavBtn = styled.nav`
 `;
 
 export const NavBtnLink = styled(Link)`
-  border-radius: 4px;
-  background: #256ce1;
-  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 7px;
+  background: #151619;
+  padding: 8.5px 20px;
   color: #fff;
   outline: none;
-  border: none;
+  border: 1px solid #FFFFFF;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
@@ -83,4 +112,20 @@ export const NavBtnLink = styled(Link)`
     background: #fff;
     color: #010606;
   }
+`;
+
+export const NavBtnSignUpLink = styled(Link)`
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 7px;
+  background: linear-gradient(164.17deg, #FF4763 -19.57%, #AC0053 118.18%);
+  padding: 10px 22px;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  /* Second Nav */
+  margin-left: 24px;
 `;

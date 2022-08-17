@@ -4,8 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/nav-bar/nav-bar.component';
 import Home from './pages/home';
 import About from './pages/about';
-import Services from './pages/services';
-import Contact from './pages/contact';
+import Signin from './pages/signin';
 import Signup from './pages/signup';
 
 function App() {
@@ -13,10 +12,9 @@ function App() {
     <Router>
       <NavBar />
       <Routes>
-        <Route path='/' element={<Home/>} />
+        <Route path='/home' element={<Home/>} />
         <Route path='/about' element={<About/>} />
-        <Route path='/services' element={<Services/>} />
-        <Route path='/contact-us' element={<Contact/>} />
+        <Route path='/sign-in' element={<Signin/>} />
         <Route path='/sign-up' element={<Signup/>} />
       </Routes>
     </Router>
