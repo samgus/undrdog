@@ -1,34 +1,45 @@
 import React from 'react';
+import { FaBars } from 'react-icons/fa';
+
 import {
-  Logo,
   Nav,
-  NavLink,
-  Bars,
+  NavBarContainer,
+  NavLogo,
+  MobileIcon,
+  NavItem,
+  NavLinks,
   NavMenu,
   NavBtn,
   NavBtnLink,
-  NavBtnSignUpLink
 } from './nav-bar.styles';
 
-const NavBar = () => {
+const NavBar = ({toggle}) => {
   return (
     <>
       <Nav>
-        <Logo to='/home'>
-        <h2 style={{ color: "white" }}>UNDRDOG</h2>
-        </Logo>
-        <Bars />
-        <NavMenu>
-          <NavLink to='/about' activeStyle>
-            About
-          </NavLink>
-          {/* Second Nav */}
-          {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
-        </NavMenu>
-        <NavBtn>
-          <NavBtnLink to='/sign-in'>Sign In</NavBtnLink>
-          <NavBtnSignUpLink to='/sign-up'>Sign Up</NavBtnSignUpLink>
-        </NavBtn>
+        <NavBarContainer>
+          <NavLogo to='/home'>UNDRDOG</NavLogo>
+          <MobileIcon onClick={toggle}>
+            <FaBars />
+          </MobileIcon>
+          <NavMenu>
+            <NavItem>
+              <NavLinks to='/about'>About</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to='discover'>Discover</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to='services'>Services</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to='signup'>Sign Up</NavLinks>
+            </NavItem>
+          </NavMenu>
+          <NavBtn>
+            <NavBtnLink to='/sign-in'>Sign In</NavBtnLink>
+          </NavBtn>
+        </NavBarContainer>
       </Nav>
     </>
   );

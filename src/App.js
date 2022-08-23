@@ -1,7 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import NavBar from './components/nav-bar/nav-bar.component';
 import Home from './pages/home';
 import About from './pages/about';
 import Signin from './pages/signin';
@@ -10,7 +9,6 @@ import Signup from './pages/signup';
 function App() {
   return (
     <Router>
-      <NavBar />
       <Routes>
         <Route path='/home' element={<Home/>} />
         <Route path='/about' element={<About/>} />
