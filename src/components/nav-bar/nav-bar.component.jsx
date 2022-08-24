@@ -10,7 +10,8 @@ import {
   NavLinks,
   NavMenu,
   NavBtn,
-  NavBtnLink,
+  NavBtnLinkSignIn,
+  NavBtnLinkSignUp
 } from './nav-bar.styles';
 
 const NavBar = ({toggle}) => {
@@ -18,13 +19,13 @@ const NavBar = ({toggle}) => {
     <>
       <Nav>
         <NavBarContainer>
-          <NavLogo to='/home'>UNDRDOG</NavLogo>
+          <NavLogo to='/'>UNDRDOG</NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to='/about'>About</NavLinks>
+              <NavLinks to='about'>About</NavLinks>
             </NavItem>
             <NavItem>
               <NavLinks to='discover'>Discover</NavLinks>
@@ -37,7 +38,8 @@ const NavBar = ({toggle}) => {
             </NavItem>
           </NavMenu>
           <NavBtn>
-            <NavBtnLink to='/sign-in'>Sign In</NavBtnLink>
+            <NavBtnLinkSignIn to='/sign-in'>Sign In</NavBtnLinkSignIn>
+            <NavBtnLinkSignUp to='/sign-up'>Sign Up</NavBtnLinkSignUp>
           </NavBtn>
         </NavBarContainer>
       </Nav>

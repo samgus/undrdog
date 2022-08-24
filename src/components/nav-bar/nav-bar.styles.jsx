@@ -6,7 +6,7 @@ import { Link as LinkS } from 'react-scroll';
 export const Nav = styled.nav`
   background: #000;
   height: 80px;
-  margin-top: -20px;
+  margin-top: -80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,25 +98,60 @@ export const NavBtn = styled.nav`
   }
 `
 
-export const NavBtnLink = styled(LinkR)`
-  border-radius: 50px;
-  background: #01bf71;
-  while-space: nowrap;
-  padding: 10px 22px;
-  color: #010606;
-  font-size; 16px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  transistion: all 0.2s ease-in-out;
-  text-decoration: none;
-
-  &:hover {
-    transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #010606;
-  }
+export const NavBtnLinkSignIn = styled(LinkR)`
+   font-size: 14px;
+   //font-weight: 600;
+   border-radius: 7px;
+   background: #151619;
+   padding: 8.5px 20px;
+   color: #fff;
+   outline: none;
+   border: 1px solid #FFFFFF;
+   cursor: pointer;
+   transition: all 0.2s ease-in-out;
+   text-decoration: none;
+   /* Second Nav */
+   margin-left: 24px;
+   
+   &:hover {
+     transition: all 0.2s ease-in-out;
+     background: #fff;
+     color: #010606;
+   }
 `
+
+export const NavBtnLinkSignUp = styled(LinkR)`
+   font-size: 14px;
+   //font-weight: 600;
+   border-radius: 7px;
+   background: #01bf71;
+   /* background: linear-gradient(164.17deg, #FF4763 -19.57%, #AC0053 118.18%); */
+   padding: 10px 22px;
+   color: #fff;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   transition: all 0.2s ease-in-out;
+   text-decoration: none;
+   /* Second Nav */
+   margin-left: 24px;
+`
+
+// export const NavBtnSignUpLink = styled(Link)`
+//   font-size: 14px;
+//   font-weight: 600;
+//   border-radius: 7px;
+//   background: linear-gradient(164.17deg, #FF4763 -19.57%, #AC0053 118.18%);
+//   padding: 10px 22px;
+//   color: #fff;
+//   outline: none;
+//   border: none;
+//   cursor: pointer;
+//   transition: all 0.2s ease-in-out;
+//   text-decoration: none;
+//   /* Second Nav */
+//   margin-left: 24px;
+// `;
 
 // export const Logo = styled(Link)`
 //   color: #969696;
