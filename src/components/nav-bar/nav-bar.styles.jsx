@@ -4,7 +4,7 @@ import { Link as LinkS } from 'react-scroll';
 
 
 export const Nav = styled.nav`
-  background: #000;
+  background: ${({ scrollNav }) => (scrollNav ? '#000' : 'transparent')};
   height: 80px;
   margin-top: -80px;
   display: flex;
@@ -85,7 +85,7 @@ export const NavLinks = styled(LinkS)`
   cursor: pointer;
 
   &.active {
-    border-bottom: 3px solid #01bf71
+    border-bottom: 3px solid #01bf71;
   }
 `
 
@@ -102,8 +102,8 @@ export const NavBtnLinkSignIn = styled(LinkR)`
    font-size: 14px;
    //font-weight: 600;
    border-radius: 7px;
-   background: #151619;
-   padding: 8.5px 20px;
+   background: #000;
+   padding: 9px 20px;
    color: #fff;
    outline: none;
    border: 1px solid #FFFFFF;

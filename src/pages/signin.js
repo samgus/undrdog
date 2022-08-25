@@ -1,18 +1,14 @@
 import React from 'react';
+import ScrollToTop from '../components/scrollToTop';
+import SignIn from '../components/signin/signin.component';
 
-const Signin = () => {
+const SignInPage = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '90vh'
-      }}
-    >
-      <h1>Sign In</h1>
-    </div>
+    <>
+      <ScrollToTop />
+      <SignIn />
+    </> 
   );
 };
 
-export default Signin;
+export default SignInPage;
