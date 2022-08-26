@@ -15,22 +15,22 @@ import {
 const Services = () => {
   return (
     <ServicesContainer id="services">
-      <ServicesH1>Our Services</ServicesH1>
+      <ServicesH1>Workers Unite!</ServicesH1>
       <ServicesWrapper>
         <ServicesCard>
             <ServicesIcon src={Icon1}/>
-            <ServicesH2>Reduce expenses</ServicesH2>
-            <ServicesP>We help reduce your fees and increase your revenue.</ServicesP>
+            <ServicesH2>Manage and edit your ratings</ServicesH2>
+            {/* <ServicesP>Manage and edit your ratings</ServicesP> */}
         </ServicesCard>
         <ServicesCard>
             <ServicesIcon src={Icon2}/>
-            <ServicesH2>Virtual offices</ServicesH2>
-            <ServicesP>You can access our platform online anywhere.</ServicesP>
+            <ServicesH2>Your ratings are always anonymous</ServicesH2>
+            {/* <ServicesP>Your ratings are always anonymous</ServicesP> */}
         </ServicesCard>
         <ServicesCard>
             <ServicesIcon src={Icon3}/>
-            <ServicesH2>Premium benefits</ServicesH2>
-            <ServicesP>Unlock special membership. Get off ur ass and sign up.</ServicesP>
+            <ServicesH2>Agree or disagree with your peer's ratings</ServicesH2>
+            {/* <ServicesP>Like or dislike ratings</ServicesP> */}
         </ServicesCard>
       </ServicesWrapper>
     </ServicesContainer>

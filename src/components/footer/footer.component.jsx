@@ -72,7 +72,7 @@ const Footer = () => {
             <SocialMedia>
                 <SocialMediaWrap>
                     <SocialLogo to='/' onClick={toggleHome}>UNDRDOG</SocialLogo>
-                    <WebsiteRights>UNDRDOG © {new Date().getFullYear()} All rights reserved.</WebsiteRights>
+                    <WebsiteRights>UNDRDOG © {new Date().getFullYear()}, All Rights Reserved.</WebsiteRights>
                     <SocialIcons>
                         <SocialIconLink href="/" target="_blank" aria-label="Facebook"><FaFacebook /></SocialIconLink>
                         <SocialIconLink href="/" target="_blank" aria-label="Instagram"><FaInstagram /></SocialIconLink>
