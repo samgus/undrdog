@@ -68,6 +68,10 @@ const RestaurantsApi = () => {
                 rel="noreferrer"
                 href={item.twitter}
                 style={{
+                  border: "none",
+                  backgroundColor: "none",
+                  padding: 0,
+                  dipslay: "inline-block"
                 }}
               >
                 <img
