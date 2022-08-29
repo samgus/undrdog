@@ -63,7 +63,7 @@ export const getStartedObj = {
     headline: 'You Matter',
     description: "Our mission is to help restaurant workings know ahead how they will be treated and how much money they'll be able to make without any fake promises from the managers and owners.",
     description2: "Every person derserves to work in an environment where they feel safe. Figure out which is a great restuarant to work for and which restuarant's to avoid by knowing people's experience ahead of time!",
-    buttonLabel: 'Get started',
+    buttonLabel: 'Sign Up!',
     imgStart: false,
     img: Icon1,
     alt: 'Rating',

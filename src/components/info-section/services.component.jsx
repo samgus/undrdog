@@ -1,7 +1,7 @@
 import React from 'react'
 import Icon1 from '../../images/svg-1.svg'
 import Icon2 from '../../images/svg-2.svg'
-import Icon3 from '../../images/svg-4.svg'
+import Icon3 from '../../images/svg-5.svg'
 import { 
     ServicesContainer, 
     ServicesH1, 
@@ -16,7 +16,8 @@ import {
   TextWrapper,
   BtnWrap, 
   TopLine,
-  Heading
+  Heading,
+  Subtitle
 } from './info.styles';
 
 const Services = ({
@@ -48,6 +49,7 @@ const Services = ({
       <TextWrapper>
         <TopLine></TopLine>
         <Heading></Heading>
+        <Subtitle></Subtitle>
         <BtnWrap>
             <Button to='home'
             smooth={true}

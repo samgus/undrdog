@@ -13,6 +13,7 @@ import {
   // ArrowRight 
 } from './hero.styles'
 import SearchBar from '../search-bar/search-bar.component'
+import RestaurantsApi from '../RestaurantsApi'
 
 
 const HeroSection = () => {
@@ -33,6 +34,7 @@ const HeroSection = () => {
         </HeroP>
         <HeroBtnWrapper>
             <SearchBar />
+            {/* <RestaurantsApi /> */}
             {/* <Button to="signup" 
                 onMouseEnter={onHover} 
                 onMouseLeave={onHover}

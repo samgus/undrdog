@@ -15,7 +15,7 @@ export const Nav = styled.nav`
   top: 0;
   z-index: 10;
   transition-timing-function: ease-in;
-  transition: 0.3s;
+  transition: 0.4s ease-in-out;
 
   @media screen and (max-width: 960px){
     transition: 0.8s all ease;
@@ -88,8 +88,6 @@ export const NavLinks = styled(LinkS)`
   &:hover {
     color: #fff;
     transition: all 0.2s ease-in-out;
-
-
   }
 
   &.active {
