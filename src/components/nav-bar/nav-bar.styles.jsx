@@ -20,7 +20,6 @@ export const Nav = styled.nav`
   @media screen and (max-width: 960px){
     transition: 0.8s all ease;
   }
-  
 `;
 
 export const NavBarContainer = styled.div`
@@ -78,7 +77,7 @@ export const NavItem = styled.li`
   height: 80px;
 `
 export const NavLinks = styled(LinkS)`
-  color: #fff;
+  color: lightgrey;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -86,8 +85,17 @@ export const NavLinks = styled(LinkS)`
   height: 100%;
   cursor: pointer;
 
+  &:hover {
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+
+
+  }
+
   &.active {
-    border-bottom: 3px solid #01bf71;
+    color: #fff;
+    /* border-bottom: 3px solid #01bf71; */
+    /* transition: all 0.1s ease-in-out; */
   }
 `
 

@@ -9,10 +9,22 @@ import {
     ServicesCard, 
     ServicesIcon, 
     ServicesH2, 
-    ServicesP 
+    // ServicesP 
 } from './services.styles'
+import { Button } from '../button.styles'
+import { 
+  TextWrapper,
+  BtnWrap, 
+  TopLine,
+  Heading
+} from './info.styles';
 
-const Services = () => {
+const Services = ({
+  buttonLabel, 
+  primary, 
+  dark, 
+  dark2
+}) => {
   return (
     <ServicesContainer id="services">
       <ServicesH1>Workers Unite!</ServicesH1>
@@ -33,6 +45,22 @@ const Services = () => {
             {/* <ServicesP>Like or dislike ratings</ServicesP> */}
         </ServicesCard>
       </ServicesWrapper>
+      <TextWrapper>
+        <TopLine></TopLine>
+        <Heading></Heading>
+        <BtnWrap>
+            <Button to='home'
+            smooth={true}
+            duration={500}
+            spy={true}
+            exact="true"
+            offset={-80}
+            primary={primary ? 1 : 0}
+            dark={dark ? 1 : 0}
+            dark2={dark2 ? 1 : 0}
+            >{buttonLabel}</Button>
+        </BtnWrap>
+    </TextWrapper>
     </ServicesContainer>
   )
 }

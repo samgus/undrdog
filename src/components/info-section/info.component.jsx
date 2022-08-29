@@ -23,7 +23,8 @@ const InfoSection = ({
     lightText, 
     headline, 
     darkText, 
-    description, 
+    description,
+    description2, 
     buttonLabel, 
     img, 
     alt, 
@@ -41,6 +42,7 @@ const InfoSection = ({
                         <TopLine>{topLine}</TopLine>
                         <Heading lightText={lightText}>{headline}</Heading>
                         <Subtitle darkText={darkText}>{description}</Subtitle>
+                        <Subtitle darkText={darkText}>{description2}</Subtitle>
                         <BtnWrap>
                             <Button to='home'
                             smooth={true}
