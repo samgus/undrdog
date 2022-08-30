@@ -35,27 +35,18 @@ import AutoComplete from "react-autocomplete";
   const [name, setName] = useState("");
 
    return (
-     <div className='wrapper'>
-         <div className='search-bar'>
-             {/* <input type='text' placeholder='Your Restuarant'/>
-             <div className='autocom-box'>
-                 <li>Login Form in HTML & CSS</li>
-                 <li>How to learn HTML & CSS</li>
-                 <li>How to learn JavaScript</li>
-                 <li>How to become a Freelancer</li>
-                 <li>How to become a Web Designer</li>
-             </div> */}
-             {/* <div className='icon'><FaSearch /></div> */}
-             <AutoComplete
-          getItemValue={(item) => item.name}
-          items={members.filter((member) => member.name.includes(name))}
-          renderItem={(item, isHighlighted) => (
+      <div className='wrapper'>
+          <div className='search-bar'>
+            <AutoComplete
+              getItemValue={(item) => item.name}
+              items={members.filter((member) => member.name.includes(name))}
+              renderItem={(item, isHighlighted) => (
             <div
               style={{
                 verticalAlign: "middle",
                 background: isHighlighted ? "lightgray" : "white"
               }}
-            >
+              >
               <a
                 target="_blank"
                 rel="noreferrer"
@@ -68,10 +59,8 @@ import AutoComplete from "react-autocomplete";
                 }}
               >
               </a>
-              <div style={{ display: "inline-block", minWidth: 200 }}>
-                {item.name}
-              </div>
-            </div>
+              <div style={{ display: "inline-block", minWidth: 200 }}>{item.name}</div>
+          </div>
           )}
           wrapperStyle={{
             position: "relative",
@@ -87,15 +76,14 @@ import AutoComplete from "react-autocomplete";
           value={name || ""}
           inputProps={{
             placeholder: "Your Restaurant",
-            style: { fontSize: 18, width: "100%", padding: '5px 20px', width: '420px' }
+            style: { fontSize: 18, padding: '5px 20px', width: '420px' }
           }}
           onChange={(e) => setName(e.target.value)}
-          onSelect={(name) => setName(name)}
-        />
-               <div className='icon'><FaSearch /></div>
-         </div>
+          onSelect={(name) => setName(name)}/>
+          <div className='icon'><FaSearch /></div>
+        </div>
 
-     </div>
+      </div>
    );
  }
 

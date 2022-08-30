@@ -13,8 +13,6 @@ import {
   // ArrowRight 
 } from './hero.styles'
 import SearchBar from '../search-bar/search-bar.component'
-import RestaurantsApi from '../RestaurantsApi'
-
 
 const HeroSection = () => {
     // const [ hover, setHover ] = useState(false);

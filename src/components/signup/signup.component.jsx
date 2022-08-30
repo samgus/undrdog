@@ -9,7 +9,7 @@ import {
     FormLabel, 
     FormInput, 
     FormButton, 
-    Text  
+    // Text  
 } from './signup.styles';
 
 const SignUp = () => {
