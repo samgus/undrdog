@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# Undrdog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Overview
+- The purpose of this site is to solve the problem of not knowing where to work becasue people have been taken advantage of, or not able to make money where they were guarenteed a certain amount per week.
+- What the user when they open the website, and how will it make them feel?
+- Using Firebase as the backend of the website for user, estabishment, review data.
+- Using API from RapidAPI https://restaurants-near-me-usa.p.rapidapi.com/restaurants/location/state/NY/city/New%20York/0', which will be used for the search bar suggestions.
 
-## Available Scripts
+## Project Plan
 
-In the project directory, you can run:
+### Frontend
+- Make search bar fully functional
+- Make a dynamic page where it will display the restaurant page and all of the ratings/additional info about the restaurant 
+- Make an about page from footer link
+- Make a help page from footer link
+- Make a Contact Us page from footer link
+- Make a Site Guide lines page from footer link
+- Make a Term of Service page from footer link (Need a lawyer)
+- Make a privacy policy page from footer link (Need a lawyer)
+- Make a copyright policy page from footer link (Need a lawyer)
 
-### `npm start`
+### Backend
+- Set up authentication for user profile/data
+- Set backend storing restaurant information, including specs about the place itself and review data
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### UI/UX Design
+- After there is a work product with the front and backend of the website we will start reaching out to designers to get their opinion

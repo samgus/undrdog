@@ -1,6 +1,6 @@
 import React from 'react';
 import ScrollToTop from '../components/scrollToTop';
-const About = () => {
+const CopyrightPolicy = () => {
   return (
     <div
       style={{
@@ -11,9 +11,9 @@ const About = () => {
       }}
     >
       <ScrollToTop />
-      <h1>About</h1>
+      <h1>Copyright Policy</h1>
     </div>
   );
 };
 
-export default About;
+export default CopyrightPolicy;

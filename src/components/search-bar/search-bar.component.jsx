@@ -33,6 +33,17 @@ import AutoComplete from "react-autocomplete";
 
  const SearchBar = () => {
   const [name, setName] = useState("");
+  const [inputChange, setInputChange] = useState(false);
+
+  const handleChange = (e) => {
+    setName(e.target.value);
+    setInputChange(current => !current);
+    if(inputChange){
+      e.target.style.borderTopLeftRadius = 50;
+      e.target.style.borderBottomLeftRadius = 0;
+      e.target.style.borderBottomRightRadius = 0;
+    }
+  }
 
    return (
       <div className='wrapper'>
@@ -44,7 +55,8 @@ import AutoComplete from "react-autocomplete";
             <div
               style={{
                 verticalAlign: "middle",
-                background: isHighlighted ? "lightgray" : "white"
+                background: isHighlighted ? "lightgray" : "white",
+                padding: 10
               }}
               >
               <a
@@ -55,11 +67,12 @@ import AutoComplete from "react-autocomplete";
                   border: "none",
                   backgroundColor: "none",
                   padding: 0,
-                  dipslay: "inline-block"
+                  dipslay: "inline-block",
+                  marginTop: 30
                 }}
               >
               </a>
-              <div style={{ display: "inline-block", minWidth: 200 }}>{item.name}</div>
+              <div style={{ display: "inline-block", minWidth: 195 }}>{item.name}</div>
           </div>
           )}
           wrapperStyle={{
@@ -71,16 +84,19 @@ import AutoComplete from "react-autocomplete";
             top: 50,
             left: 0,
             overflow: "auto",
-            maxHeight: 100
+            maxHeight: 200,
+            borderRadius: 20,
+            borderTopLeftRadius: 0,
+            borderTopRightRadius: 0
           }}
           value={name || ""}
           inputProps={{
             placeholder: "Your Restaurant",
             style: { fontSize: 18, padding: '5px 20px', width: '420px' }
           }}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => handleChange(e)}
           onSelect={(name) => setName(name)}/>
-          <div className='icon'><FaSearch /></div>
+          <div className='icon' style={{zIndex: "3"}}><FaSearch /></div>
         </div>
 
       </div>

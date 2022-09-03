@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Footer from '../components/footer/footer.component';
 import HeroSection from '../components/hero-section/hero.component';
 import InfoSection from '../components/info-section/info.component';
 import { getStartedObj, homeObjOne } from '../components/info-section/info.data';
@@ -22,7 +21,7 @@ const Home = () => {
       {/* <InfoSection {...homeObjTwo}/> */}
       <Services {...getStartedObj} />
       {/* <InfoSection {...homeObjThree}/> */}
-      <Footer />
+    
     </>
   );
 };
