@@ -15,16 +15,25 @@ import {
   NavBtnLinkSignUp
 } from './nav-bar.styles';
 
+import { ModalSignIn } from '../signin/signin-modal.component';
+import { ModalSignUp } from '../signup/signup-modal.component';
+
 const NavBar = ({toggle}) => {
   const [scrollNav, setScrollNav] = useState(false);
 
   const changeNav = () => {
-    if(window.scrollY >= 80){
+    if(window.scrollY >= 30){
       setScrollNav(true);
     } else {
       setScrollNav(false);
     }
   }
+
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(prev => !prev);
+  };
 
   useEffect(() => {
     window.addEventListener('scroll', changeNav);
@@ -37,6 +46,7 @@ const NavBar = ({toggle}) => {
   return (
     <>
     <IconContext.Provider value={{ color: '#fff' }}>
+    <ModalSignIn showModal={showModal} setShowModal={setShowModal}/>
       <Nav scrollNav={scrollNav}>
         <NavBarContainer>
           <NavLogo to='/' onClick={toggleHome}>UNDRDOG</NavLogo>
@@ -53,15 +63,6 @@ const NavBar = ({toggle}) => {
               offset={-80}
               >About</NavLinks>
             </NavItem>
-            {/* <NavItem>
-              <NavLinks to='discover'
-              smooth={true} 
-              duration={500} 
-              spy={true} 
-              exact='true' 
-              offset={-80}
-              >Discover</NavLinks>
-            </NavItem> */}
             <NavItem>
               <NavLinks to='services'
               smooth={true} 
@@ -71,19 +72,10 @@ const NavBar = ({toggle}) => {
               offset={-80}
               >Get Started</NavLinks>
             </NavItem>
-            {/* <NavItem>
-              <NavLinks to='signup'
-              smooth={true} 
-              duration={500} 
-              spy={true} 
-              exact='true' 
-              offset={-80}
-              >Sign Up</NavLinks>
-            </NavItem> */}
           </NavMenu>
           <NavBtn>
-            <NavBtnLinkSignIn to='/sign-in'>Sign In</NavBtnLinkSignIn>
-            <NavBtnLinkSignUp to='/sign-up'>Sign Up</NavBtnLinkSignUp>
+            <NavBtnLinkSignIn onClick={openModal}>Sign In</NavBtnLinkSignIn>
+            <NavBtnLinkSignUp onClick={openModal}>Sign Up</NavBtnLinkSignUp>
           </NavBtn>
         </NavBarContainer>
       </Nav>

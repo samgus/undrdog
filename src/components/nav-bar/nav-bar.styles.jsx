@@ -15,7 +15,7 @@ export const Nav = styled.nav`
   top: 0;
   z-index: 10;
   transition-timing-function: ease-in;
-  transition: 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
 
   @media screen and (max-width: 960px){
     transition: 0.8s all ease;
@@ -77,7 +77,7 @@ export const NavItem = styled.li`
   height: 80px;
 `
 export const NavLinks = styled(LinkS)`
-  color: lightgrey;
+  color: #fff;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -86,13 +86,12 @@ export const NavLinks = styled(LinkS)`
   cursor: pointer;
 
   &:hover {
-    color: #fff;
+    color: #01bf71;
     transition: all 0.2s ease-in-out;
   }
 
   &.active {
-    color: #fff;
-    /* border-bottom: 3px solid #01bf71; */
+    border-bottom: 3px solid #01bf71;
     /* transition: all 0.1s ease-in-out; */
   }
 `
@@ -106,7 +105,7 @@ export const NavBtn = styled.nav`
   }
 `
 
-export const NavBtnLinkSignIn = styled(LinkR)`
+export const NavBtnLinkSignIn = styled.button`
    font-size: 14px;
    //font-weight: 600;
    border-radius: 7px;
@@ -128,7 +127,7 @@ export const NavBtnLinkSignIn = styled(LinkR)`
    }
 `
 
-export const NavBtnLinkSignUp = styled(LinkR)`
+export const NavBtnLinkSignUp = styled.button`
    font-size: 14px;
    //font-weight: 600;
    border-radius: 7px;

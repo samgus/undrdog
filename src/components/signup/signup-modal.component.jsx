@@ -15,7 +15,7 @@ import {
   FormWrap, 
   Icon,
   Text
-} from './signin.styles'
+} from './signup.styles'
 
 const Background = styled.div`
   width: 100%;
@@ -78,7 +78,7 @@ const CloseModalButton = styled(MdClose)`
   z-index: 12;
 `;
 
-export const ModalSignIn = ({ showModal, setShowModal }) => {
+export const ModalSignUp = ({ showModal, setShowModal }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -121,13 +121,16 @@ export const ModalSignIn = ({ showModal, setShowModal }) => {
             <ModalWrapper showModal={showModal}>
               <ModalImg src={Icon1} alt='rating' />
               <ModalContent>
-                <FormH1>Sign in to your account</FormH1>
+                <FormH1>Create an account</FormH1>
+                <FormLabel htmlFor='for'>Name</FormLabel>
+                <FormInput type='name' required />
                 <FormLabel htmlFor='for'>Email</FormLabel>
                 <FormInput type='email' required />
                 <FormLabel htmlFor='for'>Password</FormLabel>
                 <FormInput type='password' required />
-                <FormButton type='submit'>Continue</FormButton>
-                <Text>Forgot Password</Text>
+                <FormLabel htmlFor='for'>Confirm Password</FormLabel>
+                <FormInput type='password' required />
+                <FormButton type='submit'>Sign Up</FormButton>
               </ModalContent>
               <CloseModalButton
                 aria-label='Close modal'

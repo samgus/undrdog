@@ -6,3 +6,29 @@
   margin: 0;
   padding: 0;
 }
+
+.list-items{
+  list-style: none;
+  padding: 20px 0 20px 20px;
+  color: #000;
+  font-weight: 600;
+  background-color: #fff;
+  border-radius: 30px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  display: none;
+}
+
+.list-items li{
+  cursor: pointer;
+}
+
+.list-items li:not(:last-child){
+  margin-bottom: 10px;
+}
+
+.search-bar input{
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: none;
+}
