@@ -30,9 +30,14 @@ const NavBar = ({toggle}) => {
   }
 
   const [showModal, setShowModal] = useState(false);
+  const [showModalSignUp, setShowModalSignUp] = useState(false);
 
   const openModal = () => {
     setShowModal(prev => !prev);
+  };
+
+  const openModalSignUp = () => {
+    setShowModalSignUp(prev => !prev);
   };
 
   useEffect(() => {
@@ -47,6 +52,7 @@ const NavBar = ({toggle}) => {
     <>
     <IconContext.Provider value={{ color: '#fff' }}>
     <ModalSignIn showModal={showModal} setShowModal={setShowModal}/>
+    <ModalSignUp showModalSignUp={showModalSignUp} setShowModalSignUp={setShowModalSignUp}/>
       <Nav scrollNav={scrollNav}>
         <NavBarContainer>
           <NavLogo to='/' onClick={toggleHome}>UNDRDOG</NavLogo>
@@ -75,7 +81,7 @@ const NavBar = ({toggle}) => {
           </NavMenu>
           <NavBtn>
             <NavBtnLinkSignIn onClick={openModal}>Sign In</NavBtnLinkSignIn>
-            <NavBtnLinkSignUp onClick={openModal}>Sign Up</NavBtnLinkSignUp>
+            <NavBtnLinkSignUp onClick={openModalSignUp}>Sign Up</NavBtnLinkSignUp>
           </NavBtn>
         </NavBarContainer>
       </Nav>

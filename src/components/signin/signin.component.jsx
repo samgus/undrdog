@@ -17,7 +17,6 @@ const SignIn = () => {
     <>
     <Container>
         <FormWrap>
-            {/* <Icon to="/">UNDRDOG</Icon> */}
             <FormContent>
                 <Form action='#'>
                     <FormH1>Sign in to your account</FormH1>
@@ -26,7 +25,9 @@ const SignIn = () => {
                     <FormLabel htmlFor='for'>Password</FormLabel>
                     <FormInput type='password' required />
                     <FormButton type='submit'>Continue</FormButton>
-                    <Text>Forgot Password</Text>
+                    <div className="w-100 text-center mt-2 text-white">
+                        Need an account? <Link to='/sign-up'>Sign Up</Link>
+                    </div>
                 </Form>
             </FormContent>
         </FormWrap>

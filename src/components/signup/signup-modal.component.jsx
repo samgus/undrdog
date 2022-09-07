@@ -5,15 +5,10 @@ import { MdClose } from 'react-icons/md';
 import Icon1 from '../../images/svg-1.svg'
 
 import { 
-  Container, 
-  Form, 
   FormButton, 
-  FormContent, 
   FormH1, 
   FormInput, 
   FormLabel, 
-  FormWrap, 
-  Icon,
   Text
 } from './signup.styles'
 
@@ -30,7 +25,7 @@ const Background = styled.div`
 
 const ModalWrapper = styled.div`
   width: 800px;
-  height: 500px;
+  height: auto;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #000;
   color: #000;
@@ -46,6 +41,8 @@ const ModalImg = styled.img`
   height: 100%;
   border-radius: 10px 0 0 10px;
   background: #fff;
+  padding-left: 15px;
+  padding-right: 15px;
 `;
 
 const ModalContent = styled.div`
@@ -78,7 +75,7 @@ const CloseModalButton = styled(MdClose)`
   z-index: 12;
 `;
 
-export const ModalSignUp = ({ showModal, setShowModal }) => {
+export const ModalSignUp = ({ showModalSignUp, setShowModalSignUp }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -91,18 +88,18 @@ export const ModalSignUp = ({ showModal, setShowModal }) => {
 
   const closeModal = e => {
     if (modalRef.current === e.target) {
-      setShowModal(false);
+      setShowModalSignUp(false);
     }
   };
 
   const keyPress = useCallback(
     e => {
-      if (e.key === 'Escape' && showModal) {
-        setShowModal(false);
+      if (e.key === 'Escape' && showModalSignUp) {
+        setShowModalSignUp(false);
         console.log('I pressed');
       }
     },
-    [setShowModal, showModal]
+    [setShowModalSignUp, showModalSignUp]
   );
 
   useEffect(
@@ -115,10 +112,10 @@ export const ModalSignUp = ({ showModal, setShowModal }) => {
 
   return (
     <>
-      {showModal ? (
+      {showModalSignUp ? (
         <Background onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
-            <ModalWrapper showModal={showModal}>
+            <ModalWrapper showModalSignUp={showModalSignUp}>
               <ModalImg src={Icon1} alt='rating' />
               <ModalContent>
                 <FormH1>Create an account</FormH1>
@@ -131,10 +128,11 @@ export const ModalSignUp = ({ showModal, setShowModal }) => {
                 <FormLabel htmlFor='for'>Confirm Password</FormLabel>
                 <FormInput type='password' required />
                 <FormButton type='submit'>Sign Up</FormButton>
+                <Text>Already have an account?</Text>
               </ModalContent>
               <CloseModalButton
                 aria-label='Close modal'
-                onClick={() => setShowModal(prev => !prev)}
+                onClick={() => setShowModalSignUp(prev => !prev)}
               />
             </ModalWrapper>
           </animated.div>
