@@ -64,22 +64,27 @@ import AutoComplete from "react-autocomplete";
 
    return (
      <div className='wrapper'>
-       <div className='search-bar'>
-         <input type="text" placeholder='Your Restaurant' onChange={handleChange} className={inputChange ? 'input-change': ""} />
+       <div className={name.length > 0 ? 'search-bar search-bar-change' : 'search-bar'}>
+         <input type="text" placeholder='Your Restaurant' onChange={handleChange} className={name.length > 0 ? 'input-change': ""} />
          <div className='icon' style={{ zIndex: "3" }}><FaSearch /></div>
        </div>
-      <ul className='list-items'>
-        {/* {countries.length > 0 && countries.filter(country => country.name.toLowerCase().includes((name.toLowerCase()).map(country => (
+       <ul className={name.length > 0 ? 'list-items list-items-show': 'list-items'}>
+         {/* {countries.length > 0 && countries.filter(country => country.name.toLowerCase().includes((name.toLowerCase()).map(country => (
           <li key={country.name}>{country.name}</li>
         ))))} */}
-
-        {
-          members.map(member=> (
-            <li onClick={handleClick}>Member</li>
-          ))
-        }
-
-      </ul>
+         {/* {
+           members.map(member => (
+             <li onClick={handleClick}>Member</li>
+           ))
+         } */}
+         {members.filter(member => member.name.includes(name)).map(filteredName => (
+           <li>
+             {/* {console.log(filteredName)} */}
+             {filteredName.name}
+           </li>
+         ))
+         }
+       </ul>
      </div>
    );
  }

@@ -17,6 +17,14 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   display: none;
+  width: fill-available;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  position: absolute;
+}
+
+.list-items.list-items-show{
+  display: block;
 }
 
 .list-items li{
@@ -27,8 +35,12 @@
   margin-bottom: 10px;
 }
 
-.search-bar input{
+.search-bar .input-change{
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   box-shadow: none;
+}
+
+.search-bar-change{
+  box-shadow: none !important;
 }
