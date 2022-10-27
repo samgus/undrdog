@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/home';
+import Place from './pages/place';
 import About from './pages/about'
 import Help from './pages/help';
 import ContactPage from './pages/contact';
@@ -18,6 +19,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/' element={<Home/>} />
+        <Route path='/place/:placeId' element={<Place/>} />
         <Route path='/about' element={<About/>} />
         <Route path='/help' element={<Help/>} />
         <Route path='/contact' element={<ContactPage/>} />
