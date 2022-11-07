@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { getMemberByPlaceId } from '../api/members';
 import { useParams } from 'react-router-dom';
+import ReviewForm from '../components/review-form/review-form.component';
+import ReviewList from '../components/review-list/review-list.component';
+
 const Place = () => {
     const [place, setPlace] = useState({})
-    const {placeId} = useParams()
+    const { placeId } = useParams()
     useEffect(() => {
       getMemberByPlaceId(placeId).then(function(member){
         setPlace(member)
@@ -21,6 +24,10 @@ const Place = () => {
     >
       <h1>{place.name}</h1>
       <p>{place.formattedAddress}</p>
+      <div className="reviews-section">
+        <ReviewList placeId={placeId} />
+        <ReviewForm placeId={placeId} />
+      </div>
     </div>
   );
 };

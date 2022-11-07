@@ -1,5 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Sora&display=swap'); */
-
 * {
   font-family: 'Encode Sans Expanded', sans-serif;
   box-sizing: border-box;
@@ -44,3 +42,4 @@
 .search-bar-change{
   box-shadow: none !important;
 }
+
