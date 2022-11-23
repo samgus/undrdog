@@ -20,5 +20,5 @@ export async function getReviewsByPlaceId(placeId) {
         }
     })
     const result = await response.json()
-    return result.reviews
+    return result
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { animateScroll as scroll } from 'react-scroll';
@@ -17,16 +18,27 @@ import {
 
 import { ModalSignIn } from '../signin/signin-modal.component';
 import { ModalSignUp } from '../signup/signup-modal.component';
+import SearchBar from "../search-bar/search-bar.component";
 
 const NavBar = ({toggle}) => {
-  const [scrollNav, setScrollNav] = useState(false);
+  const location = useLocation();
+  const [hideSearchBar, setHideSearchBar] = useState(location.pathname === '/');
+
+  const [scrollNav, setScrollNav] = useState(!hideSearchBar);
+  const [navBg, setNavBg] = useState(hideSearchBar ? 'rgba(0,0,0,0)' : `rgb(0,0,0)`);
 
   const changeNav = () => {
-    if(window.scrollY >= 30){
-      setScrollNav(true);
-    } else {
-      setScrollNav(false);
-    }
+    const threshold = 100;
+   if (window.scrollY < threshold) {
+    setNavBg(`rgba(0,0,0,${window.scrollY/threshold})`)
+   } else {
+    setNavBg(`rgb(0,0,0)`);
+   }
+    // if(window.scrollY >= threshold){
+    //   setScrollNav(true);
+    // } else {
+    //   setScrollNav(false);
+    // }
   }
 
   const [showModal, setShowModal] = useState(false);
@@ -41,26 +53,43 @@ const NavBar = ({toggle}) => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', changeNav);
-  }, [])
+
+    if (hideSearchBar) {
+      changeNav();
+      window.addEventListener('scroll', changeNav);
+    }
+
+    return () => {
+      if (hideSearchBar) {
+        window.removeEventListener('scroll', changeNav);
+      }
+    }
+  }, [hideSearchBar])
 
   const toggleHome = () => {
     scroll.scrollToTop()
   }
+
+  useEffect(() => {
+    setHideSearchBar(location.pathname === '/')
+  }, [location.pathname])
 
   return (
     <>
     <IconContext.Provider value={{ color: '#fff' }}>
     <ModalSignIn showModal={showModal} setShowModal={setShowModal}/>
     <ModalSignUp showModalSignUp={showModalSignUp} setShowModalSignUp={setShowModalSignUp}/>
-      <Nav scrollNav={scrollNav}>
+      <Nav navBg={navBg}>
         <NavBarContainer>
           <NavLogo to='/' onClick={toggleHome}>UNDRDOG</NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
           <NavMenu>
-            <NavItem>
+            {!hideSearchBar && <NavItem>
+              <SearchBar isHeader={true} />
+            </NavItem>}
+            {hideSearchBar && <NavItem>
               <NavLinks to='about' 
               smooth={true} 
               duration={500} 
@@ -68,8 +97,8 @@ const NavBar = ({toggle}) => {
               exact='true' 
               offset={-80}
               >About</NavLinks>
-            </NavItem>
-            <NavItem>
+            </NavItem>}
+            {hideSearchBar && <NavItem>
               <NavLinks to='services'
               smooth={true} 
               duration={500} 
@@ -77,7 +106,7 @@ const NavBar = ({toggle}) => {
               exact='true' 
               offset={-80}
               >Get Started</NavLinks>
-            </NavItem>
+            </NavItem>}
           </NavMenu>
           <NavBtn>
             <NavBtnLinkSignIn onClick={openModal}>Sign In</NavBtnLinkSignIn>

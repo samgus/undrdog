@@ -1,5 +1,7 @@
 import "./review-card.styles.scss";
 
+import { ratingsLabels, familyMealLabels } from "../../globals";
+
 function ReviewCard({ review }) {
     /*
         - position
@@ -31,21 +33,21 @@ function ReviewCard({ review }) {
         </div>
         <div className="review-card__footer-content flex align-center flex-wrap w-100">
             <span className="review-card__footer-rating">
-                Treatment From Boss: 
+                Treatment From Boss:&nbsp;
                 <span>
-                    {review.treatmentFromBoss}
+                    {ratingsLabels[review.treatmentFromBoss]}
                 </span>
             </span>
             <span className="review-card__footer-rating">
-                Treatment From Guest: 
+                Treatment From Guests:&nbsp;
                 <span>
-                    {review.treatmentFromGuest}
+                    {ratingsLabels[review.treatmentFromGuest]}
                 </span>
             </span>
             <span className="review-card__footer-rating">
-                Family Meal: 
+                Family Meal:&nbsp;
                 <span>
-                    {review.familyMeal}
+                    {familyMealLabels[review.familyMeal]}
                 </span>
             </span>
             <span className="review-card__footer-rating">Weekly Income: ${review.weeklyIncome}</span>

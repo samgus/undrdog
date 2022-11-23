@@ -4,7 +4,7 @@ import { useState, useCallback } from 'react';
  import { FaSearch } from 'react-icons/fa';
  import { searchForMembers, createMember, getMemberByPlaceId } from '../../api/members';
 
- const SearchBar = () => {
+ const SearchBar = ({ isHeader = false }) => {
   const [name, setName] = useState("");
   const [members, setMembers] = useState([])
 
@@ -40,7 +40,7 @@ import { useState, useCallback } from 'react';
 
   }
    return (
-     <div className='wrapper'>
+     <div className={`${isHeader ? 'header-search-bar wrapper' : 'wrapper'}`}>
        <div className={name.length > 0 ? 'search-bar search-bar-change' : 'search-bar'}>
          <input type="text" placeholder='Your Restaurant' onChange={optimizedFn} className={name.length > 0 ? 'input-change': ""} />
          <div className='icon' style={{ zIndex: "3" }}><FaSearch /></div>
@@ -50,7 +50,8 @@ import { useState, useCallback } from 'react';
            <li onClick={() => {
             handleClick(memberObject)
            }} key={i}>
-             {memberObject.name}
+             <p>{memberObject.name}</p>
+            <span className="list-items__address">{memberObject.formatted_address}</span>
            </li>
          ))
          }
