@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { animateScroll as scroll } from 'react-scroll';
@@ -20,14 +20,19 @@ import { ModalSignIn } from '../signin/signin-modal.component';
 import { ModalSignUp } from '../signup/signup-modal.component';
 import SearchBar from "../search-bar/search-bar.component";
 
+import { useAuth } from "../../contexts/auth.context";
+
 const NavBar = ({toggle}) => {
+  const { currentUser } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
   const [hideSearchBar, setHideSearchBar] = useState(location.pathname === '/');
 
   const [scrollNav, setScrollNav] = useState(!hideSearchBar);
   const [navBg, setNavBg] = useState(hideSearchBar ? 'rgba(0,0,0,0)' : `rgb(0,0,0)`);
 
   const changeNav = () => {
+    console.log("did this run")
     const threshold = 100;
    if (window.scrollY < threshold) {
     setNavBg(`rgba(0,0,0,${window.scrollY/threshold})`)
@@ -55,8 +60,11 @@ const NavBar = ({toggle}) => {
   useEffect(() => {
 
     if (hideSearchBar) {
+      console.log('hide search bar')
       changeNav();
       window.addEventListener('scroll', changeNav);
+    } else {
+     setNavBg(`rgb(0,0,0)`);
     }
 
     return () => {
@@ -71,9 +79,10 @@ const NavBar = ({toggle}) => {
   }
 
   useEffect(() => {
+    console.log(location.pathname);
     setHideSearchBar(location.pathname === '/')
   }, [location.pathname])
-
+  console.log(navBg);
   return (
     <>
     <IconContext.Provider value={{ color: '#fff' }}>
@@ -108,10 +117,28 @@ const NavBar = ({toggle}) => {
               >Get Started</NavLinks>
             </NavItem>}
           </NavMenu>
-          <NavBtn>
+          {!currentUser && <NavBtn>
             <NavBtnLinkSignIn onClick={openModal}>Sign In</NavBtnLinkSignIn>
             <NavBtnLinkSignUp onClick={openModalSignUp}>Sign Up</NavBtnLinkSignUp>
-          </NavBtn>
+          </NavBtn>}
+          {currentUser && <NavBtn>
+            <NavItem>
+              <NavLinks 
+              smooth={true} 
+              onClick={() => {
+                navigate("/user/"+currentUser._id)
+              }}
+              >Your Profile</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks
+              smooth={true} 
+              onClick={() => {
+                navigate("/logout")
+              }}
+              >Logout</NavLinks>
+            </NavItem>
+          </NavBtn>}
         </NavBarContainer>
       </Nav>
     </IconContext.Provider>

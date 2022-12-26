@@ -1,8 +1,11 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { useSpring, animated } from 'react-spring';
 import Icon1 from '../../images/svg-1.svg'
-
+import { login } from '../../api/auth';
+import { useAuth } from "../../contexts/auth.context";
 import { 
+  Form,
   FormButton, 
   FormH1, 
   FormInput, 
@@ -16,6 +19,11 @@ import {
 } from './signin.styles'
 
 export const ModalSignIn = ({ showModal, setShowModal }) => {
+  const navigate = useNavigate();
+  const { setCurrentUser } = useAuth()
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+  const [errors, setErrors] = useState([])
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -42,6 +50,27 @@ export const ModalSignIn = ({ showModal, setShowModal }) => {
     [setShowModal, showModal]
   );
 
+  const signIn = async (e) => {
+    e.preventDefault()
+    setErrors([])
+    // make a request to the login endpoint sending up our data
+    const response = await login({ email, password })
+    /*
+    {
+      success: true,
+      messages: ['', '']
+    }
+    */
+    if (response.success) {
+      setCurrentUser(response.user)
+      navigate('/user/'+response.user._id);
+      
+    }  else {
+      setErrors(response.messages)
+    }
+    return
+  }
+
   useEffect(
     () => {
       document.addEventListener('keydown', keyPress);
@@ -58,12 +87,16 @@ export const ModalSignIn = ({ showModal, setShowModal }) => {
             <ModalWrapper showModal={showModal}>
               <ModalImg src={Icon1} alt='rating' />
               <ModalContent>
-                <FormH1>Sign in to your account</FormH1>
-                <FormLabel htmlFor='for'>Email</FormLabel>
-                <FormInput type='email' required />
-                <FormLabel htmlFor='for'>Password</FormLabel>
-                <FormInput type='password' required />
-                <FormButton type='submit'>Continue</FormButton>
+                <Form onSubmit={signIn}>
+                  <FormH1>Sign in to your account</FormH1>
+                  {errors && errors.length > 0 && errors.map((error) => <p style={{ color: "red" }}>{error}</p>)}
+                  <FormLabel htmlFor='for'>Email</FormLabel>
+                  <FormInput type='email' value= {email} onChange={(e) => setEmail(e.target.value)}  required />
+                  <FormLabel htmlFor='for'>Password</FormLabel>
+                  <FormInput type='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
+                  <FormButton type='submit'>Continue</FormButton>
+                </Form>
+                
                 <Text>Forgot Password?</Text>
               </ModalContent>
               <CloseModalButton

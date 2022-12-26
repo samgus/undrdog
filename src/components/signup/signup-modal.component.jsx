@@ -1,14 +1,16 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
 import Icon1 from '../../images/svg-1.svg'
+import { signup } from "../../api/auth";
 
 import { 
   FormButton, 
   FormH1, 
   FormInput, 
   FormLabel, 
+  Form,
   Text
 } from './signup.styles'
 
@@ -76,6 +78,40 @@ const CloseModalButton = styled(MdClose)`
 `;
 
 export const ModalSignUp = ({ showModalSignUp, setShowModalSignUp }) => {
+  const [errors, setErrors] = useState([]);
+    const [ loading, setLoading ] = useState(false);
+    const [ name, setName ] = useState();
+    const [ email, setEmail] = useState();
+    const [ password, setPassword] = useState();
+    const [ confirmPassword, setConfirmPassword ] = useState();
+    // const currentUser = useAuth();
+  
+    // const emailRef = useRef();
+    // const passwordRef = useRef();
+  
+    async function handleSignup(e) {
+      e.preventDefault();
+      setErrors([])
+
+      setLoading(true);
+      
+      // sign up request
+      const result = await signup({
+        name,
+        email,
+        password,
+        confirmPassword
+      })
+      console.log(result);
+      if (result.success) {
+        // log them in
+        alert('You successfully logged in')
+      } else {
+        setErrors(result.messages);
+      }
+      setLoading(false);
+    }
+  
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -118,16 +154,19 @@ export const ModalSignUp = ({ showModalSignUp, setShowModalSignUp }) => {
             <ModalWrapper showModalSignUp={showModalSignUp}>
               <ModalImg src={Icon1} alt='rating' />
               <ModalContent>
+                <Form onSubmit={handleSignup}>
                 <FormH1>Create an account</FormH1>
+                {errors && errors.length > 0 && errors.map((error) => <p style={{ color: "red" }}>{error}</p>)}
                 <FormLabel htmlFor='for'>Name</FormLabel>
-                <FormInput type='name' required />
+                <FormInput value={name} onChange={(e) => setName(e.target.value)} type='name' required />
                 <FormLabel htmlFor='for'>Email</FormLabel>
-                <FormInput type='email' required />
+                <FormInput value= {email} onChange={(e) => setEmail(e.target.value)} type='email' required />
                 <FormLabel htmlFor='for'>Password</FormLabel>
-                <FormInput type='password' required />
+                <FormInput value={password} onChange={(e) => setPassword(e.target.value)} type='password' required />
                 <FormLabel htmlFor='for'>Confirm Password</FormLabel>
-                <FormInput type='password' required />
+                <FormInput value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} type='password' required />
                 <FormButton type='submit'>Sign Up</FormButton>
+                </Form>
                 <Text>Already have an account?</Text>
               </ModalContent>
               <CloseModalButton

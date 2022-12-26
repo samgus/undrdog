@@ -4,7 +4,33 @@
   margin: 0;
   padding: 0;
 }
-
+.flex {
+  display: flex
+}
+.flex-column {
+  flex-direction: column;
+}
+.align-center {
+  align-items: center;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.w-100 {
+  width: 100%;
+}
+.mb-1 {
+  margin-bottom: 10px
+}
+.mb-2 {
+  margin-bottom: 20px;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
 .list-items{
   list-style: none;
   padding: 20px 0 20px 20px;

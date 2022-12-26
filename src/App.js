@@ -12,25 +12,33 @@ import PrivacyPolicy from './pages/privacy-policy';
 import CopyrightPolicy from './pages/copyright-policy';
 import NavBar from './components/nav-bar/nav-bar.component';
 import Footer from './components/footer/footer.component';
+import UserProfile from './pages/user-profile';
 import { ModalProvider } from "./contexts/modal.context";
+import { AuthProvider } from "./contexts/auth.context";
+import Logout from './pages/logout';
 
 function App() {
   return (
     <Router>
-      <NavBar />
-      <ModalProvider>
-        <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/place/:placeId' element={<Place/>} />
-          <Route path='/about' element={<About/>} />
-          <Route path='/help' element={<Help/>} />
-          <Route path='/contact' element={<ContactPage/>} />
-          <Route path='/site-guidelines' element={<SiteGuidelines/>} />
-          <Route path='/privacy-policy' element={<PrivacyPolicy/>} />
-          <Route path='/copyright-policy' element={<CopyrightPolicy/>} />
-          <Route path='/terms-of-service' element={<TermsOfService/>} />
-        </Routes>
-      </ModalProvider>
+      <AuthProvider>
+        <NavBar />
+        <ModalProvider>
+          <Routes>
+            <Route path='/' element={<Home/>} />
+            <Route path='/logout' element={<Logout />} />
+            <Route path='/place/:placeId' element={<Place/>} />
+            <Route path='/user/:userId' element={<UserProfile/>} />
+            <Route path='/about' element={<About/>} />
+            <Route path='/help' element={<Help/>} />
+            <Route path='/contact' element={<ContactPage/>} />
+            <Route path='/site-guidelines' element={<SiteGuidelines/>} />
+            <Route path='/privacy-policy' element={<PrivacyPolicy/>} />
+            <Route path='/copyright-policy' element={<CopyrightPolicy/>} />
+            <Route path='/terms-of-service' element={<TermsOfService/>} />
+          </Routes>
+        </ModalProvider>
+      </AuthProvider>
+      
 
       <Footer/>
     </Router>
@@ -38,3 +46,14 @@ function App() {
 };
 
 export default App;
+
+
+// Tasks
+// - Make simple user profile
+//    - Name
+//    - Password
+// - Add time stamp to review card
+// - Add agree/disagree to review card
+// - Link to sign up modal in the sign in modal and vice versa
+// - Make option to edit and delete review only the user who created it
+// - Make Nav bar show the user instead of the sign in buttons when user is signed in
