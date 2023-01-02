@@ -5,7 +5,8 @@ export async function signup(userInfo) {
         headers: {
             "Content-Type": 'application/json'
         },
-        body: JSON.stringify(userInfo)
+        body: JSON.stringify(userInfo),
+        credentials: 'include'
     })
     const result = await response.json()
     return result;
@@ -18,7 +19,8 @@ export async function login(userInfo) {
         headers: {
             "Content-Type": 'application/json'
         },
-        body: JSON.stringify(userInfo)
+        body: JSON.stringify(userInfo),
+        credentials: 'include'
     })
     const result = await response.json()
     return result;
@@ -30,7 +32,22 @@ export async function getUserById(userId) {
         mode: 'cors',
         headers: {
             "Content-Type": 'application/json'
-        }
+        },
+        credentials: 'include'
+    })
+    const result = await response.json()
+    return result;
+}
+
+export async function updateUserById(userId, userInfo) {
+    const response = await fetch('http://localhost:8080/user/' + userId, {
+        method: 'put',
+        mode: 'cors',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(userInfo),
+        credentials: 'include'
     })
     const result = await response.json()
     return result;
@@ -42,7 +59,8 @@ export async function getLoggedInUser() {
         mode: 'cors',
         headers: {
             "Content-Type": 'application/json'
-        }
+        },
+        credentials: 'include'
     })
     const result = await response.json()
     return result;
@@ -54,7 +72,8 @@ export async function logout() {
         mode: 'cors',
         headers: {
             "Content-Type": 'application/json'
-        }
+        },
+        credentials: 'include'
     })
     const result = await response.json()
     return result.success;

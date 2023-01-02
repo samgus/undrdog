@@ -24,7 +24,10 @@ export function AuthProvider({ children }) {
     setCurrentUser,
     fetchedUser
   }
-
+  if (!fetchedUser) {
+    return <div></div>
+  }
+  
   return (
     <AuthContext.Provider value={value}>
       {children}

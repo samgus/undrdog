@@ -16,7 +16,7 @@ function Modal({ name, closeIcon = true, transparent = true, children }) {
           </div>
         )}
 
-        <div className="flex">{children}</div>
+        <div className="flex w-100">{children}</div>
       </div>
       <div
         className={`modal__shadow-bg${transparent ? " transparent" : ""}`}

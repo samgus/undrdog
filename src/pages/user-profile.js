@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getUserById } from '../api/auth';
 import { useAuth } from "../contexts/auth.context";
+import EditProfile from '../components/edit-profile/edit-profile';
 import ReviewList from '../components/review-list/review-list.component';
+import { useModal } from '../contexts/modal.context';
 const UserProfile = () => {
   const navigate = useNavigate();
   const { currentUser, fetchedUser } = useAuth();
   const { userId } =  useParams();
+  const { setModal } = useModal();
 
   useEffect(() => {
     if (fetchedUser) {
@@ -25,8 +28,6 @@ const UserProfile = () => {
   }
   /*
     Profile
-    - edit Name
-    - edit Email
     - edit Password
     Features
     - show user reviews list
@@ -51,7 +52,14 @@ const UserProfile = () => {
         <div className="user-profile__header flex flex-column justify-center mb-2 ">
         {currentUser && <h1>{currentUser?.name}</h1>}
         {currentUser && <h3>{currentUser?.email}</h3>}
-          
+        <button onClick={() => {
+          setModal({
+            modal: "edit-profile",
+            children: <EditProfile  currentUser={currentUser}/>,
+            show: true
+          });
+        }}>Edit Profile</button>
+      
         </div>
         <div className="user-profile__content flex flex-column">
           <h2>My Reviews</h2>
