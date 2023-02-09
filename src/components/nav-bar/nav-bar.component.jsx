@@ -86,8 +86,8 @@ const NavBar = ({toggle}) => {
   return (
     <>
     <IconContext.Provider value={{ color: '#fff' }}>
-    <ModalSignIn showModal={showModal} setShowModal={setShowModal}/>
-    <ModalSignUp showModalSignUp={showModalSignUp} setShowModalSignUp={setShowModalSignUp}/>
+    <ModalSignIn showModal={showModal} setShowModal={setShowModal} setShowModalSignUp={setShowModalSignUp} />
+    <ModalSignUp showModalSignUp={showModalSignUp} setShowModalSignUp={setShowModalSignUp} setShowModal={setShowModal}/>
       <Nav navBg={navBg}>
         <NavBarContainer>
           <NavLogo to='/' onClick={toggleHome}>UNDRDOG</NavLogo>

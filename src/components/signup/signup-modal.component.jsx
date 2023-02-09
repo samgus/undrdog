@@ -15,6 +15,7 @@ import {
 } from './signup.styles'
 
 const Background = styled.div`
+  top: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
@@ -23,28 +24,28 @@ const Background = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 11;
+
 `;
 
 const ModalWrapper = styled.div`
   width: 800px;
   height: auto;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: #000;
   color: #000;
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
   z-index: 10;
-  border-radius: 10px;
+  border-radius: 20px;
 `;
 
 const ModalImg = styled.img`
   width: 100%;
   height: 100%;
-  border-radius: 10px 0 0 10px;
-  background: #fff;
-  padding-left: 15px;
-  padding-right: 15px;
+  border-radius: 20px 0 0 20px;
+  background: rgb(230,230,230);
+  padding-left: 25px;
+  padding-right: 25px;
 `;
 
 const ModalContent = styled.div`
@@ -60,7 +61,7 @@ const ModalContent = styled.div`
   }
   button {
     padding: 10px 24px;
-    background: #01bf71;
+    background: rgb(3,76,31);;
     color: #fff;
     border: none;
   }
@@ -77,7 +78,7 @@ const CloseModalButton = styled(MdClose)`
   z-index: 12;
 `;
 
-export const ModalSignUp = ({ showModalSignUp, setShowModalSignUp }) => {
+export const ModalSignUp = ({ showModalSignUp, setShowModalSignUp, setShowModal }) => {
   const [errors, setErrors] = useState([]);
     const [ loading, setLoading ] = useState(false);
     const [ name, setName ] = useState();
@@ -157,19 +158,23 @@ export const ModalSignUp = ({ showModalSignUp, setShowModalSignUp }) => {
                 <Form onSubmit={handleSignup}>
                 <FormH1>Create an account</FormH1>
                 {errors && errors.length > 0 && errors.map((error) => <p style={{ color: "red" }}>{error}</p>)}
-                <FormLabel htmlFor='for'>Name</FormLabel>
-                <FormInput value={name} onChange={(e) => setName(e.target.value)} type='name' required />
-                <FormLabel htmlFor='for'>Email</FormLabel>
-                <FormInput value= {email} onChange={(e) => setEmail(e.target.value)} type='email' required />
-                <FormLabel htmlFor='for'>Password</FormLabel>
-                <FormInput value={password} onChange={(e) => setPassword(e.target.value)} type='password' required />
-                <FormLabel htmlFor='for'>Confirm Password</FormLabel>
-                <FormInput value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} type='password' required />
+                <FormInput placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} type='name' required ariaLabel="Name" />
+                <FormInput placeholder="Email"  value= {email} onChange={(e) => setEmail(e.target.value)} type='email' required ariaLabel="Email" />
+                <FormInput placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} type='password' required ariaLabel="Password"/>
+                <FormInput placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} type='password' required ariaLabel="Confirm password" />
                 <FormButton type='submit'>Sign Up</FormButton>
+                <a onClick={() => {
+                  setShowModalSignUp(false)
+                  setShowModal(true)
+                }}
+                style={{ cursor: "pointer" }}>
+                <Text >Already have an account?</Text>
+                </a>
                 </Form>
-                <Text>Already have an account?</Text>
+               
               </ModalContent>
               <CloseModalButton
+              color='rgb(200,200,200)'
                 aria-label='Close modal'
                 onClick={() => setShowModalSignUp(prev => !prev)}
               />

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { getReviewsByPlaceId, getReviewsByUserId } from '../../api/reviews';
 import ReviewCard from '../review-card/review-card.component';
 
+import "./review-list.styles.css";
+
 const ReviewList = ({ userId, placeId, setOverallRating }) => {
   const [reviews, setReviews] = useState([]);
 
@@ -22,9 +24,10 @@ const ReviewList = ({ userId, placeId, setOverallRating }) => {
   }, [placeId, userId]);
 
   return (
-    <div>
-        {reviews && reviews.map((review) => {
-            return <ReviewCard review={review} />
+    <div className="review-list">
+        {reviews && reviews.map((review, i) => {
+            
+            return <ReviewCard review={review} index={i} />
         })}
     </div>
   )

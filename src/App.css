@@ -1,5 +1,5 @@
 * {
-  font-family: 'Encode Sans Expanded', sans-serif;
+  font-family: 'Nunito', sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -31,41 +31,5 @@
 .justify-between {
   justify-content: space-between;
 }
-.list-items{
-  list-style: none;
-  padding: 20px 0 20px 20px;
-  color: #000;
-  font-weight: 600;
-  background-color: #fff;
-  border-radius: 30px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  display: none;
-  width: fill-available;
-  width: -moz-available;
-  width: -webkit-fill-available;
-  position: absolute;
-}
 
-.list-items.list-items-show{
-  display: block;
-}
-
-.list-items li{
-  cursor: pointer;
-}
-
-.list-items li:not(:last-child){
-  margin-bottom: 10px;
-}
-
-.search-bar .input-change{
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  box-shadow: none;
-}
-
-.search-bar-change{
-  box-shadow: none !important;
-}
 

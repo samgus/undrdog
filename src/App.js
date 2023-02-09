@@ -16,6 +16,9 @@ import UserProfile from './pages/user-profile';
 import { ModalProvider } from "./contexts/modal.context";
 import { AuthProvider } from "./contexts/auth.context";
 import Logout from './pages/logout';
+import ForgotPassword from './components/forgot-password/forgot-password.component';
+
+import 'react-tooltip/dist/react-tooltip.css'
 
 function App() {
   return (
@@ -35,6 +38,7 @@ function App() {
             <Route path='/privacy-policy' element={<PrivacyPolicy/>} />
             <Route path='/copyright-policy' element={<CopyrightPolicy/>} />
             <Route path='/terms-of-service' element={<TermsOfService/>} />
+            <Route path='/forgot-password' element={<ForgotPassword/>} />
           </Routes>
         </ModalProvider>
       </AuthProvider>

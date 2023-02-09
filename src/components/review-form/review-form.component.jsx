@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { createReview } from '../../api/reviews';
 
-const ReviewForm = ({ placeId }) => {
+import "./review-form.styles.css";
+
+const ReviewForm = ({ placeId, placeName }) => {
   const [reviewText, setReviewText] = useState();
   const [weeklyIncome, setWeeklyIncome] = useState()
   const [treatmentFromBoss, setTreatmentFromBoss] = useState(1);
@@ -32,19 +34,22 @@ const ReviewForm = ({ placeId }) => {
   }
 
   return (
-    <div>
+    <div className="review-form">
       <form onSubmit={submitReview}>
-        <h2>Your Review:</h2>
-        {/* <textarea value={reviewText} placeholder='What is it like to work here?' onChange={(e) => {
-            setReviewText(e.target.value)
-        }}></textarea>
-        <br /> */}
+        <div className="review-form__header flex">
+          <h2>Leave A Review For {placeName}!</h2>
+        </div>
+        <div className="review-form__body flex flex-column">
+          <label>Tell us about your experience</label>
+          <textarea value={reviewText} placeholder='What is it like to work here?' onChange={(e) => {
+              setReviewText(e.target.value)
+          }}></textarea>
+
+
         <label>Position: </label>
         <input value={position} type='text' placeholder='Position' onChange={(e => setPosition(e.target.value))}/>
-        <br />
         <label>Weekly Income:</label>
         <input value={weeklyIncome} type='text' placeholder='Weekly Income' onChange={(e => setWeeklyIncome(e.target.value))}/>
-        <br />
         {/* <h2>Ratings</h2> */}
         <label>Treatment From Boss:</label>
         <select value={treatmentFromBoss} onChange={(e => setTreatmentFromBoss(e.target.value))}>
@@ -54,7 +59,6 @@ const ReviewForm = ({ placeId }) => {
           <option value={4}>Great</option>
           <option value={5}>Amazing</option>
         </select>
-        <br />
         <label>Treatment From Guests:</label>
         <select value={treatmentFromGuest} onChange={(e => setTreatmentFromGuest(e.target.value))}>
           <option value={1}>Bad</option>
@@ -63,7 +67,6 @@ const ReviewForm = ({ placeId }) => {
           <option value={4}>Great</option>
           <option value={5}>Amazing</option>
         </select>
-        <br />
         <label>Family Meal:</label>
         <select value={familyMeal} onChange={(e => setFamilyMeal(e.target.value))}>
           <option value={1}>No Family Meal</option>
@@ -72,14 +75,14 @@ const ReviewForm = ({ placeId }) => {
           <option value={4}>Great</option>
           <option value={5}>Amazing</option>
         </select>
-        <br />
-        <label>Tell us about your experience</label>
-        <br />
-        <textarea value={reviewText} placeholder='What is it like to work here?' onChange={(e) => {
+        <button type="submit">Submit Review</button>
+        </div>
+        {/* <textarea value={reviewText} placeholder='What is it like to work here?' onChange={(e) => {
             setReviewText(e.target.value)
         }}></textarea>
-        <br />
-        <button type="submit">Submit Review</button>
+        <br /> */}
+        
+
       </form>
     </div>
   )

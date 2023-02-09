@@ -1,3 +1,5 @@
+ @import "../../utils";
+
  *{
      margin: 0;
      padding: 0;
@@ -7,8 +9,11 @@
 
  .wrapper {
     position: relative;
-     width: 450px;
-     
+    width: 450px;
+
+    @include phone {
+      width: 100%;
+    }
      margin: 25px auto;
  }
 
@@ -117,8 +122,10 @@
     display: block;
     color: rgba(0,0,0,.5);
     font-size: 11px;
+    transition: all 1s;
+    transition-timing-function: ease-in;
  }
- .list-items .list-item {
+  .list-items .list-item {
     padding: 10px;
  }
  .list-items .list-item:hover {

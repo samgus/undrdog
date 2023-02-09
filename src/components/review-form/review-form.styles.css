@@ -1,0 +1,56 @@
+.review-form {
+    width: 600px;
+}
+
+.review-form__header {
+    background-color: rgb(230,230,230);
+    padding: 20px 15px;
+}
+
+.review-form__header h2 {
+    font-family: Helvetica, sans-serif;
+    
+}
+
+.review-form__body {
+    padding: 15px 15px 25px 15px;
+    
+}
+
+.review-form__body label {
+    font-family: sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.review-form__body textarea {
+    font-family: sans-serif;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    height: 200px;
+    border: 1px solid rgb(150,150,150);
+
+}
+
+.review-form__body input, select {
+    font-family: sans-serif;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(150,150,150);
+}
+
+.review-form__body button {
+    background: rgb(3,76,31);
+    padding: 12px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    color: white;
+
+}

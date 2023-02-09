@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import ReviewForm from '../components/review-form/review-form.component';
 import ReviewList from '../components/review-list/review-list.component';
 import { useModal } from '../contexts/modal.context';
+
 const Place = () => {
     const { setModal } = useModal();
     const [place, setPlace] = useState({})
@@ -19,23 +20,28 @@ const Place = () => {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '90vh'
+          justifyContent: 'flex-start',
+          height: '90vh',
+          marginTop: "78px",
+          padding: "20px",
+          backgroundColor: 'rgb(250,250,250)'
         }}
       >
-        <h1>{place.name}</h1>
-        <p>{place.formattedAddress}</p>
-        {overallRating && <h2>Overall Rating: {overallRating}</h2>}
+        <div className="place-info-container">
+          <h1>{place.name}</h1>
+          <p>{place.formattedAddress}</p>
+          {overallRating && <h2>Overall Rating: {overallRating}</h2>}
+          <div className="create-review-btn" onClick={() => {
+              setModal({
+                modal: "review-form",
+                children: <ReviewForm placeId={placeId}  placeName={place.name}/>,
+                show: true
+              });
+            }}>+</div>
+          </div>
         <div className="reviews-section">
           <ReviewList placeId={placeId} setOverallRating={setOverallRating} />
-          <button onClick={() => {
-            setModal({
-              modal: "review-form",
-              children: <ReviewForm placeId={placeId} />,
-              show: true
-            });
-          }}>Create Review</button>
+          
         </div>
       </div>
    

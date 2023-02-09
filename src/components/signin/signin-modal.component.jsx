@@ -4,6 +4,7 @@ import { useSpring, animated } from 'react-spring';
 import Icon1 from '../../images/svg-1.svg'
 import { login } from '../../api/auth';
 import { useAuth } from "../../contexts/auth.context";
+import { Link } from 'react-router-dom';
 import { 
   Form,
   FormButton, 
@@ -18,7 +19,7 @@ import {
   CloseModalButton
 } from './signin.styles'
 
-export const ModalSignIn = ({ showModal, setShowModal }) => {
+export const ModalSignIn = ({ showModal, setShowModal, setShowModalSignUp }) => {
   const navigate = useNavigate();
   const { setCurrentUser } = useAuth()
   const [email, setEmail] = useState()
@@ -90,17 +91,27 @@ export const ModalSignIn = ({ showModal, setShowModal }) => {
                 <Form onSubmit={signIn}>
                   <FormH1>Sign in to your account</FormH1>
                   {errors && errors.length > 0 && errors.map((error) => <p style={{ color: "red" }}>{error}</p>)}
-                  <FormLabel htmlFor='for'>Email</FormLabel>
-                  <FormInput type='email' value= {email} onChange={(e) => setEmail(e.target.value)}  required />
-                  <FormLabel htmlFor='for'>Password</FormLabel>
-                  <FormInput type='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
+                  <FormInput placeholder="Email" type='email' value= {email} onChange={(e) => setEmail(e.target.value)}  required ariaLabel="Email" />
+                  <FormInput placeholder="Password" type='password' value={password} onChange={(e) => setPassword(e.target.value)} required ariaLabel="Password" />
                   <FormButton type='submit'>Continue</FormButton>
+
+                  <Link to="/forgot-password">
+                    <Text>Forgot Password?</Text>
+                  </Link>
+                  <a style={{cursor: "pointer"}} 
+                    onClick={() => {
+                      setShowModal(false);
+                      setShowModalSignUp(true)
+                    }}>
+                    <Text>Don't have an account? Sign up here</Text>
+                  </a>
                 </Form>
                 
-                <Text>Forgot Password?</Text>
+                
               </ModalContent>
               <CloseModalButton
                 aria-label='Close modal'
+                color='rgb(200,200,200)'
                 onClick={() => setShowModal(prev => !prev)}
               />
             </ModalWrapper>

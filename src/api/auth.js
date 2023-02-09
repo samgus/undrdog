@@ -78,3 +78,33 @@ export async function logout() {
     const result = await response.json()
     return result.success;
 }
+
+export async function forgotPassword(email) {
+    const response = await fetch('http://localhost:8080/forgot-password', {
+        method: 'post',
+        mode: 'cors',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify({
+            email
+        }),
+        credentials: 'include'
+    })
+    const result = await response.json()
+    return result.success;
+}
+
+export async function resetPassword(passwordInfo) {
+    const response = await fetch('http://localhost:8080/reset-password', {
+        method: 'post',
+        mode: 'cors',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(passwordInfo),
+        credentials: 'include'
+    })
+    const result = await response.json()
+    return result.success;
+}

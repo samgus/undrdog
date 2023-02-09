@@ -18,15 +18,17 @@ function EditProfile({ currentUser }) {
         updateUserById(currentUser._id, {
             name, email
         }).then((result) => {
+            
             if (result.success) {
                 alert("User info was updated successfully")
             } else {
                 alert("There was an error, try again!")
             }
-            window.location.reload();
-        }).catch(() => {
-            alert("There was an error, try again!");
-            window.location.reload();
+            // window.location.reload();
+        }).catch((e) => {
+            console.log(e);
+            alert("There was an internal error, try again!");
+            // window.location.reload();
         })
     }
     return <div className="edit-profile w-100">

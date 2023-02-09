@@ -86,12 +86,12 @@ export const NavLinks = styled(LinkS)`
   cursor: pointer;
 
   &:hover {
-    color: #01bf71;
+    color: rgb(3,76,31);;
     transition: all 0.2s ease-in-out;
   }
 
   &.active {
-    border-bottom: 3px solid #01bf71;
+    border-bottom: 3px solid rgb(3,76,31);;
     /* transition: all 0.1s ease-in-out; */
   }
 `

@@ -1,5 +1,10 @@
 @import "variables";
 
+@font-face {
+  font-family: 'SFNS';
+  src: url(./fonts/SFNS.ttf) format('truetype');
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -60,4 +65,30 @@ code {
 
 .m-2 {
   margin: 20px
+}
+
+.create-review-btn {
+  border: 1px solid rgb(10, 201, 122);
+  padding: 0px 14px 5px 14px;
+  border-radius: 50%;
+  font-size: 50px;
+  font-family: sans-serif;
+  line-height: 50px;
+  color: white;
+  background-color: rgb(10, 201, 122);
+  width: fit-content;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.place-info-container {
+  position: relative;
+  width: 600px;
+  padding-right: 75px;
+}
+
+.place-info-container .create-review-btn {
+  position: absolute;
+  right: 0;
+  top: 15px;
 }

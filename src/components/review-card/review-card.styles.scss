@@ -1,8 +1,10 @@
 .review-card {
-    width: 400px;
+    margin-bottom: 15px;
+    width: 600px;
     border: 1px solid rgb(200,200,200);
     padding: 10px;
     border-radius: 10px;
+    background-color: white;
     span {
         font-size: 14px;
         font-family: sans-serif
@@ -37,8 +39,61 @@
         padding-top: 15px;
 
         .review-card__footer-rating {
+            cursor: default;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            font-family: 'Nunito';
             width: 50%;
             padding: 10px;
+
+            .review-card__icon {
+                margin-right: 10px;
+            }
+            font-weight: bold;
+            letter-spacing: 1px;
         }
     }
+
+    .vote-container {
+        background-color: rgb(200,200,200);
+        color: rgb(50,50,50);
+        width: 150px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        margin: 10px 0px;
+        margin-right: 5px;
+        .vote-box {
+            width: 50%;
+            padding: 10px;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &.downvote {
+                
+            }
+    
+            &.upvote {
+                padding-right: 15px;
+                border-right: 1px solid white;
+            }
+            span {
+                font-weight: bold;
+                font-size: 16px;
+                text-align: center;
+                margin-right: 10px;
+            }
+    
+            &:hover {
+                cursor: pointer;
+                &.upvote {
+                }
+                &.downvote {
+                }
+            }
+        }
+    }
+    
 }

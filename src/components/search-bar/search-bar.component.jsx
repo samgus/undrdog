@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useCallback } from 'react';
- import './search-bar.styles.css'
+ import './search-bar.styles.scss'
  import { FaSearch } from 'react-icons/fa';
  import { searchForMembers, createMember, getMemberByPlaceId } from '../../api/members';
 
@@ -47,7 +47,7 @@ import { useState, useCallback } from 'react';
        </div>
        <ul className={name.length > 0 ? 'list-items list-items-show': 'list-items'}>
          {members.map((memberObject, i) => (
-           <li onClick={() => {
+           <li className="list-item" onClick={() => {
             handleClick(memberObject)
            }} key={i}>
              <p>{memberObject.name}</p>

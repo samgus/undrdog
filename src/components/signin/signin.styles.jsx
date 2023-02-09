@@ -53,8 +53,9 @@ export const FormContent = styled.div`
     }
 `
 
+
 export const Form = styled.form`
-    background: #010101;
+    background: white;
     max-width: 400px;
     height: auto;
     width: 100%;
@@ -62,8 +63,8 @@ export const Form = styled.form`
     display: grid;
     margin: 0 auto;
     padding: 80px 32px;
-    /* border-radius: 10px; */
-    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9); */
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 
     @media screen and (max-width: 400px) {
         padding: 32px 32px;
@@ -72,7 +73,7 @@ export const Form = styled.form`
 
 export const FormH1 = styled.h1`
     margin-bottom: 40px;
-    color: #fff;
+    color: #000;
     font-size: 20px;
     font-weight: 400;
     text-align: center;
@@ -81,34 +82,38 @@ export const FormH1 = styled.h1`
 export const FormLabel = styled.label`
     margin-bottom: 8px;
     font-size: 20px;
-    color: #fff;
+    color: #000;
 `
 
 export const FormInput = styled.input`
-    padding: 16px 16px;
-    margin-bottom: 32px;
+    padding: 12px 12px;
+    margin-bottom: 15px;
     border: none;
-    /* border-radius: 4px; */
+    border-radius: 10px;
+    border: 1px solid rgb(220,220,220);
+    background-color: rgb(230,230,230);
 `
 
 export const FormButton = styled.button`
-    background: #01bf71;
-    padding: 16px 0;
+    background: rgb(3,76,31);
+    padding: 12px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     color: #fff;
     font-size: 20px;
     cursor: pointer;
-`
+    margin-top: 10px;`
+
 
 export const Text = styled.span`
     text-align: center;
     margin-top: 24px;
-    color: #fff;
+    color: #000;
     font-size: 14px;
 `
 
 export const Background = styled.div`
+  top: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
@@ -123,22 +128,22 @@ export const ModalWrapper = styled.div`
   width: 800px;
   height: 500px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: #000;
+  background: white;
   color: #000;
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
   z-index: 10;
-  border-radius: 10px;
+  border-radius: 20px;
 `;
 
 export const ModalImg = styled.img`
   width: 100%;
   height: 100%;
-  border-radius: 10px 0 0 10px;
-  background: #fff;
-  padding-left: 15px;
-  padding-right: 15px;
+  border-radius: 20px 0 0 20px;
+  background: rgb(230, 230, 230);
+  padding-left: 25px;
+  padding-right: 25px;
 `;
 
 export const ModalContent = styled.div`
@@ -154,7 +159,7 @@ export const ModalContent = styled.div`
   }
   button {
     padding: 10px 24px;
-    background: #01bf71;
+    background: rgb(3,76,31);
     color: #fff;
     border: none;
   }
@@ -169,4 +174,5 @@ export const CloseModalButton = styled(MdClose)`
   height: 32px;
   padding: 0;
   z-index: 12;
+
 `;
