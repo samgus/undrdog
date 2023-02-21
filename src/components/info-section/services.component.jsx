@@ -28,22 +28,19 @@ const Services = ({
 }) => {
   return (
     <ServicesContainer id="services">
-      <ServicesH1>Workers Unite!</ServicesH1>
+      <ServicesH1>We're Here For You</ServicesH1>
       <ServicesWrapper>
         <ServicesCard>
             <ServicesIcon src={Icon1}/>
-            <ServicesH2>Manage and edit your ratings</ServicesH2>
-            {/* <ServicesP>Manage and edit your ratings</ServicesP> */}
+            <ServicesH2>Manage and edit your own ratings</ServicesH2>
         </ServicesCard>
         <ServicesCard>
             <ServicesIcon src={Icon2}/>
             <ServicesH2>Your ratings are always anonymous</ServicesH2>
-            {/* <ServicesP>Your ratings are always anonymous</ServicesP> */}
         </ServicesCard>
         <ServicesCard>
             <ServicesIcon src={Icon3}/>
             <ServicesH2>Agree or disagree with your peer's ratings</ServicesH2>
-            {/* <ServicesP>Like or dislike ratings</ServicesP> */}
         </ServicesCard>
       </ServicesWrapper>
       <TextWrapper>

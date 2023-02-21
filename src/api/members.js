@@ -30,6 +30,8 @@ export async function createMember(member) {
         body: JSON.stringify({
             placeId: member.place_id,
             name: member.name,
+            lat: member.geometry.location.lat(),
+            long: member.geometry.location.lng(),
             formattedAddress: member.formatted_address
         })
     })

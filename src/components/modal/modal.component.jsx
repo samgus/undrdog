@@ -1,4 +1,6 @@
 import { useModal } from "../../contexts/modal.context";
+import { MdClose } from 'react-icons/md';
+
 import "./modal.styles.css";
 
 function Modal({ name, closeIcon = true, transparent = true, children }) {
@@ -12,7 +14,7 @@ function Modal({ name, closeIcon = true, transparent = true, children }) {
             className="close-icon-wrapper"
             onClick={() => setModal({ modal: name, show: false })}
           >
-            <span className="close-icon">X</span>
+            <span className="close-icon"><MdClose size={30}/></span>
           </div>
         )}
 

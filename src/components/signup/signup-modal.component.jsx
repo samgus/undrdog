@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
 import Icon1 from '../../images/svg-1.svg'
 import { signup } from "../../api/auth";
+import { useAuth } from '../../contexts/auth.context';
+
+import { useNavigate } from "react-router-dom";
 
 import { 
   FormButton, 
@@ -79,6 +82,8 @@ const CloseModalButton = styled(MdClose)`
 `;
 
 export const ModalSignUp = ({ showModalSignUp, setShowModalSignUp, setShowModal }) => {
+  const navigate = useNavigate();
+  const { setCurrentUser } = useAuth();
   const [errors, setErrors] = useState([]);
     const [ loading, setLoading ] = useState(false);
     const [ name, setName ] = useState();
@@ -106,7 +111,9 @@ export const ModalSignUp = ({ showModalSignUp, setShowModalSignUp, setShowModal 
       console.log(result);
       if (result.success) {
         // log them in
-        alert('You successfully logged in')
+        setCurrentUser(result.user)
+        alert('You successfully signed up');
+        navigate('/user/' + result.user._id)
       } else {
         setErrors(result.messages);
       }

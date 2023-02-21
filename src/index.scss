@@ -5,6 +5,21 @@
   src: url(./fonts/SFNS.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'mollen-bold';
+  src: url(./fonts/Mollen-Personal-Use-Bold.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'mollen-light';
+  src: url(./fonts/Mollen-Personal-Use-Light.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'mollen';
+  src: url(./fonts/Mollen-Personal-Use-Regular.otf) format('opentype');
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -68,17 +83,24 @@ code {
 }
 
 .create-review-btn {
+  display: flex;
+  align-items: center;
   border: 1px solid rgb(10, 201, 122);
-  padding: 0px 14px 5px 14px;
-  border-radius: 50%;
-  font-size: 50px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 18px;
   font-family: sans-serif;
-  line-height: 50px;
+  line-height: 26px;
   color: white;
   background-color: rgb(10, 201, 122);
   width: fit-content;
   margin-top: 10px;
   cursor: pointer;
+
+  span {
+    font-size: 30px;
+    margin-right: 5px;
+  }
 }
 
 .place-info-container {
@@ -91,4 +113,24 @@ code {
   position: absolute;
   right: 0;
   top: 15px;
+}
+
+.map-container {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  
+}
+
+.place-info-container__header {
+  max-width: 85%;
+
+  h1 {
+    font-size: 60px;
+    line-height: 110%;
+  }
+
+  .place-info-container__address {
+    margin: 15px 0px;
+  }
 }

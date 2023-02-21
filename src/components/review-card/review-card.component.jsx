@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "./review-card.styles.scss";
 
-import { ratingsLabels, familyMealLabels } from "../../globals";
+import { ratingsLabels, familyMealLabels, sideWorkLabels } from "../../globals";
 
 import { updateReview } from "../../api/reviews";
 
@@ -29,21 +29,28 @@ function ReviewCard({ review, index }) {
         let red;
         let green;
         if (lowRating) {
-            let ratingRange = redMid-redLow;
-            let ratingLowScore = (lowRating*ratingRange)/.5
+            let ratingRange = Math.abs(redMid-redLow);
+            let ratingLowScore = (ratingPer*ratingRange)/5
             red = redLow - ratingLowScore
 
             ratingRange = greenMid-greenLow;
-            ratingLowScore = (lowRating*ratingRange)/.5
+            ratingLowScore = (ratingPer*ratingRange)/5
             green = greenLow + ratingLowScore
         } else {
             // high rating do same logic for mid to high range
+            let ratingRange = Math.abs(redHigh-redMid);
+            let ratingLowScore = (ratingPer*ratingRange)/5
+            red = redMid - ratingLowScore
+
+            ratingRange = greenHigh-greenMid;
+            ratingLowScore = (ratingPer*ratingRange)/5
+            green = greenMid + ratingLowScore
         }
+        console.log("colors", red, green)
        return  `rgb(${red}, ${green}, 0)`;
     }
     const renderBigRating = () => {
-
-        return ((review.treatmentFromBoss + review.treatmentFromGuest + review.familyMeal)/3).toFixed(1)
+        return ((review.treatmentFromBoss + review.treatmentFromGuest + review.familyMeal + review.sideWork)/4).toFixed(1)
     }
 
     console.log("review", review);
@@ -55,7 +62,13 @@ function ReviewCard({ review, index }) {
     return <div className="review-card flex flex-col">
         <div className="review-card__main-content flex">
             <div className="review-card__big-rating flex align-center justify-center">
-                <div className="review-card__big-rating-circle">{renderBigRating()}</div>
+                <div className="review-card__big-rating-circle"
+                     style={{
+                        backgroundColor: "white",
+                        borderSize: "2px",
+                        borderColor: ratingToColor(1),
+                        color: ratingToColor(1)
+                     }}>{renderBigRating()}</div>
             </div>
             <div className="review-card_content flex flex-col w-100">
                 <div className="review-card_content-header flex align-center justify-between w-100">
@@ -68,8 +81,6 @@ function ReviewCard({ review, index }) {
             </div>
         </div>
         <div className="review-card__footer-content flex justify-between">
-            
-            
                     
              <div className="flex flex-wrap">
             <Tooltip anchorId={"treatment-from-boss-"+review._id}/>
@@ -94,9 +105,20 @@ function ReviewCard({ review, index }) {
                     {familyMealLabels[review.familyMeal]}
                 </span>
             </span>
+            <Tooltip anchorId={"side-work-"+review._id}/>
+            <span className="review-card__footer-rating"  id={"side-work-"+review._id} data-tooltip-content="Side Work">
+                <MdFastfood className="review-card__icon" />
+                <span>
+                    {sideWorkLabels[review.sideWork]}
+                </span>
+            </span>
             <Tooltip anchorId={"weekly-income-"+review._id}/>
             <span className="review-card__footer-rating"id={"weekly-income-"+review._id} data-tooltip-content="Weekly Income">
-                <FaMoneyBillWave className="review-card__icon" /> <span>${review.weeklyIncome}</span>
+                <FaMoneyBillWave className="review-card__icon" /> <span>{review.weeklyIncome}</span>
+            </span>
+            <Tooltip anchorId={"shifts-worked-"+review._id}/>
+            <span className="review-card__footer-rating"id={"shifts-worked-"+review._id} data-tooltip-content="Shifts worked">
+                <FaMoneyBillWave className="review-card__icon" /> <span>{review.shiftsWorked} shift(s) worked</span>
             </span>
             </div>        
             <div className="vote-container flex">
