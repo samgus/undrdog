@@ -35,10 +35,10 @@ function EditProfile({ currentUser }) {
         <Form onSubmit={editProfile}>
             <FormH1>Edit Profile</FormH1>
             {errors && errors.length > 0 && errors.map((error) => <p style={{ color: "red" }}>{error}</p>)}
-            <FormLabel htmlFor='for'>Email</FormLabel>
-            <FormInput type='email' value= {email} onChange={(e) => setEmail(e.target.value)}  required />
-            <FormLabel htmlFor='for'>Name</FormLabel>
+            {/* <FormLabel htmlFor='for'>Name</FormLabel> */}
             <FormInput type='text' value={name} onChange={(e) => setName(e.target.value)} required />
+            {/* <FormLabel htmlFor='for'>Email</FormLabel> */}
+            <FormInput type='email' value= {email} onChange={(e) => setEmail(e.target.value)}  required />
             <FormButton type='submit'>Submit</FormButton>
         </Form>
     </div>

@@ -76,9 +76,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            &.downvote {
+            // &.downvote {
                 
-            }
+            // }
     
             &.upvote {
                 padding-right: 15px;
@@ -93,10 +93,10 @@
     
             &:hover {
                 cursor: pointer;
-                &.upvote {
-                }
-                &.downvote {
-                }
+                // &.upvote {
+                // }
+                // &.downvote {
+                // }
             }
         }
     }

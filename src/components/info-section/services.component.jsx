@@ -28,7 +28,7 @@ const Services = ({
 }) => {
   return (
     <ServicesContainer id="services">
-      <ServicesH1>We're Here For You</ServicesH1>
+      <ServicesH1>We Have Your Back!</ServicesH1>
       <ServicesWrapper>
         <ServicesCard>
             <ServicesIcon src={Icon1}/>
