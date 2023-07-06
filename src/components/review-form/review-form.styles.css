@@ -1,8 +1,6 @@
-
-
 .review-form {
-    width: 600px;
-    max-height: 60vh;
+    width: 650px;
+    max-height: 90vh;
 
 }
 
@@ -19,15 +17,31 @@
 
 .review-form__body {
     padding: 15px 15px 25px 15px;
+    width: 100%;
     
 }
 
+textarea {
+    width: 100%;
+}
 .review-form__body label {
     font-family: sans-serif;
     font-size: 18px;
     margin-bottom: 10px;
 }
 
+.review-form__textarea-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.review-form__character-limit {
+    position: absolute;
+    bottom: 25px;
+    right: 15px;
+    opacity: .7;
+    color: black;
+}
 .review-form__body textarea {
     font-family: sans-serif;
     font-size: 16px;
@@ -36,6 +50,7 @@
     border-radius: 10px;
     height: 200px;
     border: 1px solid rgb(150,150,150);
+    width: 100%;
 
 }
 

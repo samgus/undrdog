@@ -34,7 +34,7 @@ const Footer = () => {
                     <FooterLinkItems>
                         <FooterLinkTitle>Site</FooterLinkTitle>
                             <FooterLink to="/about">About</FooterLink>
-                            <FooterLink to="/help">Help</FooterLink>
+                            {/* <FooterLink to="/help">Help</FooterLink> */}
                             <FooterLink to="/contact">Contact Us</FooterLink>
                             <FooterLink to="/site-guidelines">Site Guidelines</FooterLink>
                     </FooterLinkItems>
@@ -48,8 +48,8 @@ const Footer = () => {
             </FooterLinksContainer>
             <SocialMedia>
                 <SocialMediaWrap>
-                    <SocialLogo to='/' onClick={toggleHome}>UNDRDOG</SocialLogo>
-                    <WebsiteRights>Undrdog © {new Date().getFullYear()}, All Rights Reserved.</WebsiteRights>
+                    <SocialLogo to='/' onClick={toggleHome}>BetterShift</SocialLogo>
+                    <WebsiteRights>Bettershift © {new Date().getFullYear()}, All Rights Reserved.</WebsiteRights>
                     <SocialIcons>
                         <SocialIconLink href="https://www.facebook.com/samgus93/" target="_blank" aria-label="Facebook"><FaFacebook /></SocialIconLink>
                         <SocialIconLink href="https://www.instagram.com/samfredric/" target="_blank" aria-label="Instagram"><FaInstagram /></SocialIconLink>

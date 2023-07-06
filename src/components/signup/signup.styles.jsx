@@ -33,7 +33,7 @@ export const Icon = styled(Link)`
     text-decoration: none;
     color: #fff;
     font-weight: 700;
-    font-size: 32px;
+    font-size: 25px;
 
     @media screen and (max-width: 480px) {
         margin-left: 16px;
@@ -54,15 +54,14 @@ export const FormContent = styled.div`
 
 export const Form = styled.form`
     background: white;
-    max-width: 400px;
+
     height: auto;
     width: 100%;
     z-index: 1;
     display: grid;
     margin: 0 auto;
     padding: 80px 32px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 8px;
 
     @media screen and (max-width: 400px) {
         padding: 32px 32px;
@@ -72,33 +71,38 @@ export const Form = styled.form`
 export const FormH1 = styled.h1`
     margin-bottom: 40px;
     color: #000;
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 500;
     text-align: center;
 `
 
 export const FormLabel = styled.label`
     margin-bottom: 8px;
-    font-size: 14px;
+    font-size: 12px;
     color: #000;
 `
 
 export const FormInput = styled.input`
-    padding: 12px 12px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 10px;
-    border: 1px solid rgb(220,220,220);
-    background-color: rgb(230,230,230);
+padding: 12px 12px;
+margin-bottom: 15px;
+border: none;
+border-radius: 10px;
+border: 1px solid rgb(220,220,220);
+background-color: rgb(230,230,230);
+width: 275px;
+background: white;
+border: 1px solid #EBECEE;
+border-radius: 8px;
+font-size: 12px;
 `
 
 export const FormButton = styled.button`
     background: rgb(3,76,31);
     padding: 12px 0;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     color: #000;
-    font-size: 20px;
+    font-size: 14px;
     cursor: pointer;
     margin-top: 10px;
 `
@@ -107,5 +111,5 @@ export const Text = styled.span`
     text-align: center;
     margin-top: 24px;
     color: #000;
-    font-size: 14px;
+    font-size: 12px;
 `

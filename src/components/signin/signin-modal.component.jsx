@@ -19,6 +19,8 @@ import {
   CloseModalButton
 } from './signin.styles'
 
+import "./signin.scss";
+
 export const ModalSignIn = ({ showModal, setShowModal, setShowModalSignUp }) => {
   const navigate = useNavigate();
   const { setCurrentUser } = useAuth()
@@ -64,7 +66,8 @@ export const ModalSignIn = ({ showModal, setShowModal, setShowModalSignUp }) => 
     */
     if (response.success) {
       setCurrentUser(response.user)
-      navigate('/user/'+response.user._id);
+      setShowModal(false)
+      // navigate('/user/'+response.user._id);
       
     }  else {
       setErrors(response.messages)
@@ -86,25 +89,32 @@ export const ModalSignIn = ({ showModal, setShowModal, setShowModalSignUp }) => 
         <Background onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
             <ModalWrapper showModal={showModal}>
-              <ModalImg src={Icon1} alt='rating' />
               <ModalContent>
                 <Form onSubmit={signIn}>
-                  <FormH1>Sign in to your account</FormH1>
+                  <div className="form-header-grouping">
+                    <FormH1>Welcome back to Undrdog!</FormH1>
+                    <span className="form-subtitle">Have a voice, tell your story.</span>
+                  </div>
+               
                   {errors && errors.length > 0 && errors.map((error) => <p style={{ color: "red" }}>{error}</p>)}
-                  <FormInput placeholder="Email" type='email' value= {email} onChange={(e) => setEmail(e.target.value)}  required ariaLabel="Email" />
-                  <FormInput placeholder="Password" type='password' value={password} onChange={(e) => setPassword(e.target.value)} required ariaLabel="Password" />
-                  <FormButton type='submit'>Continue</FormButton>
+                  <label className="form-label">Email Address</label>
+                  <FormInput placeholder="username@mail.com" type='email' value= {email} onChange={(e) => setEmail(e.target.value)}  required ariaLabel="Email" />
+                  <label className="form-label">Password</label>
+                  <FormInput placeholder="* * * * * * * * * * " type='password' value={password} onChange={(e) => setPassword(e.target.value)} required ariaLabel="Password" />
+                  <FormButton type='submit'>Sign In</FormButton>
+                  <div className="forgot-password-wrapper">
+                    <Link to="/forgot-password" onClick={() => {setShowModal(false);}}>
+                      Forgot Password?
+                    </Link>
+                  </div>
+                  
+                
+                  <span className="signup-action">Don't have an account? &nbsp;<a style={{cursor: "pointer"}} 
+                  onClick={() => {
+                    setShowModal(false);
+                    setShowModalSignUp(true)
+                  }}>Sign Up</a></span>
 
-                  <Link to="/forgot-password">
-                    <Text>Forgot Password?</Text>
-                  </Link>
-                  <a style={{cursor: "pointer"}} 
-                    onClick={() => {
-                      setShowModal(false);
-                      setShowModalSignUp(true)
-                    }}>
-                    <Text>Don't have an account? Sign up here</Text>
-                  </a>
                 </Form>
                 
                 

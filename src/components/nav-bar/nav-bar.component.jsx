@@ -21,8 +21,10 @@ import { ModalSignUp } from '../signup/signup-modal.component';
 import SearchBar from "../search-bar/search-bar.component";
 
 import { useAuth } from "../../contexts/auth.context";
+import { useModal } from '../../contexts/modal.context';
 
 const NavBar = ({toggle}) => {
+  const { showModal, setShowModal, showModalSignUp, setShowModalSignUp } = useModal()
   const { currentUser } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
@@ -35,19 +37,13 @@ const NavBar = ({toggle}) => {
     console.log("did this run")
     const threshold = 100;
    if (window.scrollY < threshold) {
+    
     setNavBg(`rgba(0,0,0,${window.scrollY/threshold})`)
    } else {
     setNavBg(`rgb(0,0,0)`);
    }
-    // if(window.scrollY >= threshold){
-    //   setScrollNav(true);
-    // } else {
-    //   setScrollNav(false);
-    // }
   }
 
-  const [showModal, setShowModal] = useState(false);
-  const [showModalSignUp, setShowModalSignUp] = useState(false);
 
   const openModal = () => {
     setShowModal(prev => !prev);
@@ -90,7 +86,7 @@ const NavBar = ({toggle}) => {
     <ModalSignUp showModalSignUp={showModalSignUp} setShowModalSignUp={setShowModalSignUp} setShowModal={setShowModal}/>
       <Nav navBg={navBg}>
         <NavBarContainer>
-          <NavLogo to='/' onClick={toggleHome}>UNDRDOG</NavLogo>
+          <NavLogo to='/' onClick={toggleHome}>BetterShift</NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
@@ -99,26 +95,48 @@ const NavBar = ({toggle}) => {
               <SearchBar isHeader={true} />
             </NavItem>}
             {hideSearchBar && <NavItem>
-              <NavLinks to='about' 
+              <NavLinks to='/' onClick={toggleHome}
               smooth={true} 
               duration={500} 
               spy={true} 
               exact='true' 
               offset={-80}
-              >About</NavLinks>
+              >Home</NavLinks>
             </NavItem>}
             {hideSearchBar && <NavItem>
-              <NavLinks to='services'
+              <NavLinks to='about'
               smooth={true} 
               duration={500} 
               spy={true} 
               exact='true' 
               offset={-80}
+              >About Us</NavLinks>
+            </NavItem>}
+            {hideSearchBar && <NavItem>
+              <NavLinks
+              smooth={true} 
+              duration={500} 
+              spy={true} 
+              exact='true' 
+              offset={-80}
+              onClick={openModalSignUp}
               >Get Started</NavLinks>
+            </NavItem>}
+            {hideSearchBar && <NavItem>
+              <NavLinks 
+              smooth={true} 
+              duration={500} 
+              spy={true} 
+              exact='true' 
+              offset={-80}
+              onClick={() => {
+                navigate("/contact")
+              }}
+              >Contact Us</NavLinks>
             </NavItem>}
           </NavMenu>
           {!currentUser && <NavBtn>
-            <NavBtnLinkSignIn onClick={openModal}>Sign In</NavBtnLinkSignIn>
+            <NavBtnLinkSignIn onClick={openModal}>Log In</NavBtnLinkSignIn>
             <NavBtnLinkSignUp onClick={openModalSignUp}>Sign Up</NavBtnLinkSignUp>
           </NavBtn>}
           {currentUser && <NavBtn>

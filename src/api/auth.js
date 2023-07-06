@@ -106,5 +106,5 @@ export async function resetPassword(passwordInfo) {
         credentials: 'include'
     })
     const result = await response.json()
-    return result.success;
+    return result;
 }

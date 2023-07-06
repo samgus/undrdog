@@ -1,9 +1,8 @@
 const ratingsLabels = {
-    1: "Bad",
-    2: "Okay",
-    3: "Good",
-    4: "Great",
-    5: "Amazing"
+    0: "Horrible",
+    1: "Poor",
+    2: "Pretty Good",
+    3: "Amazing!"
 }
 const familyMealLabels = {
     1: "No Family Meal",
@@ -14,11 +13,11 @@ const familyMealLabels = {
 }
 
 const sideWorkLabels = {
-    1: "Too much",
-    2: "Pretty bad",
-    3: "Normal amount",
-    4: "Barely any",
-    5: "No side work"
+    1: "None",
+    2: "Below Average",
+    3: "Average",
+    4: "Above Average",
+    5: "Stressful"
 }
 export {
     ratingsLabels,

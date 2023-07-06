@@ -1,0 +1,86 @@
+.user-profile__header {
+    width: 100%;
+    margin-bottom: 10px;
+
+    h1 {
+        color: #000;
+        font-family: "Poppins";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal; 
+    }
+}
+
+.user-profile__content {
+    width: 100%;
+    background-color: white;
+    box-shadow: 4px 4px 10px -5px rgba(0, 0, 0, 0.2); 
+
+    .user-profile__sidebar {
+        padding: 32px 48px; 
+        border-right: 1px solid #F0F6F9; 
+        max-width: 240px;
+        height: 100%;
+        ul {
+            list-style-type: none;
+            
+            li {
+                width: fit-content;
+                cursor: pointer;
+                color: #7E8A9D;
+                font-family: "Poppins";
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal; 
+                padding: 8px 12px; 
+                margin-bottom: 3px;
+                &:hover {
+                    text-decoration: underline;
+                }
+                &.selected {
+                    &:hover {
+                        text-decoration: none;
+                    }
+                    color: white;
+                    border-radius: 8px;
+                    border: 1px solid #1F4B24;
+                    background: #1F4B24;
+                    &.highlighted-red { 
+                        border-radius: 8px;
+                        border: 1px solid #FF5E5E;
+                        background: #FF5E5E;
+                        color: white;
+                    }
+                }
+
+                &.highlighted-red {
+                    color: #FF5E5E;
+                    font-family: "Poppins";
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal; 
+                }
+            }
+        }
+    }
+    .user-profile__body {
+        padding: 32px 48px; 
+        flex: 1;
+        .user-profile__page {
+            display: flex;
+            flex-direction: column;
+            h2 {
+                color: #000;
+                font-family: "Poppins";
+                font-size: 19px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal; 
+            }
+        }
+    }
+   
+}

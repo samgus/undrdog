@@ -42,12 +42,13 @@ import { useState, useCallback } from 'react';
    return (
      <div className={`${isHeader ? 'header-search-bar wrapper' : 'wrapper'}`}>
        <div className={name.length > 0 ? 'search-bar search-bar-change' : 'search-bar'}>
-         <input type="text" placeholder='Your Restaurant' onChange={optimizedFn} className={name.length > 0 ? 'input-change': ""} />
+         <input type="text" placeholder='Search for your restaurant' onChange={optimizedFn} className={name.length > 0 ? 'input-change': ""} />
          <div className='icon' style={{ zIndex: "3" }}><FaSearch /></div>
        </div>
        <ul className={name.length > 0 ? 'list-items list-items-show': 'list-items'}>
          {members.map((memberObject, i) => (
            <li className="list-item" onClick={() => {
+            console.log("memberObject", memberObject)
             handleClick(memberObject)
            }} key={i}>
              <p>{memberObject.name}</p>

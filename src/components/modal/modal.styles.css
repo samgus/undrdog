@@ -31,17 +31,15 @@
 
     margin: 0 auto;
     background-color: #fff;
-    min-width: 500px;
     border-radius: 20px;
     box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
-    border: 1px solid #000;
     height: fit-content;
 }
 
 .modal .close-icon-wrapper {
     position: absolute;
-    right: 10px;
-    top: 13px;
+    right: -10px;
+    top: 10px;
     z-index: 10;
     padding: 10px 20px 5px 20px;
     text-align: right;
@@ -49,7 +47,8 @@
 }
 
 .modal .close-icon-wrapper .close-icon {
-    color: #191b1b;
+    /* color: #191b1b; */
+    color: rgb(130, 130, 130);
     font-size: 20px;
     margin: 0;
     padding: 10px;

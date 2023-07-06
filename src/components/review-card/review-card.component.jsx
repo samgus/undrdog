@@ -1,4 +1,5 @@
 import { useState } from "react";
+import cx from "classnames";
 
 import "./review-card.styles.scss";
 
@@ -12,9 +13,15 @@ import { MdFastfood, MdBusinessCenter } from "react-icons/md"
 
 import { Tooltip } from 'react-tooltip'
 
+import { useModal } from "../../contexts/modal.context";
+import { useAuth } from "../../contexts/auth.context";
+
 function ReviewCard({ review, index }) {
+    const { currentUser } = useAuth()
+    const { setShowModal } = useModal()
     const [upVotes, setUpVotes] = useState(review.upVotes || 0);
     const [downVotes, setDownVotes] = useState(review.downVotes || 0);
+    const [voted, setVoted] = useState(null);
 
     const ratingToColor = (rating) => {
         const redLow = 255;
@@ -46,14 +53,12 @@ function ReviewCard({ review, index }) {
             ratingLowScore = (ratingPer*ratingRange)/5
             green = greenMid + ratingLowScore
         }
-        console.log("colors", red, green)
        return  `rgb(${red}, ${green}, 0)`;
     }
     const renderBigRating = () => {
         return ((review.treatmentFromBoss + review.treatmentFromGuest + review.familyMeal + review.sideWork)/4).toFixed(1)
     }
 
-    console.log("review", review);
     const renderDate = (date) => {
         const dateObject = new Date(date);
         return dateObject.toLocaleDateString()
@@ -121,28 +126,106 @@ function ReviewCard({ review, index }) {
                 <FaMoneyBillWave className="review-card__icon" /> <span>{review.shiftsWorked} shift(s) worked</span>
             </span>
             </div>        
-            <div className="vote-container flex">
-                <div className="vote-box upvote">
+            <div className={cx({
+                "vote-container": true,
+                "flex": true,
+                "disabled-btn": currentUser?._id === review.userId
+            })}>
+                <div className={cx({
+                    "vote-box": true,
+                     "upvote": true,
+                     "highlighted": voted === 'up'
+                })}>
                     <span>{upVotes}</span>
                     <FaThumbsUp  onClick={async () => {
-                        const result = await updateReview(review._id, {
-                            voteType: "upvote"
-                        })
-                        if (result.success) {
-                            setUpVotes(upVotes + 1)
+                        if (currentUser?._id === review.userId) {
+                            return;
+                        } else if (!currentUser) {
+                            setShowModal(true)
+                            return;
                         }
+                        console.log(voted)
+                        if (voted === 'up') {
+                            setVoted(null)
+                            const result = await updateReview(review._id, {
+                                voteType: "upvote",
+                                unset: true
+                            })
+                            if (result.success) {
+                                setUpVotes(upVotes - 1)
+                            }
+                            return
+                        } else if (voted === 'down') {
+                            console.log("voted down")
+                            const result = await updateReview(review._id, {
+                                voteType: "downvote",
+                                unset: true
+                            })
+                            if (result.success) {
+                                console.log("Trigger downvote")
+                                setDownVotes(downVotes - 1)
+                            }
+                        }
+
+                        setVoted('up')
+                        if (currentUser) {
+                            const result = await updateReview(review._id, {
+                                voteType: "upvote"
+                            })
+                            if (result.success) {
+                                setUpVotes(upVotes + 1)
+                            }
+                        } 
+                        
                     }} />
                 </div>
                 
-                <div className="vote-box downvote">
+                <div className={cx({
+                    "vote-box": true,
+                     "downvote": true,
+                     "highlighted": voted === 'down'
+                })}>
                     <span>{downVotes}</span>
                     <FaThumbsDown onClick={async () => {
-                    const result = await updateReview(review._id, {
-                        voteType: "downvote"
-                    })
-                    if (result.success) {
-                        setDownVotes(downVotes + 1)
-                    }
+                        if (currentUser?._id === review.userId) {
+                            return;
+                        } else if (!currentUser) {
+                            setShowModal(true)
+                            return;
+                        }
+                        console.log(voted)
+
+                        if (voted === 'down') {
+                            setVoted(null)
+                            const result = await updateReview(review._id, {
+                                voteType: "downvote",
+                                unset: true
+                            })
+                            if (result.success) {
+                                setDownVotes(downVotes - 1)
+                            }
+                            return
+                        } else if (voted === 'up') {
+                            console.log("voted up")
+                            const result = await updateReview(review._id, {
+                                voteType: "upvote",
+                                unset: true
+                            })
+                            if (result.success) {
+                                console.log("Trigger upvote")
+                                setUpVotes(upVotes - 1)
+                            }
+                        }
+
+                        setVoted("down")
+                        if (currentUser) {
+                            const result = await updateReview(review._id, {
+                                voteType: "downvote"
+                            })
+                            if (result.success) {
+                                setDownVotes(downVotes + 1)
+                            }
+                        } 
                     }}/>  
                 </div>
             </div>

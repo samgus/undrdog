@@ -1,5 +1,5 @@
 * {
-  font-family: 'mollen', sans-serif;
+  font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -31,5 +31,10 @@
 .justify-between {
   justify-content: space-between;
 }
-
-
+.error-text {
+  color: red;
+}
+.disabled-btn {
+  opacity: .5;
+  cursor: not-allowed !important; 
+}

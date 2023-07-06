@@ -17,15 +17,19 @@ import { ModalProvider } from "./contexts/modal.context";
 import { AuthProvider } from "./contexts/auth.context";
 import Logout from './pages/logout';
 import ForgotPassword from './components/forgot-password/forgot-password.component';
-
+import ResetPassword from "./components/reset-password/reset-password"
 import 'react-tooltip/dist/react-tooltip.css'
+
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 
 function App() {
   return (
     <Router>
       <AuthProvider>
-        <NavBar />
         <ModalProvider>
+          <NavBar />
           <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/logout' element={<Logout />} />
@@ -39,6 +43,7 @@ function App() {
             <Route path='/copyright-policy' element={<CopyrightPolicy/>} />
             <Route path='/terms-of-service' element={<TermsOfService/>} />
             <Route path='/forgot-password' element={<ForgotPassword/>} />
+            <Route path='/reset-password/:linkId' element={<ResetPassword/>} />
           </Routes>
         </ModalProvider>
       </AuthProvider>

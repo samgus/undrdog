@@ -17,6 +17,8 @@ import {
   Text
 } from './signup.styles'
 
+import "../signin/signin.scss";
+
 const Background = styled.div`
   top: 0;
   width: 100%;
@@ -31,15 +33,17 @@ const Background = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-  width: 800px;
-  height: auto;
-  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  color: #000;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  z-index: 10;
-  border-radius: 20px;
+width: auto;
+height: 650px;
+overflow: hidden;
+box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+background: white;
+color: #000;
+display: flex;
+position: relative;
+z-index: 10;
+border-radius: 8px;
+padding: 20px 30px;
 `;
 
 const ModalImg = styled.img`
@@ -75,8 +79,8 @@ const CloseModalButton = styled(MdClose)`
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   padding: 0;
   z-index: 12;
 `;
@@ -112,8 +116,8 @@ export const ModalSignUp = ({ showModalSignUp, setShowModalSignUp, setShowModal 
       if (result.success) {
         // log them in
         setCurrentUser(result.user)
-        alert('You successfully signed up');
-        navigate('/user/' + result.user._id)
+        setShowModalSignUp(false)
+        // navigate('/user/' + result.user._id)
       } else {
         setErrors(result.messages);
       }
@@ -160,23 +164,29 @@ export const ModalSignUp = ({ showModalSignUp, setShowModalSignUp, setShowModal 
         <Background onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
             <ModalWrapper showModalSignUp={showModalSignUp}>
-              <ModalImg src={Icon1} alt='rating' />
               <ModalContent>
                 <Form onSubmit={handleSignup}>
-                <FormH1>Create an account</FormH1>
+                <div className="form-header-grouping">
+                    <FormH1>Welcome back to Undrdog!</FormH1>
+                    <span className="form-subtitle">Have a voice, tell your story.</span>
+                  </div>
+               
                 {errors && errors.length > 0 && errors.map((error) => <p style={{ color: "red" }}>{error}</p>)}
-                <FormInput placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} type='name' required ariaLabel="Name" />
-                <FormInput placeholder="Email"  value= {email} onChange={(e) => setEmail(e.target.value)} type='email' required ariaLabel="Email" />
-                <FormInput placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} type='password' required ariaLabel="Password"/>
-                <FormInput placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} type='password' required ariaLabel="Confirm password" />
+                <label className="form-label">Name</label>
+                <FormInput placeholder="John Doe" value={name} onChange={(e) => setName(e.target.value)} type='name' required ariaLabel="Name" />
+                <label className="form-label">Email Address</label>
+                <FormInput placeholder="usersname@mail.com"  value= {email} onChange={(e) => setEmail(e.target.value)} type='email' required ariaLabel="Email" />
+                <label className="form-label">Password</label>
+                <FormInput placeholder="* * * * * * * * * *" value={password} onChange={(e) => setPassword(e.target.value)} type='password' required ariaLabel="Password"/>
+                <label className="form-label">Confirm Password</label>
+                <FormInput placeholder="* * * * * * * * * *" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} type='password' required ariaLabel="Confirm password" />
                 <FormButton type='submit'>Sign Up</FormButton>
-                <a onClick={() => {
-                  setShowModalSignUp(false)
+                
+                <span className="signup-action">Have an account? &nbsp;<a style={{cursor: "pointer"}} 
+                  onClick={() => {
+                    setShowModalSignUp(false)
                   setShowModal(true)
-                }}
-                style={{ cursor: "pointer" }}>
-                <Text >Already have an account?</Text>
-                </a>
+                  }}>Sign In</a></span>
                 </Form>
                
               </ModalContent>

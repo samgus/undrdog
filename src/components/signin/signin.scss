@@ -1,0 +1,67 @@
+.form-label {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 8px;
+}
+.form-subtitle {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: #8D93A1;
+}
+
+.form-header-grouping {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+    h1 {
+        margin-bottom: 5px;
+    }
+}
+
+.forgot-password-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    a {
+        text-decoration: none;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 15px;
+        /* identical to box height */
+        text-align: right;
+        color: #1F4B24;
+        margin-top: 5px;
+    }
+}
+
+.signup-action {
+    margin-top: 40px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins';
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+
+    /* identical to box height */
+    text-align: center;
+    color: #8A8F95;
+
+
+    a {
+        color: #000;
+        text-decoration: none;
+        font-weight: 500;
+    }
+}

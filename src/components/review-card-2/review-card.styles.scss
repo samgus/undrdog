@@ -1,0 +1,154 @@
+.review-card {
+    padding: 16px 16px 16px 40px;
+    gap: 28px;
+
+    /* Primary / White */
+    background: #FFFFFF;
+    border: 1px solid #ECECEC;
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+
+    .review-card__left {
+        border-right: 1px solid #ECECEC;
+        padding-right: 40px;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        .review-card__position-header {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-size: 15px;
+            line-height: 22px;
+
+            /* identical to box height */
+
+            color: #000000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            margin-top: 4px;
+            .review-card__posiiton {
+                font-weight: 600
+            }
+        }
+
+        .review-card__big-rating {
+            display: flex;
+            align-items: center;
+            width: auto;
+            .review-card__big-rating__label {
+                margin-bottom: -3px;
+                margin-right: 10px;
+
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 22px;
+
+                /* identical to box height */
+
+                color: #000000;
+            }
+            .MuiRating-root {
+                margin: 0;
+            }
+            .MuiRating-decimal {
+
+            }
+            margin-bottom: 20px;
+        }
+        .review-card__review-body {
+            margin-bottom: 20px;
+            p {
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 20px;
+            }
+            flex: 1
+        }
+
+        .vote-container {
+            display: flex;
+            flex-wrap: wrap;
+            .vote-box {
+                margin-bottom: 10px;
+                min-width: fit-content;
+                padding: 4px 12px;
+                gap: 8px;
+
+                /* Primary / White */
+                background: #FFFFFF;
+                border: 1px solid #ECECEC;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                img {
+                    margin-right: 5px;
+                }
+                margin-right: 12px;
+                &.upvote {
+                    span {
+                        color: #1F4B24;
+                    }
+                    &.highlighted {
+                        background: rgba(31, 75, 36, 0.2);
+                        border: 1px solid #1F4B24;
+                    }
+                }
+
+                &.downvote {
+                    span {
+                        color: #757575;
+                    }
+                    &.highlighted {
+                        background: rgba(234, 51, 35, 0.2);
+                        border: 1px solid #EA3323;
+                    }
+                }
+                span {
+
+                    font-family: 'Poppins';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 13px;
+                    line-height: 20px;
+
+                    /* identical to box height */
+
+                    /* Primary/Dark Green */
+                   
+                    
+
+                }
+            }
+        }
+    }
+
+    .review-card__right {
+        margin-left: auto;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        .review-card__row {
+            margin-bottom: 16px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 22px;
+
+            /* identical to box height */
+
+            color: #000000;
+            .review-card__row-val {
+                font-weight: 500;
+            }
+        }   
+    }
+}

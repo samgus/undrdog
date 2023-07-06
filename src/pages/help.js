@@ -11,7 +11,8 @@ const Help = () => {
       }}
     >
       <ScrollToTop />
-      <h1>Help</h1>
+      {/* <h1>Help </h1> */}
+      <h1>Email: samgus93@gmail.com</h1>
     </div>
   );
 };

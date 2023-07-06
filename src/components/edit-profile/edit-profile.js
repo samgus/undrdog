@@ -9,17 +9,23 @@ import {
 
 import { updateUserById } from "../../api/auth";
 
-function EditProfile({ currentUser }) {
+import { useAuth } from "../../contexts/auth.context";
+
+function EditProfile({ currentUser, setCurrentUser }) {
     const [errors, setErrors] = useState([])
     const [name, setName] = useState(currentUser.name)
     const [email, setEmail] = useState(currentUser.email)
 
-    const editProfile = () => {
+    const editProfile = (e) => {
+        e.preventDefault();
         updateUserById(currentUser._id, {
             name, email
         }).then((result) => {
             
             if (result.success) {
+                if (result.user) {
+                    setCurrentUser(result.user)
+                }
                 alert("User info was updated successfully")
             } else {
                 alert("There was an error, try again!")
@@ -30,6 +36,8 @@ function EditProfile({ currentUser }) {
             alert("There was an internal error, try again!");
             // window.location.reload();
         })
+
+        return false;
     }
     return <div className="edit-profile w-100">
         <Form onSubmit={editProfile}>

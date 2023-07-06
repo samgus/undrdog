@@ -2,8 +2,11 @@ import styled from "styled-components";
 
 export const InfoContainer = styled.div`
     color: #fff;
-    background: ${({ lightBg }) => ( lightBg ? '#f9f9f9' : '#010606' )};
-
+    background: ${({ img }) => `url(${img})`};
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 50%;
+    position: relative;
     @media screen and (max-width: 768px) {
         padding: 100px 0;
     }
@@ -12,12 +15,11 @@ export const InfoContainer = styled.div`
 export const InfoWrapper = styled.div`
     display: grid;
     z-index: 1;
-    height: 860px;
+    height: 700px;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1300px;
     margin-right: auto;
     margin-left: auto;
-    padding: 0 24px;
     justify-content: center;
 `
 
@@ -36,13 +38,13 @@ export const InfoRow = styled.div`
 
 export const Column1 = styled.div`
     margin-bottom: 15px;
-    padding: 0 15px;
     grid-area: col1;
+    position: relative;
+    z-index: 1;
 `
 
 export const Column2 = styled.div`
     margin-bottom: 15px;
-    padding: 0 15px;
     grid-area: col2;
 `
 
@@ -50,36 +52,39 @@ export const TextWrapper = styled.div`
     max-width: 540px;
     padding-top: 0;
     padding-bottom: 60px;
+    color: white;
 `
 
 export const TopLine = styled.p`
     color: #01bf71;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 16px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1.4px;
     text-transform: uppercase;
     margin-bottom: 16px;
+    font-family: "Poppins";
+
 `
 
 export const Heading = styled.h1`
     margin-bottom: 24px;
-    font-size: 48px;
+    font-size: 42px;
     line-height: 1.1;
-    font-weight: 600;
-    color: ${({ lightText }) => (lightText ? '#f7f8fa' : '#010606')};
-
+    font-weight: 500;
+    color: white;
+    font-family: "Poppins";
     @media screen and (max-width: 480px) {
         font-size: 32px;
     }
 `
 
 export const Subtitle = styled.p`
-    max-width: 440px;
+    max-width: 500px;
     margin-bottom: 35px;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
-    color: ${({ darkText }) => (darkText ? '#010606' : '#fff')};
+    color: white;
 `
 
 export const BtnWrap = styled.div`

@@ -34,13 +34,32 @@ export const HeroBg = styled.div`
     height: 100%;
     overflow: hidden;
 `
+export const FadeUp = styled.div`
+    opacity: 0;
+    transform: translateY(50px);
+    animation-name: fadeUp;
+    animation-duration: 1s;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+
+    @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`
 
 export const VideoBg = styled.video`
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
-    background: #232a34
+    background: #232a34;
 `
 
 export const HeroContent = styled.div`
@@ -55,7 +74,8 @@ export const HeroContent = styled.div`
 
 export const HeroH1 = styled.h1`
     color: #fff;
-    font-size: 48px;
+    font-size: 44px;
+    font-weight: 450;
     text-align: center;
 
     @media screen and (max-width: 768px) {

@@ -1,6 +1,7 @@
 import Icon1 from '../../images/svg-1.svg'
 import Icon2 from '../../images/svg-2.svg'
 import Icon3 from '../../images/svg-3.svg'
+import infoImage from '../../images/info1.jpg';
 
 export const homeObjOne = {
     id: 'about',
@@ -8,12 +9,12 @@ export const homeObjOne = {
     lightText: false,
     lightTextDesc: false,
     topLine: '',
-    headline: 'You Matter',
+    headline: 'You matter',
     description: "Everyone deserves to work in a safe and lucrative environment. It's important to know beforehand if a restaurant offering employment is right for you.",
     description2: "Our mission is to empower you with the facts you need to make those informed decisions. Hearing from people who have direct experience is the only way to know if a restaurant is a good match. This time, go directly to the source!",
     buttonLabel: 'Get started',
     imgStart: false,
-    img: Icon1,
+    img: infoImage,
     alt: 'Rating',
     dark: false,
     primary: false,
@@ -26,7 +27,7 @@ export const homeObjTwo = {
     lightText: false,
     lightTextDesc: false,
     topLine: 'Never feel disposable again',
-    headline: 'You Matter',
+    headline: 'You matter',
     description: "Every person derserves to work in an environment where they feel safe. Figure out which is a great restuarant to work for and which restuarant's to avoid by knowing people's experience ahead of time!",
     buttonLabel: 'Learn More',
     imgStart: true,

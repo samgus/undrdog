@@ -5,7 +5,22 @@ export async function createReview(review) {
         headers: {
             "Content-Type": 'application/json'
         },
-        body: JSON.stringify(review)
+        body: JSON.stringify(review),
+        credentials: 'include'
+    })
+    const result = await response.json()
+    return result;
+}
+
+export async function editReview(reviewId, review) {
+    const response = await fetch(`http://localhost:8080/review/${reviewId}`, {
+        method: 'put',
+        mode: 'cors',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(review),
+        credentials: 'include'
     })
     const result = await response.json()
     return result;
@@ -29,7 +44,8 @@ export async function getReviewsByUserId(userId) {
         mode: 'cors',
         headers: {
             "Content-Type": 'application/json'
-        }
+        },
+        credentials: 'include'
     })
     const result = await response.json()
     return result
@@ -42,7 +58,8 @@ export async function updateReview(mongoId, updateBody) {
         headers: {
             "Content-Type": 'application/json'
         },
-        body: JSON.stringify(updateBody)
+        body: JSON.stringify(updateBody),
+        credentials: 'include'
     })
     const result = await response.json()
     return result;

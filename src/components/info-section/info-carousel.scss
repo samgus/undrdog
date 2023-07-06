@@ -1,0 +1,187 @@
+.info-carousel {
+    max-width: 100vw;
+    background-color: rgb(245,245,245);
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.swiper-wrapper {
+    max-width: 100vw;
+    height: 320px;
+    padding: 20px;
+    max-height: 100%;
+    background-color: rgb(245,245,245);
+    left: -12px
+}
+.swiper {
+    box-sizing: border-box;
+    max-width: 100vw;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+   
+    width: 412px;
+    height: 287px;
+    .swiper-content {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+         /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 48px 64px;
+
+        width: 412px;
+        height: 287px;
+
+        /* Primary / White */
+        background: #FFFFFF;
+
+        /* Secondary/Secondary Button */
+        border: 1px solid #D8D8DC;
+
+        /* Shadow/14 */
+        box-shadow: 0px 14px 16px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        &.not-active {
+            transform: scale(0.8);
+            opacity: .5;
+        }
+
+        .swiper-content__review {
+            display: flex;
+            align-items: center;
+            .swiper-content__review-circle {
+                margin-right: 15px;
+                display: flex;
+                align-items:center;
+                justify-content: center;
+                border: 1px solid #1F4B24;
+                width: 50px;
+                height: 50px;
+                border-radius: 100%;
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 300;
+                font-size: 19px;
+                line-height: 28px;
+
+                /* identical to box height */
+
+                /* Primary/Off Black */
+                color: #323232;
+
+
+            }
+            .swiper-content__review-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                text-align: left;
+                label {
+                    display: block;
+                    font-family: 'Poppins';
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 19px;
+                    line-height: 28px;
+                    color: #323232;
+                }
+                span {
+                    font-family: 'Poppins';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 17px;
+                    line-height: 26px;
+                    color: #323232;
+                }
+                
+            }
+            margin-bottom: 20px;
+        }
+        .swiper-content__description {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 26px;
+
+            /* Primary/Off Black */
+            color: #323232;
+            text-align: left;
+
+        }
+    }
+   
+
+
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .info-carousel {
+    min-height: 400px;
+  }
+
+.swiper-button-prev {
+  background-image: url("../../images/chevron_left.png") !important;
+  width: 75px;
+  height: 75px;
+  &::after {
+    content: unset !important;
+  }
+  left: 19px
+}
+
+.swiper-button-next {
+    background-image: url("../../images/chevron_right.png") !important;
+    width: 75px;
+  height: 75px;
+    &::after {
+        content: unset !important;
+      }
+      right:0px
+}
+
+.swiper-pagination-bullet {
+/* Primary/Off Black */
+border: 0.5px solid #323232;
+width: 12px;
+height: 12px;
+background-color: transparent;
+margin-bottom: 1px !important;
+}
+.swiper-pagination-bullet-active {
+   width: 14px;
+    height: 14px;
+    margin-bottom: 0px !important;;
+    background: rgba(50, 50, 50, 0.65);
+
+    /* Primary/Off Black */
+    border: 0.5px solid #323232;
+}
+
+.info-carousel__header {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 66px;
+    text-align: center;
+
+    /* Primary / Black */
+    color: #000000;
+
+    max-width: 860px;
+    
+}
