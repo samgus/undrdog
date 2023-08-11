@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react"
-import { 
-    Form,
-    FormButton, 
-    FormH1, 
-    FormInput, 
-    FormLabel,
-  } from './reset-password.styles';
+
 
 import { useNavigate } from "react-router-dom";
 import { resetPassword } from "../../api/auth";
 
 import { useAuth } from "../../contexts/auth.context";
+import { useModal } from "../../contexts/modal.context";
+import "./reset-password.styles.scss";
+
+import check from "../../images/check.svg";
+
 
 function ResetPassword() {
     const navigate = useNavigate()
@@ -18,6 +17,9 @@ function ResetPassword() {
     const [errors, setErrors] = useState([])
     const [password, setPassword] = useState()
     const [confirmPassword, setConfirmPassword] = useState()
+    const [completedState, setCompletedState] = useState(false)
+
+    const { setModal } = useModal()
 
     useEffect(() => {
         // only render page if forgot-password-check request returns true
@@ -30,11 +32,11 @@ function ResetPassword() {
         try {
             const result = await resetPassword({
                 password,
-                confirmPassword
+                confirmPassword,
+                userId: currentUser._id
             })
             if (result.success) {
-                alert("Password successfully changed")
-                navigate('/?signin=true')
+                setCompletedState(true)
             } else {
                 setErrors([result.message]);
             }
@@ -45,21 +47,37 @@ function ResetPassword() {
        return false;
       
     }
-    return <div className="edit-profile w-100" style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '90vh'
-    }}>
-        <Form onSubmit={resetPasswordHandler}>
-            <FormH1>Reset Password</FormH1>
-            {errors && errors.length > 0 && errors.map((error) => <p style={{ color: "red", marginBottom: "10px" }}>{error}</p>)}
-            {/* <FormLabel htmlFor='for'>New Password</FormLabel> */}
-            <FormInput type='password' value={password} placeholder="New Password" onChange={(e) => setPassword(e.target.value)} required />
-            {/* <FormLabel htmlFor='for'>Confirm New Password</FormLabel> */}
-            <FormInput type='password' value={confirmPassword} placeholder="Confirm New Password" onChange={(e) => setConfirmPassword(e.target.value)} required />
-            <FormButton type='submit'>Submit</FormButton>
-        </Form>
+    if (completedState) {
+        return <div className="change-password change-password__completed-state">
+            <h2 className="change-password__heading-title">Successfully Changed Password</h2>
+
+            <img src={check} />
+
+            <button className="change-password__submit" onClick={() => {
+                setModal({
+                    modal: "reset-password", show: false
+                })
+            }}>Done</button>
+        </div>
+    }
+    return <div className="change-password">
+        <div className="change-password__heading">
+            <h2 className="change-password__heading-title">Change password</h2>
+        </div>
+        <div className="change-password__form">
+            <div className="change-password__input-row">
+                <label className="change-password__input-label">New Password</label>
+                <input className="change-password__input-text" type="password"  value={password} placeholder="*********" onChange={(e) => setPassword(e.target.value)} required/>
+            </div>
+
+            <div className="change-password__input-row">
+                <label className="change-password__input-label">Confirm Password</label>
+                <input className="change-password__input-text" type="password"  value={confirmPassword} placeholder="*********" onChange={(e) => setConfirmPassword(e.target.value)} required/>
+            </div> 
+        </div>
+        <div className="change-password__footer">
+            <button className="change-password__submit" onClick={resetPasswordHandler}>Reset Password</button>
+        </div>
     </div>
 }
 

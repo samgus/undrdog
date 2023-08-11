@@ -63,7 +63,7 @@ export const TopLine = styled.p`
     letter-spacing: 1.4px;
     text-transform: uppercase;
     margin-bottom: 16px;
-    font-family: "Poppins";
+    font-family: "Montserrat";
 
 `
 
@@ -73,7 +73,7 @@ export const Heading = styled.h1`
     line-height: 1.1;
     font-weight: 500;
     color: white;
-    font-family: "Poppins";
+    font-family: "Montserrat";
     @media screen and (max-width: 480px) {
         font-size: 32px;
     }

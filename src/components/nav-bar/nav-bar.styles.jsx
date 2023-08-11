@@ -84,10 +84,11 @@ export const NavLinks = styled(LinkS)`
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
-
+  padding-top: 10px;
   &:hover {
-    color: rgb(3,76,31);;
+    color: #C8C1B6;
     transition: all 0.2s ease-in-out;
+    text-decoration: none;
   }
 
   &.active {
@@ -108,7 +109,8 @@ export const NavBtn = styled.nav`
 export const NavBtnLinkSignIn = styled.button`
    font-size: 14px;
    border-radius: 7px;
-   background: #000;
+   background: transparent;
+   backdrop-filter: blur(20px);
    padding: 9px 20px;
    color: #fff;
    outline: none;
@@ -130,8 +132,7 @@ export const NavBtnLinkSignUp = styled.button`
    font-size: 14px;
    //font-weight: 600;
    border-radius: 7px;
-   background:rgb(3,76,31);
-   /* background: linear-gradient(164.17deg, #FF4763 -19.57%, #AC0053 118.18%); */
+   background:rgb(162,85,45);
    padding: 10px 22px;
    color: #fff;
    outline: none;

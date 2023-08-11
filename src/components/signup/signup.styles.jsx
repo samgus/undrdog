@@ -97,7 +97,7 @@ font-size: 12px;
 `
 
 export const FormButton = styled.button`
-    background: rgb(3,76,31);
+    background: rgb(53,62,66);
     padding: 12px 0;
     border: none;
     border-radius: 8px;

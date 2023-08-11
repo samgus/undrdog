@@ -80,11 +80,6 @@ const ReviewForm = ({ placeId, placeName, edit, currentReviewInfo = {} }) => {
     }
     
     if (result.success) {
-      // if (edit) {
-      //   alert('You edited your review')
-      // } else {
-      //   alert('You created your review')
-      // }
       window.location.reload();
     } else {
       alert("Sorry your review did not save, try again")

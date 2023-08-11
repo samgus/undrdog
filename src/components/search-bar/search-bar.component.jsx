@@ -3,6 +3,7 @@ import { useState, useCallback } from 'react';
  import './search-bar.styles.scss'
  import { FaSearch } from 'react-icons/fa';
  import { searchForMembers, createMember, getMemberByPlaceId } from '../../api/members';
+import cx from "classnames";
 
  const SearchBar = ({ isHeader = false }) => {
   const [name, setName] = useState("");
@@ -41,7 +42,12 @@ import { useState, useCallback } from 'react';
   }
    return (
      <div className={`${isHeader ? 'header-search-bar wrapper' : 'wrapper'}`}>
-       <div className={name.length > 0 ? 'search-bar search-bar-change' : 'search-bar'}>
+       <div className={cx({
+            "search-bar-change": name.length > 0,
+            'search-bar' : true,
+            "list-showing": name.length > 0 && members.length > 0
+          })}>
+
          <input type="text" placeholder='Search for your restaurant' onChange={optimizedFn} className={name.length > 0 ? 'input-change': ""} />
          <div className='icon' style={{ zIndex: "3" }}><FaSearch /></div>
        </div>

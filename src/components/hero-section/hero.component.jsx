@@ -1,6 +1,6 @@
-import React, { useRef, useState, useMemo, useEffect } from 'react'
+import React, { useState } from 'react'
 import Video from '../../videos/video.mp4'
-// import { Button } from '../button.styles'
+import { useSpring, animated,easings } from '@react-spring/web'
 import { 
   HeroContainer, 
   HeroBg, 
@@ -11,44 +11,39 @@ import {
   HeroBtnWrapper, 
 } from './hero.styles'
 import SearchBar from '../search-bar/search-bar.component'
-import { useSpring, animated } from "react-spring";
-import VisibilitySensor from "react-visibility-sensor";
 
 
 const HeroSection = () => {
   const [heroVisibility, setHeroVisibility] = useState(false);
   const {opacity} = useSpring({opacity: heroVisibility ? 1 : 0});
 
-    // const [ hover, setHover ] = useState(false);
-    // const onHover = () => {
-    //     setHover(!hover)
-    // }
-  //   React.useEffect(() => {
-  //   const observer = new IntersectionObserver(entries => {
-  //     // In your case there's only one element to observe:     
-  //     if (entries[0].isIntersecting) {
-      
-  //       // Not possible to set it back to false like this:
-  //       setHeroVisibility(true);
-        
-  //       // No need to keep observing:
-  //       observer.unobserve(domRef.current);
-  //     }
-  //   });
-    
-  //   observer.observe(domRef.current);
-    
-  //   return () => observer.disconnect();
-  // }, []);
+  const styles = useSpring({
+    config: {duration: 500},
+    easing: {
+      value: 'ease-in-out'
+    },
+    from: {
+      opacity: 0,
+
+      transform: "scale(0.9)"
+    },
+    to: {
+      opacity: 1,
+      transform: "scale(1)"
+    },
+  })
+
+  const AnimatedHero = HeroContent;
 
   return (
     <HeroContainer id='home'>
+     
       <HeroBg>
         <VideoBg autoPlay loop muted src={Video} type='video/mp4' />
-      </HeroBg>
-      {/* <animated.div style={{ opacity }}> */}
-      
-        <HeroContent >
+      </HeroBg> 
+      {/* <div data-aos="fade-up">      */}
+        <AnimatedHero style={styles}>
+        <div data-aos="fade-up" data-aos-duration="1400">
           <HeroH1>Have a voice, tell your story.</HeroH1>
           <HeroP>
               Find a healthy work environment that suits you
@@ -56,8 +51,9 @@ const HeroSection = () => {
           <HeroBtnWrapper>
               <SearchBar />
           </HeroBtnWrapper>
-        </HeroContent>
-      {/* </animated.div> */}
+          </div>
+        </AnimatedHero>
+        {/* </div> */}
     </HeroContainer>
   )
 }

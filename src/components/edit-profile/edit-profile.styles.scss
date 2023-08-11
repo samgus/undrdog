@@ -1,0 +1,89 @@
+.edit-profile {
+    padding: 40px 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &.edit-profile__completed-state {
+        align-items: center;
+        justify-content: center;
+        img {
+            margin: 24px 0px;
+        }
+    }
+
+    .edit-profile__heading {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        
+    }
+
+    .edit-profile__heading-title {
+        color: #000;
+        font-family: "Montserrat";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal; 
+    }
+
+    .edit-profile__form {
+        width: 280px;
+        margin-bottom: 32px;
+        .edit-profile__input-row {
+            display: flex;
+            flex-direction: column;
+
+            .edit-profile__input-label {
+                color: #4C5A67;
+                font-family: "Montserrat";
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                margin-bottom: 8px;
+            }
+
+            .edit-profile__input-text {
+                padding: 12px;
+                width: 100%;
+                border-radius: 8px;
+                border: 1px solid #EBECEE; 
+                color: #000;
+                font-family: "Montserrat";
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal; 
+                margin-bottom: 16px;
+                &::placeholder {
+                    color: #B9BDC0;
+                }
+            }
+
+        }
+    }
+
+
+    .edit-profile__submit {
+        display: flex;
+        width: 280px;
+        padding: 10px 40px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px; 
+        border-radius: 8px; 
+        background: #1F4B24; 
+
+        color: #FFF;
+        text-align: center;
+        font-family: "Montserrat";
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal; 
+    }
+}

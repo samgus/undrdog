@@ -162,9 +162,9 @@ function ReviewCard({ review, index }) {
             <div className="review-card__row">
                 <span>Treatment From Boss: <span className="review-card__row-val">{ratingsLabels[review.treatmentFromBoss]}</span> </span>
             </div>
-            <div className="review-card__row">
+            {review.benefits && review.benefits.length > 0 && <div className="review-card__row">
                 <span>Benefits: <span className="review-card__row-val">{review.benefits.join(', ')}</span></span>
-            </div>
+            </div>}
         </div>
     </div>
 }

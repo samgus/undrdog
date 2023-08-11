@@ -92,7 +92,7 @@ export const ModalSignIn = ({ showModal, setShowModal, setShowModalSignUp }) => 
               <ModalContent>
                 <Form onSubmit={signIn}>
                   <div className="form-header-grouping">
-                    <FormH1>Welcome back to Undrdog!</FormH1>
+                    <FormH1>Welcome to BetterShift!</FormH1>
                     <span className="form-subtitle">Have a voice, tell your story.</span>
                   </div>
                

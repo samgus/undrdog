@@ -76,7 +76,7 @@ export const FormH1 = styled.h1`
     text-align: center;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins';
+    font-family: 'Montserrat';
     font-weight: 500;
 `;
 
@@ -101,7 +101,7 @@ export const FormInput = styled.input`
 ` 
 
 export const FormButton = styled.button`
-    background: rgb(3,76,31);
+    background: rgb(53,62,66);
     padding: 12px 0;
     border: none;
     border-radius: 8px;
@@ -166,7 +166,7 @@ export const ModalContent = styled.div`
   }
   button {
     padding: 10px 24px;
-    background: rgb(3,76,31);
+    background: rgb(53,62,66);
     color: #fff;
     border: none;
   }

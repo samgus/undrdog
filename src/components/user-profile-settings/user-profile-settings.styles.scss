@@ -1,0 +1,103 @@
+.user-profile__page.user-profile__page-settings {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    h2 {
+        color: #000;
+        font-family: "Montserrat";
+        font-size: 19px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal; 
+    }
+    .user-profile__settings-options {
+        width: 100%;
+        flex: 1;
+        display: flex;
+        align-items: flex-end;
+        height: 100%;
+        justify-content: space-between;
+    }
+}
+.user-profile__change-password {
+    cursor: pointer;
+    margin-bottom: 20px;;
+    padding: 10px 40px;
+    gap: 12px;
+
+    width: 50%;
+    height: 40px;
+    margin-right: 7px;
+    /* Primary/Dark Green */
+    background: rgb(220,220,220);
+    color: rgb(50,50,50);
+    border-radius: 8px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+
+    /* identical to box height */
+    text-align: center;
+
+    
+}
+
+.user-profile__deactivate-account {
+    cursor: pointer;
+    margin-bottom: 20px;
+    padding: 10px 40px;
+    gap: 12px;
+
+    width: 50%;
+    height: 40px;
+
+    /* Primary/Dark Green */
+    background: #FF5E5E;
+    border-radius: 8px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+
+    /* identical to box height */
+    text-align: center;
+
+    /* Primary / White */
+    color: #FFFFFF;
+
+    
+}
+
+
+.user-profile__activate-account {
+    cursor: pointer;
+    margin-bottom: 20px;
+    padding: 10px 40px;
+    gap: 12px;
+
+    width: 50%;
+    height: 40px;
+
+    /* Primary/Dark Green */
+    background: rgb(100,255,120);
+    border-radius: 8px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+
+    /* identical to box height */
+    text-align: center;
+
+    /* Primary / White */
+    color: #FFFFFF;
+
+    
+}

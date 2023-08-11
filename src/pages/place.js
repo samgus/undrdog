@@ -34,6 +34,7 @@ const Place = () => {
 
 
     const parseOpeningHours = (openingHours) => {
+      console.log(openingHours)
       const today = new Date();
       const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
       const currentDay = dayOfWeek[today.getDay()];
@@ -44,6 +45,9 @@ const Place = () => {
       });
 
       const startEndTime = matchingOpeningHours.split(currentDay+":")[1].trim().split("–")
+      if (startEndTime.indexOf("Closed") > -1) {
+        return [false, "Closed"]
+      }
       const isAMOpening = startEndTime[0].indexOf('AM') > -1;
       const isAMClosing= startEndTime[1].indexOf('AM') > -1;
       let hoursOpening, hoursClosing

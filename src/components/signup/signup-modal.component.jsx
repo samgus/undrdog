@@ -68,7 +68,7 @@ const ModalContent = styled.div`
   }
   button {
     padding: 10px 24px;
-    background: rgb(3,76,31);;
+    background: rgb(53,62,66);
     color: #fff;
     border: none;
   }
@@ -167,7 +167,7 @@ export const ModalSignUp = ({ showModalSignUp, setShowModalSignUp, setShowModal 
               <ModalContent>
                 <Form onSubmit={handleSignup}>
                 <div className="form-header-grouping">
-                    <FormH1>Welcome back to Undrdog!</FormH1>
+                    <FormH1>Welcome to BetterShift!</FormH1>
                     <span className="form-subtitle">Have a voice, tell your story.</span>
                   </div>
                

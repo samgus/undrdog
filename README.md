@@ -1,4 +1,4 @@
-# Undrdog
+# BetterShift
 
 ### Overview
 - The purpose of this site is to solve the problem of not knowing where to work becasue people have been taken advantage of, or not able to make money where they were guarenteed a certain amount per week.

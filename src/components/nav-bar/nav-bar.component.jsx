@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import betterShiftLogo from "../../images/betterShiftLogo.svg"
 import { useLocation, useNavigate } from 'react-router-dom';
-import { FaBars } from 'react-icons/fa';
+import { FaBars, FaChevronDown } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { animateScroll as scroll } from 'react-scroll';
 import {
@@ -23,24 +24,27 @@ import SearchBar from "../search-bar/search-bar.component";
 import { useAuth } from "../../contexts/auth.context";
 import { useModal } from '../../contexts/modal.context';
 
+import "../../styles/navbar.scss";
+
 const NavBar = ({toggle}) => {
   const { showModal, setShowModal, showModalSignUp, setShowModalSignUp } = useModal()
   const { currentUser } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
-  const [hideSearchBar, setHideSearchBar] = useState(location.pathname === '/');
 
+  const [hideSearchBar, setHideSearchBar] = useState(location.pathname === '/');
+  const [showDropdownMenu, setShowDropdownMenu] = useState(false);
   const [scrollNav, setScrollNav] = useState(!hideSearchBar);
-  const [navBg, setNavBg] = useState(hideSearchBar ? 'rgba(0,0,0,0)' : `rgb(0,0,0)`);
+  const [navBg, setNavBg] = useState(hideSearchBar ? 'rgba(0,0,0,0)' : `rgb(35,36,34)`);
 
   const changeNav = () => {
     console.log("did this run")
     const threshold = 100;
    if (window.scrollY < threshold) {
     
-    setNavBg(`rgba(0,0,0,${window.scrollY/threshold})`)
+    setNavBg(`rgba(35,36,34,${window.scrollY/threshold})`)
    } else {
-    setNavBg(`rgb(0,0,0)`);
+    setNavBg(`rgb(35,36,34)`);
    }
   }
 
@@ -60,7 +64,7 @@ const NavBar = ({toggle}) => {
       changeNav();
       window.addEventListener('scroll', changeNav);
     } else {
-     setNavBg(`rgb(0,0,0)`);
+     setNavBg(`rgb(53,62,66)`);
     }
 
     return () => {
@@ -86,7 +90,9 @@ const NavBar = ({toggle}) => {
     <ModalSignUp showModalSignUp={showModalSignUp} setShowModalSignUp={setShowModalSignUp} setShowModal={setShowModal}/>
       <Nav navBg={navBg}>
         <NavBarContainer>
-          <NavLogo to='/' onClick={toggleHome}>BetterShift</NavLogo>
+          <img src={betterShiftLogo} className="navbar__logo" onClick={(e) => {
+            navigate('/')
+            }}/>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
@@ -94,7 +100,7 @@ const NavBar = ({toggle}) => {
             {!hideSearchBar && <NavItem>
               <SearchBar isHeader={true} />
             </NavItem>}
-            {hideSearchBar && <NavItem>
+            {/* {hideSearchBar && <NavItem>
               <NavLinks to='/' onClick={toggleHome}
               smooth={true} 
               duration={500} 
@@ -102,14 +108,17 @@ const NavBar = ({toggle}) => {
               exact='true' 
               offset={-80}
               >Home</NavLinks>
-            </NavItem>}
+            </NavItem>} */}
             {hideSearchBar && <NavItem>
-              <NavLinks to='about'
+              <NavLinks
               smooth={true} 
               duration={500} 
               spy={true} 
               exact='true' 
               offset={-80}
+              onClick={() => {
+                navigate("/about")
+              }}
               >About Us</NavLinks>
             </NavItem>}
             {hideSearchBar && <NavItem>
@@ -135,28 +144,32 @@ const NavBar = ({toggle}) => {
               >Contact Us</NavLinks>
             </NavItem>}
           </NavMenu>
-          {!currentUser && <NavBtn>
-            <NavBtnLinkSignIn onClick={openModal}>Log In</NavBtnLinkSignIn>
-            <NavBtnLinkSignUp onClick={openModalSignUp}>Sign Up</NavBtnLinkSignUp>
-          </NavBtn>}
-          {currentUser && <NavBtn>
-            <NavItem>
-              <NavLinks 
-              smooth={true} 
-              onClick={() => {
-                navigate("/user/"+currentUser._id)
-              }}
-              >Your Profile</NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks
-              smooth={true} 
-              onClick={() => {
-                navigate("/logout")
-              }}
-              >Logout</NavLinks>
-            </NavItem>
-          </NavBtn>}
+          <div className="navbar__options">
+            {!currentUser && <NavBtn>
+              <NavBtnLinkSignIn onClick={openModal}>Log In</NavBtnLinkSignIn>
+              <NavBtnLinkSignUp onClick={openModalSignUp}>Sign Up</NavBtnLinkSignUp>
+            </NavBtn>}
+            {currentUser && <div onMouseLeave={() => setShowDropdownMenu(false)  } onMouseEnter={() => setShowDropdownMenu(true)} className="navbar__options-btn"><span>{currentUser.name}</span> <FaChevronDown /></div>}
+            {showDropdownMenu && currentUser && <ul className="navbar__options-dropdown" onMouseEnter={() => setShowDropdownMenu(true)} onMouseLeave={() => setShowDropdownMenu(false) }>
+                <li onClick={() => {
+                    navigate("/user/"+currentUser._id)
+                  }}>
+                  Your Profile
+                </li>
+                <li onClick={() => {
+                    navigate("/user/"+currentUser._id+"?deepLink=reviews")
+                  }}>
+                  Your Reviews
+                </li>
+                <li onClick={() => {
+                    navigate("/logout")
+                  }}>
+              
+                  Logout
+                </li>
+            </ul>}
+          </div>
+          
         </NavBarContainer>
       </Nav>
     </IconContext.Provider>

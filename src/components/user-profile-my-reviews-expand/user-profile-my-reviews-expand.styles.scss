@@ -1,0 +1,174 @@
+
+.user-profile__back-button {
+    color: #000;
+    font-family: "Montserrat";
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+    margin-bottom: 28px;
+    cursor: pointer;
+}
+.user-profile__reviews-section {
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid #EFF5FA;
+    background: #FFF; 
+    margin-bottom: 24px;
+    h2 {
+        color: #000;
+        font-family: "Montserrat";
+        font-size: 19px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    p {
+        color: #717E94;
+        font-family: "Montserrat";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal; 
+    }
+}
+.user-profile__place-card {
+   
+
+    .user-profile__place-card-left {
+        display: flex;
+    }
+    .user-profile__place-card-right {
+        display: flex;
+        align-items: center;
+        .user-profile__edit-button {
+            cursor: pointer;
+            display: flex;
+            padding: 8px 16px;
+            align-items: center;
+            gap: 4px;
+            border-radius: 24px;
+            border: 1px solid #E0ECF5;
+            background: #FFF; 
+            color: #6B788F;
+            font-family: "Montserrat";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal; 
+
+            img {
+                margin-left: 5px;
+            }
+        }
+    }
+    .user-profile__review-rating {
+        margin-right: 24px;
+        color:  #323232;
+        font-family: "Montserrat";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal; 
+
+        border-radius: 100px;
+        border: 1px solid  #1F4B24;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        
+    }
+
+    .user-profile__place-info {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        .user-profile__place-title {
+            color: #000;
+            font-family: "Montserrat";
+            font-size: 19px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal; 
+            margin-bottom: 5px;
+        }
+
+        .user-profile__review-job {
+            color: #717E94;
+            font-family: "Montserrat";
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal; 
+        }
+
+        .user-profile__location {
+            color: #717E94;
+            font-family: "Montserrat";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal; 
+        }
+    }
+
+   
+}
+
+.user-profile__title-section {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    h2 {
+        margin-bottom: 4px;
+    }
+}
+.user-profile__more-details-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    h2 {
+        margin-bottom: 24px;;
+    }
+    
+}
+.user-profile__more-details-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .user-profile__more-defails-column {
+        display: flex;
+        flex-direction: column;
+        width: 33%;
+
+        .user-profile__more-details-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            .user-profile__more-details-title {
+                color: #717E94;
+                font-family: "Montserrat";
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+            }
+
+            .user-profile__more-details-value {
+                color: #000;
+                font-family: "Montserrat";
+                font-size: 17px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal; 
+            }
+
+        }
+    }
+}

@@ -1,0 +1,49 @@
+.navbar__logo{
+    width: 120px;
+    cursor: pointer;
+}
+
+.navbar__options {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .navbar__options-btn {
+        padding: 20px 0px;
+        color: white;
+        font-family: "Montserrat";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        span {
+            margin-right: 5px;
+        }
+    }
+    .navbar__options-dropdown {
+        top: 60px;
+        right: 0px;
+        position: absolute;
+        background-color: white;
+        padding: 0px;
+        border-radius: 10px;
+        width: 200px;
+        list-style: none;
+        margin:0px;
+        li {
+            cursor: pointer;
+            font-size: 18px;
+            color: black;
+            font-family: "Montserrat";
+            padding: 10px;
+            border-bottom: 1px solid rgba(100,100,100, .5); 
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+}

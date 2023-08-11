@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from '../button.styles';
-// import { Fade } from 'react-reveal';
 import { 
     InfoContainer, 
     InfoWrapper, 
@@ -47,18 +46,20 @@ const InfoSection = ({
         <InfoWrapper>
             <InfoRow imgStart={imgStart}>
                 <Column1>
+                <div data-aos="fade-up" data-aos-duration="1400">
                     <TextWrapper>
                         <TopLine>{topLine}</TopLine>
                         <Heading lightText={lightText}>{headline}</Heading>
                         <Subtitle darkText={darkText}>{description}</Subtitle>
                         <Subtitle darkText={darkText}>{description2}</Subtitle>
                         <BtnWrap>
-                            <Button to='home'
+                            <Button to='#'
                             smooth={true}
                             duration={500}
                             spy={true}
                             exact="true"
                             offset={-80}
+                            href=""
                             primary={primary ? 1 : 0}
                             dark={1}
                             style={{
@@ -77,6 +78,7 @@ const InfoSection = ({
                             >{buttonLabel}</Button>
                         </BtnWrap>
                     </TextWrapper>
+                    </div>
                 </Column1>
                 <Column2>
                 </Column2>

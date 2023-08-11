@@ -18,7 +18,7 @@
             background-color: rgb(240,240,240);
             color: #1F4B24;
             font-size: 46px;
-            font-family: "Poppins";
+            font-family: "Montserrat";
             font-weight: bold;
             align-items: center;
             justify-content: center;
@@ -35,7 +35,7 @@
 
             h3 {
                 color: #000;
-                font-family: "Poppins";
+                font-family: "Montserrat";
                 font-size: 19px;
                 font-style: normal;
                 font-weight: 400;
@@ -44,7 +44,7 @@
 
             .user-profile__user-card__large-label {
                 color: #717E94;
-                font-family: "Poppins";
+                font-family: "Montserrat";
                 font-size: 17px;
                 font-style: normal;
                 font-weight: 400;
@@ -53,7 +53,7 @@
 
             .user-profile__user-card__small-label {
                 color: #717E94;
-                font-family: "Poppins";
+                font-family: "Montserrat";
                 font-size: 15px;
                 font-style: normal;
                 font-weight: 300;
@@ -74,11 +74,20 @@
             border: 1px solid #E0ECF5;
             background: #FFF; 
             color: #6B788F;
-            font-family: "Poppins";
+            font-family: "Montserrat";
             font-size: 15px;
             font-style: normal;
             font-weight: 300;
             line-height: normal; 
         }
+    }
+
+    .user-profile__user-card__sub {
+        color: #000;
+        font-family: "Montserrat";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
     }
 }

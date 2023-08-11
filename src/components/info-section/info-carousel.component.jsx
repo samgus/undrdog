@@ -17,31 +17,6 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import "./info-carousel.scss"
 
 const InfoCarousel = () => {
-
-// const swiperOptions = {
-//     loop: true,
-//     spaceBetween: 20,
-//     slidesPerView: 3,
-//     centeredSlides: true,
-//     autoplay: {
-//       delay: 3000,
-//       disableOnInteraction: false
-//     }
-//   };
-//   <Swiper {...swiperOptions}>
-//   <SwiperSlide>
-//     <img src="image1.jpg" alt="slide 1" />
-//   </SwiperSlide>
-//   <SwiperSlide>
-//     <img src="image2.jpg" alt="slide 2" />
-//   </SwiperSlide>
-//   <SwiperSlide>
-//     <img src="image3.jpg" alt="slide 3" />
-//   </SwiperSlide>
-//   <SwiperSlide>
-//     <img src="image4.jpg" alt="slide 4" />
-//   </SwiperSlide>
-// </Swiper>
   
   return (
     <div className="info-carousel">
@@ -76,9 +51,7 @@ const InfoCarousel = () => {
                         <div className="swiper-content__description">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non turpis in quam ornare gravida. 
                         </div>
-                        
                     </div>
-
                 )}
             </SwiperSlide>
     })}

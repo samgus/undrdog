@@ -6,6 +6,7 @@ import { getStartedObj, homeObjOne } from '../components/info-section/info.data'
 import Services from '../components/info-section/services.component';
 import NavBar from '../components/nav-bar/nav-bar.component';
 import Sidebar from '../components/side-bar/side-bar.component';
+import ScrollToTop from '../components/scrollToTop';
  
 import { useSearchParams } from 'react-router-dom';
 
@@ -26,11 +27,12 @@ const Home = () => {
 
   return (
     <>
+      <ScrollToTop />       
       <Sidebar isOpen={isOpen} toggle={toggle}/>
       <NavBar toggle={toggle}/>
       <HeroSection />
       <InfoSection {...homeObjOne}/>
-      <InfoCarousel />
+      {/* <InfoCarousel /> */}
       <Services {...getStartedObj} />    
     </>
   );

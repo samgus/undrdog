@@ -1,5 +1,8 @@
 import React from 'react'
 import { animateScroll as scroll } from 'react-scroll'
+import betterShiftLogo from "../../images/betterShiftLogo-Vanilla.svg";
+import { useNavigate } from "react-router-dom";
+
 import { 
     FaFacebook, 
     FaInstagram, 
@@ -21,10 +24,14 @@ import {
     SocialIconLink
 } from './footer.styles'
 
+import "../../styles/footer.scss";
+
+
 const Footer = () => {
   const toggleHome = () => {
         scroll.scrollToTop()
       }
+const navigate = useNavigate();
 
   return (
     <FooterContainer>
@@ -48,11 +55,14 @@ const Footer = () => {
             </FooterLinksContainer>
             <SocialMedia>
                 <SocialMediaWrap>
-                    <SocialLogo to='/' onClick={toggleHome}>BetterShift</SocialLogo>
+                    <img src={betterShiftLogo} className="footer__logo" onClick={(e) => {
+                        navigate('/')
+                    }}/>
+
                     <WebsiteRights>Bettershift © {new Date().getFullYear()}, All Rights Reserved.</WebsiteRights>
                     <SocialIcons>
-                        <SocialIconLink href="https://www.facebook.com/samgus93/" target="_blank" aria-label="Facebook"><FaFacebook /></SocialIconLink>
-                        <SocialIconLink href="https://www.instagram.com/samfredric/" target="_blank" aria-label="Instagram"><FaInstagram /></SocialIconLink>
+                        {/* <SocialIconLink href="https://www.facebook.com/samgus93/" target="_blank" aria-label="Facebook"><FaFacebook /></SocialIconLink> */}
+                        <SocialIconLink href="https://www.instagram.com/bettershift/" target="_blank" aria-label="Instagram"><FaInstagram /></SocialIconLink>
                         <SocialIconLink href="https://www.linkedin.com/in/samgustafsson93/" target="_blank" aria-label="LinkedIn"><FaLinkedin /></SocialIconLink>
                     </SocialIcons>
                 </SocialMediaWrap>

@@ -82,7 +82,6 @@ const SignUp = () => {
         <>
         <Container>
             <FormWrap>
-                {/* <Icon to="/">UNDRDOG</Icon> */}
                 <FormContent>
                     <Form action='#' onSubmit={handleSignup}>
                         <FormH1>Create an account</FormH1>

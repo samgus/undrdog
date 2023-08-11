@@ -108,3 +108,28 @@ export async function resetPassword(passwordInfo) {
     const result = await response.json()
     return result;
 }
+export async function activateUser(userId) {
+    const response = await fetch(`http://localhost:8080/reactivate-user?userId=${userId}`, {
+        method: 'put',
+        mode: 'cors',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        credentials: 'include'
+    })
+    const result = await response.json()
+    return result;
+}
+
+export async function deactivateUser(userId) {
+    const response = await fetch(`http://localhost:8080/deactivate-user?userId=${userId}`, {
+        method: 'put',
+        mode: 'cors',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        credentials: 'include'
+    })
+    const result = await response.json()
+    return result;
+}
