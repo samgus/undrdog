@@ -40,7 +40,7 @@ const SiteGuidelines = () => {
         <h1 className="docs-page__title">Site Guidelines</h1>
         <p>Last updated July 29, 2023</p>
       </div>
-      <div className="docs-page__content">
+      <div className="docs-page__content" data-aos="fade-up" data-aos-duration="1200">
         <div className="docs-page__content__left">
           <h2>Site Guidelines</h2>
           <p className="content__body">These are the official site guidelines for the bettershift.io website. </p>

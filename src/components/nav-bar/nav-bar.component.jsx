@@ -152,14 +152,19 @@ const NavBar = ({toggle}) => {
             {currentUser && <div onMouseLeave={() => setShowDropdownMenu(false)  } onMouseEnter={() => setShowDropdownMenu(true)} className="navbar__options-btn"><span>{currentUser.name}</span> <FaChevronDown /></div>}
             {showDropdownMenu && currentUser && <ul className="navbar__options-dropdown" onMouseEnter={() => setShowDropdownMenu(true)} onMouseLeave={() => setShowDropdownMenu(false) }>
                 <li onClick={() => {
-                    navigate("/user/"+currentUser._id)
+                    navigate("/user/"+currentUser._id+"?deepLink=profile")
                   }}>
-                  Your Profile
+                  My Profile
                 </li>
                 <li onClick={() => {
                     navigate("/user/"+currentUser._id+"?deepLink=reviews")
                   }}>
-                  Your Reviews
+                  My Reviews
+                </li>
+                <li onClick={() => {
+                    navigate("/user/"+currentUser._id+"?deepLink=settings")
+                  }}>
+                  Settings
                 </li>
                 <li onClick={() => {
                     navigate("/logout")

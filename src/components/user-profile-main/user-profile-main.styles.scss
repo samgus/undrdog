@@ -16,7 +16,7 @@
             height: 80px; 
             border-radius: 50%;
             background-color: rgb(240,240,240);
-            color: #1F4B24;
+            color: #4E696F;
             font-size: 46px;
             font-family: "Montserrat";
             font-weight: bold;
@@ -24,7 +24,7 @@
             justify-content: center;
             text-align: center;
             line-height: normal;
-            padding-top: 5px;
+            padding-top: 10px;
             border: 1px solid rgb(220,220,220);
             margin-right: 10px;
         }
@@ -66,6 +66,7 @@
 
     .user-profile__user-card-right {
         .user-profile__edit-button {
+            cursor: pointer;
             display: flex;
             padding: 8px 16px;
             align-items: center;
@@ -79,6 +80,10 @@
             font-style: normal;
             font-weight: 300;
             line-height: normal; 
+
+            img {
+                margin-left: 5px;
+            }
         }
     }
 

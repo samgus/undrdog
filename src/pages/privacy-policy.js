@@ -43,7 +43,7 @@ const PrivacyPolicy = () => {
         <p>Last updated July 29, 2023</p>
       </div>
 
-      <div className="docs-page__content">
+      <div className="docs-page__content" data-aos="fade-up" data-aos-duration="1200">
         <div className="docs-page__content__left">
           <p className="content__title">The purpose of this Privacy Policy is to help describe how and why we might collect, store, use and/or share your information when using our services. </p>
 

@@ -35,14 +35,12 @@ const CopyrightPolicy = () => {
       }}
       >
       <ScrollToTop />
-
-      
       <div className="docs-page__header">
         <h1 className="docs-page__title">Copyright Policy</h1>
         <p>Last updated July 29, 2023</p>
       </div>
 
-      <div className="docs-page__content">
+      <div className="docs-page__content" data-aos="fade-up" data-aos-duration="1200">
         <div className="docs-page__content__left">
           <h2>Copyright Policy</h2>
           <p className="content__body">This is the official Copyright Compliance Policy for the BetterShift.com website.</p>

@@ -40,7 +40,7 @@ const TermsOfService = () => {
         <h1 className="docs-page__title">Terms of Service</h1>
         <p>Last updated July 29, 2023</p>
       </div>
-      <div className="docs-page__content">
+      <div className="docs-page__content" data-aos="fade-up" data-aos-duration="1200">
         <div className="docs-page__content__left">
           <h2>Agreement to Our Legal Terms</h2>
           <p className="content__body">We are BetterShift. </p>

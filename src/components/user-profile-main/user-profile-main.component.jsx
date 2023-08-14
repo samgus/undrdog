@@ -30,7 +30,7 @@ function UserProfileMain() {
                         children: <EditProfile currentUser={currentUser} setCurrentUser={setCurrentUser}/>,
                         show: true
                       });
-                }}>Edit</button>
+                }}>Edit <img src={pencil} /></button>
             </div>
         </div>
 

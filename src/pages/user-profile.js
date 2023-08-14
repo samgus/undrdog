@@ -30,8 +30,14 @@ const UserProfile = () => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search.slice(1))
     console.log(params.get("deepLink"))
+    if (params.get("deepLink") === "profile") {
+      setCurrentPage("My Profile")
+    }
     if (params.get("deepLink") === "reviews") {
       setCurrentPage("My Reviews")
+    }
+    if (params.get("deepLink") === "settings") {
+      setCurrentPage("Settings")
     }
   }, [])
   useEffect(() => {

@@ -61,7 +61,7 @@ export const FooterLink = styled(Link)`
     font-size: 14px;
 
     &:hover {
-        color: #e3dcd4;
+        color: #E5DDD4;
         transition: 0.3s ease-out;
         text-decoration: none;
     }
@@ -96,7 +96,7 @@ export const SocialLogo = styled(Link)`
     font-weight: bold;
     font-size: 24px;
     &:hover {
-        color: #e3dcd4;
+        color: #E5DDD4;
         transition: 0.3s ease-out;
         text-decoration: none;
     }

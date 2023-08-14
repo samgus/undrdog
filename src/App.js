@@ -47,22 +47,9 @@ function App() {
           </Routes>
         </ModalProvider>
       </AuthProvider>
-      
-
       <Footer/>
     </Router>
   );
 };
 
 export default App;
-
-
-// Tasks
-// - Make simple user profile
-//    - Name
-//    - Password
-// - Add time stamp to review card
-// - Add agree/disagree to review card
-// - Link to sign up modal in the sign in modal and vice versa
-// - Make option to edit and delete review only the user who created it
-// - Make Nav bar show the user instead of the sign in buttons when user is signed in
