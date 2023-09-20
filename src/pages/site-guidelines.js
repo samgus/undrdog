@@ -96,7 +96,7 @@ const SiteGuidelines = () => {
                 <li>We do not proactively add any manager, place of work, or restaurant to our website, every profile was submitted by our community.</li>
                 <li>We are unable to remove a comment simply because it is negative. It will only be removed if it doesn’t comply with our site guidelines.</li>
                 <li>BetterShift’s moderation team is unable to prove or disprove details mentioned in a review. </li>
-                <li>If you believe that your profile is being spammed or dogpiled, please tell us. You can contact us at Undrdog.com </li>
+                <li>If you believe that your profile is being spammed or dogpiled, please tell us. You can contact us at BetterShift.io </li>
                 <li>While it is against our guidelines for a manager to rate themselves, we recommend for managers to encourage their workers to provide ratings. The more reviews you have, the more representative they will be.</li>
               </ul>
               </div>
@@ -163,6 +163,8 @@ const SiteGuidelines = () => {
             navigate("/contact")
           }}>Contact us</button>
         </div>
+        <div className="docs-page__bg-overlay"></div>
+
       </div> 
     </div>
   );

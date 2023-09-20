@@ -63,6 +63,16 @@
         }
         .review-card__review-body {
             margin-bottom: 20px;
+            .review-card__title {
+                margin-bottom: 12px;
+                display: block;
+                color: #353E42;
+                font-family: 'Montserrat';
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
             p {
                 font-family: 'Montserrat';
                 font-style: normal;

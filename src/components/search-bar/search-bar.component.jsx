@@ -1,11 +1,13 @@
 import React from 'react'
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
  import './search-bar.styles.scss'
  import { FaSearch } from 'react-icons/fa';
  import { searchForMembers, createMember, getMemberByPlaceId } from '../../api/members';
 import cx from "classnames";
 
+import { useAuth } from '../../contexts/auth.context';
  const SearchBar = ({ isHeader = false }) => {
+  const { currentUser } = useAuth();
   const [name, setName] = useState("");
   const [members, setMembers] = useState([])
 
@@ -40,15 +42,26 @@ import cx from "classnames";
     window.location = "/place/" + member.place_id
 
   }
+
    return (
-     <div className={`${isHeader ? 'header-search-bar wrapper' : 'wrapper'}`}>
+     <div onMouseLeave={(e) => {
+      if (members && members.length > 0 && name.length > 0) {
+        e.currentTarget.classList.add("force-open")
+      } else {
+        e.currentTarget.classList.remove("force-open")
+      }
+     }} className={cx({
+        "header-search-bar": isHeader, 
+        "user-logged-in": !!currentUser,
+        wrapper: true
+     })}>
        <div className={cx({
             "search-bar-change": name.length > 0,
             'search-bar' : true,
             "list-showing": name.length > 0 && members.length > 0
           })}>
 
-         <input type="text" placeholder='Search for your restaurant' onChange={optimizedFn} className={name.length > 0 ? 'input-change': ""} />
+         <input type="text" placeholder='Search for restaurant' onChange={optimizedFn} className={name.length > 0 ? 'input-change': ""} />
          <div className='icon' style={{ zIndex: "3" }}><FaSearch /></div>
        </div>
        <ul className={name.length > 0 ? 'list-items list-items-show': 'list-items'}>

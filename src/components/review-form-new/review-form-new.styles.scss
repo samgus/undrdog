@@ -219,8 +219,7 @@
         width: 278px;
         height: 40px;
 
-        /* Primary/Dark Green */
-        background: #1F4B24;
+        background: #353E42;
         border-radius: 8px;
 
         font-family: 'Montserrat';
@@ -242,11 +241,11 @@
         content: '' !important;
     }
     .rs-slider-handle::before {
-        background: #1F4B24 !important;
+        background: #79806C !important;
         border: 1px solid #F5F5F5 !important;  
     }
     .rs-slider-progress-bar {
-        background: #56BC78;
+        background: #79806C;
     }
     .rs-slider-graduator li::before,
     .rs-slider-graduator li::after {
@@ -310,8 +309,8 @@
             color: #000000;
             &:hover,
             &.selected {
-                background: rgba(31, 75, 36, 0.2);
-                border: 1px solid #1F4B24;
+                background: rgba(121, 128, 108, 0.5);
+                border: 1px solid #79806C;
                 cursor: pointer;
             }
 
@@ -324,6 +323,11 @@
 
     .review-form-multi-select {
         width: 100%;
+
+        .select__multi-value__remove {
+            background-color: unset !important;
+            color: unset !important;
+        }
     }
 
     .select__indicator-separator {
@@ -340,8 +344,8 @@
     .select__multi-value {
 
         border-radius: 24px;
-        border: 1px solid #1F4B24;
-        background: rgba(31, 75, 36, 0.20);
+        border: 1px solid #79806C;
+        background: rgba(121, 128, 108, 0.5);
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
         padding: 4px;
         margin-bottom: 7px;

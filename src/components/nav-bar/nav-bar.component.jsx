@@ -32,18 +32,25 @@ const NavBar = ({toggle}) => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const [forceSearchBar, setForceSearchBar] = useState(false);
   const [hideSearchBar, setHideSearchBar] = useState(location.pathname === '/');
   const [showDropdownMenu, setShowDropdownMenu] = useState(false);
-  const [scrollNav, setScrollNav] = useState(!hideSearchBar);
-  const [navBg, setNavBg] = useState(hideSearchBar ? 'rgba(0,0,0,0)' : `rgb(35,36,34)`);
+  const [showingMembers, setShowingMembers] = useState(false);
+  const [scrollNav, setScrollNav] = useState(!location.pathname === '/');
+  const [navBg, setNavBg] = useState(location.pathname === '/' ? 'rgba(0,0,0,0)' : `rgb(35,36,34)`);
 
   const changeNav = () => {
-    console.log("did this run")
     const threshold = 100;
+    const thresholdSearch = 400;
    if (window.scrollY < threshold) {
-    
     setNavBg(`rgba(35,36,34,${window.scrollY/threshold})`)
+   } else if (window.scrollY < thresholdSearch) {
+    setForceSearchBar(false)
    } else {
+    if (!forceSearchBar) {
+      console.log("this ran")
+      setForceSearchBar(true)
+    }
     setNavBg(`rgb(35,36,34)`);
    }
   }
@@ -58,12 +65,25 @@ const NavBar = ({toggle}) => {
   };
 
   useEffect(() => {
+    const scrollpos = localStorage.getItem('scrollpos');
+    if (scrollpos) {
+      window.scrollTo(0, scrollpos);
+      localStorage.removeItem('scrollpos');
+    }
+    const beforeUnload =function(e) {
+        localStorage.setItem('scrollpos', window.scrollY);
+    }
 
+    window.onbeforeunload = beforeUnload
+  }, []);
+
+  useEffect(() => {
     if (hideSearchBar) {
       console.log('hide search bar')
       changeNav();
       window.addEventListener('scroll', changeNav);
     } else {
+      
      setNavBg(`rgb(53,62,66)`);
     }
 
@@ -82,7 +102,7 @@ const NavBar = ({toggle}) => {
     console.log(location.pathname);
     setHideSearchBar(location.pathname === '/')
   }, [location.pathname])
-  console.log(navBg);
+
   return (
     <>
     <IconContext.Provider value={{ color: '#fff' }}>
@@ -97,19 +117,19 @@ const NavBar = ({toggle}) => {
             <FaBars />
           </MobileIcon>
           <NavMenu>
-            {!hideSearchBar && <NavItem>
-              <SearchBar isHeader={true} />
-            </NavItem>}
-            {/* {hideSearchBar && <NavItem>
-              <NavLinks to='/' onClick={toggleHome}
+            <NavItem>
+              <NavLinks
               smooth={true} 
               duration={500} 
               spy={true} 
               exact='true' 
               offset={-80}
+              onClick={() => {
+                navigate("/")
+              }}
               >Home</NavLinks>
-            </NavItem>} */}
-            {hideSearchBar && <NavItem>
+            </NavItem>
+          <NavItem>
               <NavLinks
               smooth={true} 
               duration={500} 
@@ -120,8 +140,8 @@ const NavBar = ({toggle}) => {
                 navigate("/about")
               }}
               >About Us</NavLinks>
-            </NavItem>}
-            {hideSearchBar && <NavItem>
+            </NavItem>
+            {!currentUser && <NavItem>
               <NavLinks
               smooth={true} 
               duration={500} 
@@ -131,7 +151,7 @@ const NavBar = ({toggle}) => {
               onClick={openModalSignUp}
               >Get Started</NavLinks>
             </NavItem>}
-            {hideSearchBar && <NavItem>
+            <NavItem>
               <NavLinks 
               smooth={true} 
               duration={500} 
@@ -142,15 +162,19 @@ const NavBar = ({toggle}) => {
                 navigate("/contact")
               }}
               >Contact Us</NavLinks>
-            </NavItem>}
+            </NavItem>
           </NavMenu>
           <div className="navbar__options">
+            {(!hideSearchBar || forceSearchBar) && <NavItem>
+              <SearchBar isHeader={true} setShowingMembers={setShowingMembers}/>
+            </NavItem>}
             {!currentUser && <NavBtn>
-              <NavBtnLinkSignIn onClick={openModal}>Log In</NavBtnLinkSignIn>
-              <NavBtnLinkSignUp onClick={openModalSignUp}>Sign Up</NavBtnLinkSignUp>
+              <NavBtnLinkSignIn onClick={openModal}>Sign In</NavBtnLinkSignIn>
+              {/* <NavBtnLinkSignUp onClick={openModalSignUp}>Sign Up</NavBtnLinkSignUp> */}
             </NavBtn>}
-            {currentUser && <div onMouseLeave={() => setShowDropdownMenu(false)  } onMouseEnter={() => setShowDropdownMenu(true)} className="navbar__options-btn"><span>{currentUser.name}</span> <FaChevronDown /></div>}
-            {showDropdownMenu && currentUser && <ul className="navbar__options-dropdown" onMouseEnter={() => setShowDropdownMenu(true)} onMouseLeave={() => setShowDropdownMenu(false) }>
+            {/* {currentUser && <div onClick={() => navigate("/user/"+currentUser._id)} className="navbar__options-btn cursor-pointer"><span>{currentUser.name}</span> <FaChevronDown /></div>} */}
+            {currentUser && <div onClick={() => navigate("/user/"+currentUser._id)} className="user-profile__navbar__avatar">{currentUser.name.charAt(0).toUpperCase()}</div>}
+            {/* {showDropdownMenu && currentUser && <ul className="navbar__options-dropdown" onMouseEnter={() => setShowDropdownMenu(true)} onMouseLeave={() => setShowDropdownMenu(false) }>
                 <li onClick={() => {
                     navigate("/user/"+currentUser._id+"?deepLink=profile")
                   }}>
@@ -172,7 +196,7 @@ const NavBar = ({toggle}) => {
               
                   Logout
                 </li>
-            </ul>}
+            </ul>} */}
           </div>
           
         </NavBarContainer>

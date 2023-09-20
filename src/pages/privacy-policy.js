@@ -48,7 +48,7 @@ const PrivacyPolicy = () => {
           <p className="content__title">The purpose of this Privacy Policy is to help describe how and why we might collect, store, use and/or share your information when using our services. </p>
 
           <h2>Privacy Policy</h2>
-          <p className="content__body">Questions or concerns? Reading this privacy notice will help you understand your privacy rights and choices. If you do not agree with our policies or practices, please do not use our services. If you still have any questions of concerns, please contact us at bettershift23@gmail.com</p>
+          <p className="content__body">Questions or concerns? Reading this privacy notice will help you understand your privacy rights and choices. If you do not agree with our policies or practices, please do not use our services. If you still have any questions of concerns, please contact us at info@bettershift.io</p>
 
           <p className="content__body">When you visit, use, or navigate our services, we may process personal information depending on how you interact with BetterShift LLC and the services, the choices you make, and the products and features you use. </p>
 
@@ -133,7 +133,7 @@ const PrivacyPolicy = () => {
             </div>
             <div className="content__list-item">
               <span className="content__list-item-header" id="table-item-8">8. Do we collect information from minors?</span>
-              <p className="content__body"> We do not knowingly solicit data from or market to children under 18 years of age. By using the services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependents use of the services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under 18, please contact us at bettershift23@gmail.com.</p>
+              <p className="content__body"> We do not knowingly solicit data from or market to children under 18 years of age. By using the services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependents use of the services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under 18, please contact us at info@bettershift.io.</p>
             </div>
             <div className="content__list-item">
               <span className="content__list-item-header" id="table-item-9">9. What are your privacy rights?</span>
@@ -155,7 +155,7 @@ const PrivacyPolicy = () => {
             </div>
             <div className="content__list-item">
               <span className="content__list-item-header" id="table-item-12">12. How can you contact us about this notice?</span>
-              <p className="content__body">If you have questions or comments about this notice, you may email us at bettershift23@gmail.com or by post to:</p>
+              <p className="content__body">If you have questions or comments about this notice, you may email us at info@bettershift.io or by post to:</p>
               <p className="content__body">
               BetterShift LLC<br />
               68 Dean Street<br />
@@ -194,6 +194,7 @@ const PrivacyPolicy = () => {
         </div>
       </div>
 
+
       <div className="docs-page__contact-section" style={{ backgroundImage: `url(${customerSupport})`}}>
         <div className="docs-page__contact-section-content">
           <h3>Have a question? Our team is happy to help</h3>
@@ -202,7 +203,8 @@ const PrivacyPolicy = () => {
             navigate("/contact")
           }}>Contact us</button>
         </div>
-      </div>  
+        <div className="docs-page__bg-overlay"></div>
+      </div> 
     </div>
   );
 };

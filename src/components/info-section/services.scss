@@ -30,6 +30,8 @@
         font-weight: 400;
         font-size: 28px;
         line-height: 42px;
+        text-align: center;
+
         
         /* Primary / White */
         color: #FFFFFF;
@@ -43,6 +45,8 @@
         font-size: 15px;
         line-height: 22px;
 
+        
+
         /* Primary / White */
         color: #FFFFFF;
 
@@ -52,12 +56,13 @@
     .services__action {
         width: 100%;
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         justify-content: flex-start;
         flex-direction: column;
         position: absolute;
         bottom: 46px;
-        left: 40px;
+        
+        
 
 
         font-family: 'Montserrat';
@@ -81,19 +86,23 @@
             align-items: center;
             cursor: pointer;
         }
-        // .services__action-text {
-        // }
+        .services__action-text {
+            position: relative;
+            left: 11.5px;
+        }
 
         .services__action-arrow {
             font-size: 24px;
             margin-left: 15px;
+            position: relative;
+            left: 11.5px;
         }
         .services__half-line {
-
             margin-top: 10px;
             background-color: white;
             height: 1px;
             width: 88px;
+
         }
     }
 }

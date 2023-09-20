@@ -8,7 +8,7 @@ import { useAuth } from "../../contexts/auth.context";
 import { useModal } from "../../contexts/modal.context";
 import "./reset-password.styles.scss";
 
-import check from "../../images/check.svg";
+import checkGrey from "../../images/check-grey.svg";
 
 
 function ResetPassword() {
@@ -51,7 +51,7 @@ function ResetPassword() {
         return <div className="change-password change-password__completed-state">
             <h2 className="change-password__heading-title">Successfully Changed Password</h2>
 
-            <img src={check} />
+            <img src={checkGrey} />
 
             <button className="change-password__submit" onClick={() => {
                 setModal({

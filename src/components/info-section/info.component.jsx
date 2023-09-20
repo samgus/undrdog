@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../button.styles';
 import { 
     InfoContainer, 
@@ -20,6 +21,8 @@ import { useModal } from '../../contexts/modal.context';
 
 import "./info.scss";
 
+import manWithApron from "../../images/manWithApron.svg"
+
 const InfoSection = ({
     lightBg, 
     id, 
@@ -37,16 +40,14 @@ const InfoSection = ({
     dark, 
     dark2
 }) => {
+    const navigate = useNavigate()
   const { currentUser } = useAuth()
   const { setShowModalSignUp } = useModal()
   return (
-    <InfoContainer lightBg={lightBg} id={id} img={img} >
-        <div className="black-bg">
-        </div>
+    <InfoContainer>
         <InfoWrapper>
-            <InfoRow imgStart={imgStart}>
-                <Column1>
-                <div data-aos="fade-up" data-aos-duration="1400">
+            <div className="info-section__left">
+                <div data-aos="fade-in" data-aos-duration="1000" style={{ width: "100%"}}>
                     <TextWrapper>
                         <TopLine>{topLine}</TopLine>
                         <Heading lightText={lightText}>{headline}</Heading>
@@ -60,29 +61,25 @@ const InfoSection = ({
                             exact="true"
                             offset={-80}
                             href=""
-                            primary={primary ? 1 : 0}
+                            primary={true}
                             dark={1}
-                            style={{
-                                backgroundColor: "white",
-                                color: "black"
-                            }}
                             onClick={() => {
-                                if (!!currentUser) {
-                                    document.querySelector('.search-bar').scrollIntoView()
-                                    document.querySelector('.search-bar input').select()
-     
+                                if (currentUser) {
+                                    navigate("/user/"+currentUser._id)
                                 } else {
                                     setShowModalSignUp(true)
                                 }
                             }}
-                            >{buttonLabel}</Button>
+                            >{currentUser ? "View Profile" : buttonLabel}</Button>
                         </BtnWrap>
                     </TextWrapper>
                     </div>
-                </Column1>
-                <Column2>
-                </Column2>
-            </InfoRow>
+            </div>
+            <div className="info-section__right">
+                <div className="info-section__image">
+                    <img src={manWithApron} />
+                </div>
+            </div>
         </InfoWrapper>
     </InfoContainer>
   )

@@ -8,8 +8,8 @@ function Modal({ name, closeIcon = true, transparent = true, children }) {
   const { setModal } = useModal();
 
   return (
-    <div className="align-center modal flex">
-      <div className="modal__content">
+    <div className="align-center modal flex" >
+      <div className="modal__content" data-aos="fade-zoom-in" data-aos-duration="500">
         {closeIcon && (
           <div
             className="close-icon-wrapper"
@@ -19,7 +19,7 @@ function Modal({ name, closeIcon = true, transparent = true, children }) {
           </div>
         )}
 
-        <div className="flex w-100">{children}</div>
+        <div className="flex w-100" >{children}</div>
       </div>
       <div
         className={`modal__shadow-bg${transparent ? " transparent" : ""}`}

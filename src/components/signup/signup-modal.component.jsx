@@ -5,6 +5,10 @@ import { MdClose } from 'react-icons/md';
 import Icon1 from '../../images/svg-1.svg'
 import { signup } from "../../api/auth";
 import { useAuth } from '../../contexts/auth.context';
+import googleLogo from '../../images/google-logo.svg'
+import "./signup.scss";
+
+
 
 import { useNavigate } from "react-router-dom";
 
@@ -34,7 +38,7 @@ const Background = styled.div`
 
 const ModalWrapper = styled.div`
 width: auto;
-height: 650px;
+height: 600px;
 overflow: hidden;
 box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
 background: white;
@@ -43,7 +47,8 @@ display: flex;
 position: relative;
 z-index: 10;
 border-radius: 8px;
-padding: 20px 30px;
+padding: 40px 30px;
+padding-bottom: 0px;
 `;
 
 const ModalImg = styled.img`
@@ -63,6 +68,7 @@ const ModalContent = styled.div`
   z-index: 11;
   line-height: 1.8;
   color: #141414;
+
   p {
     margin-bottom: 1rem;
   }
@@ -72,6 +78,8 @@ const ModalContent = styled.div`
     color: #fff;
     border: none;
   }
+  margin-top: -40px;
+  
 `;
 
 const CloseModalButton = styled(MdClose)`
@@ -87,7 +95,7 @@ const CloseModalButton = styled(MdClose)`
 
 export const ModalSignUp = ({ showModalSignUp, setShowModalSignUp, setShowModal }) => {
   const navigate = useNavigate();
-  const { setCurrentUser } = useAuth();
+  const { setCurrentUser, googleClient } = useAuth();
   const [errors, setErrors] = useState([]);
     const [ loading, setLoading ] = useState(false);
     const [ name, setName ] = useState();
@@ -163,6 +171,7 @@ export const ModalSignUp = ({ showModalSignUp, setShowModalSignUp, setShowModal 
       {showModalSignUp ? (
         <Background onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
+            <div data-aos="fade-zoom-in" data-aos-duration="500">
             <ModalWrapper showModalSignUp={showModalSignUp}>
               <ModalContent>
                 <Form onSubmit={handleSignup}>
@@ -170,16 +179,26 @@ export const ModalSignUp = ({ showModalSignUp, setShowModalSignUp, setShowModal 
                     <FormH1>Welcome to BetterShift!</FormH1>
                     <span className="form-subtitle">Have a voice, tell your story.</span>
                   </div>
-               
+                  {googleClient && <button type="button"  className='google__sign-in-button' onClick={(e) => {
+                    e.preventDefault();
+                    googleClient.requestCode();
+                  }}>
+                    <img src={googleLogo} />
+                      Sign up with Google
+                  </button>}
+                  <div className="google__sign-in__divider">
+                    <span className="google__sign-in__divider__text">Or</span>
+                    <div className="google__sign-in__divider__line"></div>
+                  </div>
                 {errors && errors.length > 0 && errors.map((error) => <p style={{ color: "red" }}>{error}</p>)}
-                <label className="form-label">Name</label>
-                <FormInput placeholder="John Doe" value={name} onChange={(e) => setName(e.target.value)} type='name' required ariaLabel="Name" />
-                <label className="form-label">Email Address</label>
-                <FormInput placeholder="usersname@mail.com"  value= {email} onChange={(e) => setEmail(e.target.value)} type='email' required ariaLabel="Email" />
-                <label className="form-label">Password</label>
-                <FormInput placeholder="* * * * * * * * * *" value={password} onChange={(e) => setPassword(e.target.value)} type='password' required ariaLabel="Password"/>
-                <label className="form-label">Confirm Password</label>
-                <FormInput placeholder="* * * * * * * * * *" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} type='password' required ariaLabel="Confirm password" />
+                {/* <label className="form-label">Name</label> */}
+                <FormInput placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} type='name' required ariaLabel="Name" />
+                {/* <label className="form-label">Email Address</label> */}
+                <FormInput placeholder="Email Address"  value= {email} onChange={(e) => setEmail(e.target.value)} type='email' required ariaLabel="Email" />
+                {/* <label className="form-label">Password</label> */}
+                <FormInput placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} type='password' required ariaLabel="Password"/>
+                {/* <label className="form-label">Confirm Password</label> */}
+                <FormInput placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} type='password' required ariaLabel="Confirm password" />
                 <FormButton type='submit'>Sign Up</FormButton>
                 
                 <span className="signup-action">Have an account? &nbsp;<a style={{cursor: "pointer"}} 
@@ -196,6 +215,7 @@ export const ModalSignUp = ({ showModalSignUp, setShowModalSignUp, setShowModal 
                 onClick={() => setShowModalSignUp(prev => !prev)}
               />
             </ModalWrapper>
+            </div>
           </animated.div>
         </Background>
       ) : null}

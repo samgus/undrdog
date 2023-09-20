@@ -26,8 +26,8 @@ export async function editReview(reviewId, review) {
     return result;
 }
 
-export async function getReviewsByPlaceId(placeId) {
-    const response = await fetch('http://localhost:8080/review?placeId=' + placeId, {
+export async function getReviewsByPlaceId(placeId, count, page, filter) {
+    const response = await fetch(`http://localhost:8080/review?placeId=${placeId}&count=${count}&page=${page}&filter=${filter}`, {
         method: 'get',
         mode: 'cors',
         headers: {
@@ -38,8 +38,34 @@ export async function getReviewsByPlaceId(placeId) {
     return result
 }
 
-export async function getReviewsByUserId(userId) {
-    const response = await fetch('http://localhost:8080/review?userId=' + userId, {
+export async function getReviewsByUserId(userId, count, page, filter) {
+    const response = await fetch(`http://localhost:8080/review?userId=${userId}&count=${count}&page=${page}&filter=${filter}`, {
+        method: 'get',
+        mode: 'cors',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        credentials: 'include'
+    })
+    const result = await response.json()
+    return result
+}
+
+export async function getReviewCountByUserId(userId, placeId) {
+    const response = await fetch(`http://localhost:8080/review-count?userId=${userId}${placeId ? "&placeId=" + placeId : ""}`, {
+        method: 'get',
+        mode: 'cors',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        credentials: 'include'
+    })
+    const result = await response.json()
+    return result
+}
+
+export async function getReviewCountByPlaceId(placeId) {
+    const response = await fetch(`http://localhost:8080/review-count?placeId=${placeId}`, {
         method: 'get',
         mode: 'cors',
         headers: {

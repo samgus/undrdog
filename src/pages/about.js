@@ -24,14 +24,12 @@ const About = () => {
       <ScrollToTop />       
       <div className="about__top-section" data-aos="fade-up" data-aos-duration="1000">
         <div className="about__top-section__left">
-          <h1><span>Building transparency between</span> companies and those who work for them</h1>
+          <h1><span>Building <i>transparency</i> between</span> companies and those who work for them</h1>
         </div>
         <div className="about__top-section__right">
           <p>We’re creating an online space that gives freedom of speech to a group of unheard voices within the restaurant industry. Our aim is to facilitate honest, fruitful, and enduring relationships between employee and employer.</p>
         </div>
-
       </div>
-      
       <div className="about__image-section">
         <img src={guyWithCap}/>
       </div>

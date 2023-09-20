@@ -1,5 +1,5 @@
 .contact {
-    padding: 68px 120px 100px 120px;
+    padding: 0px 80px 100px 80px;
 
     .contact__left,
     .contact__right {
@@ -7,10 +7,15 @@
     }
     .contact__right {
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
+        align-items: flex-start;
     }
     .contact__left {
+        margin-top: -50px;
         padding-right: 50px;
+        line-height: 40px;
+        position: relative;
+        left: 15px;
         h1 {
             color:  #FFF;
             font-family: "Montserrat";
@@ -27,9 +32,10 @@
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
-            line-height: normal;
-            padding-right: 70px;
+            line-height: 25px;
+            padding-right: 120px;
             margin-bottom: 40px;
+            
         }
 
         span {
@@ -43,9 +49,10 @@
     }
 
     .contact__form {
+        margin-top: -30px;
         text-align: center;
         padding: 40px; 
-        width: 516px;
+        width: 600px;
         border-radius: 16px;
         border: 1px solid #F1F1F1;
         background:  #FFF;
@@ -60,9 +67,13 @@
             font-style: normal;
             font-weight: 500;
             line-height: normal; 
-            margin-bottom: 15px;
+            margin-bottom: 35px;
         }
 
+        .contact-form__textarea-wrapper {
+            position: relative;
+            width: 100%;    
+        }
         .contact__form-control {
             text-align: left;
             width: 100%;
@@ -78,6 +89,9 @@
                 line-height: normal; 
                 margin-bottom: 16px;
             }
+            textarea {
+                height: 120px;
+            }
             input, textarea {
                 border-radius: 8px;
                 border: 1px solid #EBECEE;
@@ -91,7 +105,22 @@
                 line-height: normal; 
             }
         }
+        .contact-form__textarea-wrapper {
+            position: relative;
+            .contact__form__character-limit {
+                position: absolute;
+                bottom: 10px;
+                right: 15px;
+                opacity: .7;
+                color: black;
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 300;
+                font-size: 11px;
+                line-height: 14px;
 
+            }
+        }
         .contact__form-attachment {
             display: flex;
             align-items: center;
@@ -99,11 +128,12 @@
             margin-bottom: 45px;
             img {
                 margin-right: 7px;
+                height: 20px;
             }
             span {
-                color: #000;
+                color: rgba(0,0,0,0.8);
                 font-family: "Montserrat";
-                font-size: 19px;
+                font-size: 18px;
                 font-style: normal;
                 font-weight: 400;
                 line-height: normal;

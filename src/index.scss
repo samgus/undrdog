@@ -36,6 +36,10 @@ code {
   width: 100%
 }
 
+.w-full-view {
+  width: 100vw;
+}
+
 .flex {
   display: flex;
 }
@@ -78,6 +82,17 @@ code {
 
 .m-2 {
   margin: 20px
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.position-relative {
+  position: relative;
+}
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .create-review-btn {
@@ -140,7 +155,78 @@ code {
   width: 100%;
   flex: 1;
 }
+
 .reviews-section {
   max-height: 100%;
 
+}
+
+.error-red {
+  color: #952516 !important
+}
+
+// #root {
+//   overflow: hidden;
+// }
+
+.success-review-modal {
+  padding: 25px 40px;
+  width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  label {
+    color: #323232;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Montserrat';
+    margin-bottom: 15px;
+  }
+  img {
+      margin-bottom: 10px;
+
+  }
+
+  span {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+      margin: 15px 0px;
+      /* identical to box height */
+
+      /* Primary/Off Black */
+      color: #868C98;
+
+  }
+
+  button {
+      display: flex;
+      width: 90%;
+      padding: 10px 15px;
+      justify-content: center;
+      align-items: center;
+      gap: 12px; 
+      border-radius: 8px; 
+      background: #333E43; 
+
+      color: #FFF;
+      text-align: center;
+      font-family: "Montserrat";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal; 
+  }
+}
+
+a:hover, a:active {
+  color: #333E43 !important
+}
+
+input, textarea {
+  outline-color: #333E43 !important;
 }

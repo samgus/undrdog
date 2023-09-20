@@ -1,6 +1,7 @@
 .place-info-container {
     width: 55%;
     margin-top: -20px;
+
     h1 {
         font-family: 'Montserrat';
         font-style: normal;
@@ -42,6 +43,11 @@
         border-bottom: 1px solid #F3F3F3;
         width: 100%;
         padding: 16px;
+        h1 {
+            font-size: 32px;
+            font-weight: 500;
+            color: #353E42
+        }
     }
 
     .place-info-container__body {
@@ -73,9 +79,13 @@
         // padding: 2px;
         img {
             object-fit: cover;
-            height: 200px;
-            max-width: 200px; 
+            height: 160px;
+            max-width: 160px; 
             margin-right: 15px;
+
+            &:last-of-type {
+                margin-right: 0px
+            }
         }
     }
     .place-info-container__body-photos-shadow {
@@ -107,35 +117,36 @@
             font-weight: 400;
             font-size: 24px;
             line-height: 36px;
-            color: #000000;
+            color: #353E42;
+
         }
     }
 
     .write-review-btn {
         padding: 8px;
         gap: 8px;
-        font-family: 'Montserrat';
+        font-family: 'poppins';
         font-style: normal;
         font-weight: 400;
         font-size: 15px;
         line-height: 22px;
         text-align: center;
+        cursor: pointer;
         /* identical to box height */
 
         /* Primary / White */
         color: #FFFFFF;
 
-        /* Primary/Dark Green */
-        background: #1F4B24;
+        background: #353E42;
         border-radius: 8px;
     }
 
     .place__review-container-body {
         display: flex;
         align-items: flex-start;
-
         .place__write-review-container {
             margin-right: 40px;
+            width: 128px;
         }
 
         .place__review-list {
@@ -149,13 +160,14 @@
         padding: 32px 16px 10px 16px;
         /* Primary / White */
         background: #FFFFFF;
-        border: 2px solid #ECECEC;
-        border-radius: 8px;
         width: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        border-radius: 8px;
+        border: 1px solid #D8D8DC;
+
         span {
             font-family: 'Montserrat';
             font-style: normal;
@@ -182,12 +194,14 @@
 
         .MuiRating-decimal {
     
-            span { 
-                font-size: 24px !important;
+            span {
+                font-size: 22px;
             }
 
         }
     }
+
+    
 
 }
 
@@ -197,8 +211,25 @@
 .MuiRating-decimal {
     
     span {
-        font-size: 24px;
-        color: #1F4B24 !important;
+        font-size: 22px;
+        color: #79806C !important;
     }
-    color: #1F4B24 !important;
+    color: #79806C !important;
+}
+
+.pagination-wrapper {
+    left: 0;
+}
+
+.place__filter {
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid #D8D8DC;
+    padding: 2px 8px;
+    color: #353E42;
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }

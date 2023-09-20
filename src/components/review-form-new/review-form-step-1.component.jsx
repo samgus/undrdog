@@ -1,5 +1,5 @@
 import { useState } from "react";
-import filledStar from "../../images/star-filled.svg";
+import filledStar from "../../images/star-filled-olive.svg";
 import unFilledStar from "../../images/star-unfilled.svg";
 function ReviewFormStep1({ placeName, setCurrentStep, reviewObject, updateReviewObject }) {
     const [error, setError] = useState()

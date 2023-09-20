@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const InfoContainer = styled.div`
-    color: #fff;
-    background: ${({ img }) => `url(${img})`};
+    color: black;
+    background: #fff;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center 50%;
@@ -13,11 +13,11 @@ export const InfoContainer = styled.div`
 `
 
 export const InfoWrapper = styled.div`
-    display: grid;
+    display: flex;
     z-index: 1;
     height: 700px;
     width: 100%;
-    max-width: 1300px;
+    max-width: 1200px;
     margin-right: auto;
     margin-left: auto;
     justify-content: center;
@@ -49,10 +49,13 @@ export const Column2 = styled.div`
 `
 
 export const TextWrapper = styled.div`
-    max-width: 540px;
+    width: 100%;
     padding-top: 0;
     padding-bottom: 60px;
-    color: white;
+    color: rgb(0,0,0);
+    position: relative;
+    bottom: 20px;
+    flex: 1;
 `
 
 export const TopLine = styled.p`
@@ -69,22 +72,22 @@ export const TopLine = styled.p`
 
 export const Heading = styled.h1`
     margin-bottom: 24px;
-    font-size: 42px;
+    font-size: 56px;
     line-height: 1.1;
     font-weight: 500;
-    color: white;
-    font-family: "Montserrat";
+    color: black;
+    font-family: "poppins";
     @media screen and (max-width: 480px) {
         font-size: 32px;
     }
 `
 
 export const Subtitle = styled.p`
-    max-width: 500px;
+    max-width: 600px;
     margin-bottom: 35px;
-    font-size: 16px;
-    line-height: 24px;
-    color: white;
+    font-size: 19px;
+    line-height: 32px;
+    color: black;
 `
 
 export const BtnWrap = styled.div`

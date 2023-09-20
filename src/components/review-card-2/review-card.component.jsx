@@ -13,8 +13,6 @@ import { updateReview } from "../../api/reviews";
 
 import Rating from '@mui/material/Rating';
 
-import { Tooltip } from 'react-tooltip'
-
 import { useModal } from "../../contexts/modal.context";
 import { useAuth } from "../../contexts/auth.context";
 
@@ -32,7 +30,7 @@ function ReviewCard({ review, index }) {
     }
     console.log("review-card", review)
 
-    return <div className="review-card">
+return <div className="review-card" data-aos="fade-in" data-aos-duration="1200">
         <div className="review-card__left">
             <div className="review-card__position-header">
                 <span className="review-card__posiiton">{review.position}</span>
@@ -42,7 +40,9 @@ function ReviewCard({ review, index }) {
                 <span className="review-card__big-rating__label">{review.overallRating}/5</span>
                 <Rating readOnly defaultValue={parseInt(review.overallRating)} precision={0.1} />
             </div>
+            
             <div className="review-card__review-body">
+                <span className="review-card__title">{review.reviewTitle}</span>
                 <p>{review.review}</p>
             </div>
             <div className={cx({

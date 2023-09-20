@@ -7,6 +7,7 @@ import ReviewList from '../components/review-list/review-list.component';
 import { useModal } from '../contexts/modal.context';
 import { getReviewsByUserId } from '../api/reviews';
 import cx from "classnames";
+import ScrollToTop from '../components/scrollToTop';
 
 
 import UserProfileMain from '../components/user-profile-main/user-profile-main.component';
@@ -25,6 +26,7 @@ const UserProfile = () => {
   const [userReviews, setUserReviews] = useState([]);
   const [selectedReview, setSelectedReview] = useState(null);
   const [currentPage, setCurrentPage] = useState("My Profile")
+  const [reviewUpdate, setReviewUpdate] = useState(false)
   console.log(currentUser);
 
   useEffect(() => {
@@ -40,11 +42,35 @@ const UserProfile = () => {
       setCurrentPage("Settings")
     }
   }, [])
+
+  // this one happens on render
   useEffect(() => {
-    getReviewsByUserId(userId).then((result) => {
+    getReviewsByUserId(userId, ).then((result) => {
       setUserReviews(result.reviews);
     })
   }, [])
+
+  // update selected review when reviews update
+  useEffect(() => {
+    if (selectedReview) {
+      const newReview = userReviews.find((review) => {
+        return review._id === selectedReview._id
+      })
+      setSelectedReview({...newReview})
+    }
+   
+  }, [userReviews]);
+
+  // this one is triggered when a review is changed
+  useEffect(() => {
+    if (reviewUpdate) {
+      console.log("reviewUpdate", reviewUpdate)
+      getReviewsByUserId(userId).then((result) => {
+        setUserReviews(result.reviews);
+      })
+      setReviewUpdate(false)
+    }
+  }, [reviewUpdate])
 
   useEffect(() => {
     if (fetchedUser) {
@@ -75,6 +101,7 @@ const UserProfile = () => {
         padding: "100px 150px"
       }}
     >  
+        <ScrollToTop />       
         <div className="user-profile__header flex flex-column justify-center mb-2 ">
           <h1>Account Settings</h1>
         {/* {currentUser && <h1>{currentUser?.name}</h1>}
@@ -89,7 +116,7 @@ const UserProfile = () => {
       
         </div>
 
-        <div className="user-profile__content flex">
+        <div className="user-profile__content flex" data-aos="fade-up" data-aos-duration="1200">
           {/* <h2>My Reviews</h2>
           <ReviewList userId={userId} setReviewCount={null} /> */}
           <div className="user-profile__sidebar">
@@ -98,12 +125,13 @@ const UserProfile = () => {
               {/* <li>Notifications</li> */}
               <li className={cx({ selected: currentPage==="My Reviews" })} onClick={() => setCurrentPage("My Reviews")}>My Reviews</li>
               <li className={cx({ selected: currentPage==="Settings" })} onClick={() => setCurrentPage("Settings")}>Settings</li>
+              <li className="error-red" onClick={() => navigate("/logout")}>Logout</li>
             </ul>
           </div>
           <div className="user-profile__body">
           {currentPage === "My Profile" && <UserProfileMain />}
           {!selectedReview && currentPage === "My Reviews" && <UserProfileMyReviews setSelectedReview={setSelectedReview} reviews={userReviews} />}
-          {selectedReview && currentPage === "My Reviews" && <UserProfileMyReviewsExpand selectedReview={selectedReview} setSelectedReview={setSelectedReview}/>}
+          {selectedReview && currentPage === "My Reviews" && <UserProfileMyReviewsExpand setReviewUpdate={setReviewUpdate} selectedReview={selectedReview} setSelectedReview={setSelectedReview}/>}
           {currentPage === "Settings" && <UserProfileSettings currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           </div>
         </div>

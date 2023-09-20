@@ -100,6 +100,17 @@ export const FormInput = styled.input`
     font-size: 12px;
 ` 
 
+// export const GoogleSignInButton = styled.button`
+//     background: rgb(53,62,66);
+//     padding: 12px 0;
+//     border: none;
+//     border-radius: 8px;
+//     color: #fff;
+//     font-size: 14px;
+//     cursor: pointer;
+//     margin-top: 10px;
+//     margin-bottom: 40px`
+
 export const FormButton = styled.button`
     background: rgb(53,62,66);
     padding: 12px 0;

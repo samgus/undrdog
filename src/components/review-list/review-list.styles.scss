@@ -1,0 +1,113 @@
+
+.review-wrapper {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.edit-review-button {
+    cursor: pointer;
+    display: flex;
+    padding: 8px 16px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 24px;
+    border: 1px solid #E0ECF5;
+    background: #FFF; 
+    color: #6B788F;
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal; 
+    top: 15px;
+    right: 15px;
+    position: absolute;
+    img {
+        margin-left: 5px;
+    }
+}
+
+.edit-review-button:hover {
+    background: #FAFAFA;
+}
+
+.edit-review-button svg {
+    margin-left: 5px;
+    
+}
+
+.edit-review-button svg * {
+    color: rgb(3,76,31);
+}
+.isLink {
+    cursor: pointer;
+    width: fit-content
+}
+
+.empty-review-list {
+    border-radius: 8px;
+    border-bottom: 1px solid #F1F1F1;
+    background: #FAFAFA;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 272px;
+    align-items: center;
+
+    h2 {
+        color: #0C2340;
+        text-align: center;
+        font-family: 'Montserrat';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    p {
+        color: #000;
+        text-align: center;
+        font-family: 'Montserrat';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin: 12px 0px 24px 0px;
+    }
+    button {
+        color: #FFF;
+        font-family: 'Poppins';
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        padding: 8px 10px;
+        gap: 8px;
+        border-radius: 8px;
+        background: #353E42;
+
+    }
+}
+
+.user-profile__edit-button {
+    cursor: pointer;
+    display: flex;
+    padding: 8px 16px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 24px;
+    border: 1px solid #E0ECF5;
+    background: #FFF; 
+    color: #6B788F;
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal; 
+
+    img {
+        margin-left: 5px;
+    }
+}
+.user-profile__edit-button:hover{
+    background: #FAFAFA; 
+}

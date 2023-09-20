@@ -4,7 +4,7 @@ import { updateUserById } from "../../api/auth";
 
 import { useAuth } from "../../contexts/auth.context";
 import { useModal } from "../../contexts/modal.context";
-import check from "../../images/check.svg";
+import checkGrey from "../../images/check-grey.svg";
 
 import "./edit-profile.styles.scss";
 
@@ -43,7 +43,7 @@ function EditProfile({ currentUser, setCurrentUser }) {
         return <div className="edit-profile edit-profile__completed-state">
             <h2 className="edit-profile__heading-title">Successfully Edited Profile</h2>
 
-            <img src={check} />
+            <img src={checkGrey} />
 
             <button className="edit-profile__submit" onClick={() => {
                 setModal({
@@ -52,7 +52,7 @@ function EditProfile({ currentUser, setCurrentUser }) {
             }}>Done</button>
         </div>
     }
-    return <div className="edit-profile w-100">
+    return <div className="edit-profile w-100" >
         <div className="edit-profile__heading">
             <h2 className="edit-profile__heading-title">Edit Profile</h2>
         </div>

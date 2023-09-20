@@ -9,7 +9,7 @@ import paperClip from "../images/paperClip.svg";
 
 import { emailContact } from '../api/contact';
 
-import check from "../images/check.svg";
+import checkGrey from "../images/check-grey.svg";
 
 const ContactPage = () => {
   const fileRef = useRef()
@@ -19,15 +19,22 @@ const ContactPage = () => {
   const [message, setMessage] = useState()
   const [success, setSuccess] = useState(false);
 
+  const characterLimit = 500;
+
   const contactSubmit = async (e) => {
     e.preventDefault()
     const formData = new FormData();
     console.log(fileAdded)
     formData.append('file', fileAdded)
+    formData.append('email', email)
     formData.append('name', name)
     formData.append('message', message)
     const result = await emailContact(formData);
     if (result.success) {
+      setMessage(null)
+      setEmail(null)
+      setFileAdded(null)
+      setName(null)
       setSuccess(true)
     }
     return false
@@ -63,7 +70,7 @@ const ContactPage = () => {
         {success && <div className="contact__success">
              <h2>Contact us</h2>
 
-            <img src={check} />
+            <img src={checkGrey} />
             <span>Thank you for your submission</span>
             <label>Please allow up to 24 hours for our team to get back to you.</label>
             <button onClick={() => {
@@ -80,9 +87,15 @@ const ContactPage = () => {
             <label>Your email</label>
             <input type="text" placeholder="How can we get in contact?" value={email} onChange={(e) => setEmail(e.target.value)} required/>
           </div>
-          <div className="contact__form-control">
+          <div className="contact__form-control contact-form__textarea-wrapper">
             <label>Your message</label>
-            <textarea placeholder="What can we help with?" value={message} onChange={(e) => setMessage(e.target.value)} required></textarea>
+            <textarea placeholder="What can we help with?" value={message} onChange={(e) => {
+              if (e.target.value.length <= characterLimit) {
+                setMessage(e.target.value)
+              }
+             }} maxLength={characterLimit} required></textarea>
+              {message && <div className='contact__form__character-limit'>{message.length} / {characterLimit}</div>}
+
           </div>
           <input type="file" onChange={addFile} ref={fileRef}  style={{ display: "none" }} />
           {!fileAdded && <div className="contact__form-attachment" onClick={() => {

@@ -1,4 +1,9 @@
-
+.user-profile__page {
+    a {
+        color: inherit !important;
+        text-decoration: none !important;
+    }
+}
 .user-profile__back-button {
     color: #000;
     font-family: "Montserrat";
@@ -40,6 +45,7 @@
    
 
     .user-profile__place-card-left {
+        align-items: center;
         display: flex;
     }
     .user-profile__place-card-right {
@@ -65,23 +71,48 @@
                 margin-left: 5px;
             }
         }
+        .user-profile__edit-button:hover{
+            background: #FAFAFA; 
+        }
     }
     .user-profile__review-rating {
         margin-right: 24px;
-        color:  #323232;
+        color:  #fff;
         font-family: "Montserrat";
-        font-size: 15px;
+        font-size: 19px;
         font-style: normal;
         font-weight: 300;
         line-height: normal; 
 
         border-radius: 100px;
-        border: 1px solid  #1F4B24;
+        // border: 1px solid  #79806C;
+        background: #79806C; 
         display: flex;
         align-items: center;
         justify-content: center;
         width: 80px;
         height: 80px;
+
+        &.rating-type-1 {
+            background: #B53B2A;
+            color: white;
+        }
+        &.rating-type-2 {
+             background: #B53B2A;
+             color: white;
+        }
+        &.rating-type-3 {
+            background: #CB923D;
+            color: white;
+        }
+        &.rating-type-4 {
+            background: #79806C; 
+            color: white;
+        }
+        &.rating-type-5 {
+            background: #79806C; 
+            color: white;
+        }
         
     }
 
@@ -95,8 +126,9 @@
             font-size: 19px;
             font-style: normal;
             font-weight: 400;
-            line-height: normal; 
-            margin-bottom: 5px;
+            line-height: normal;
+            margin-top: 3px; 
+            margin-bottom: 3px;
         }
 
         .user-profile__review-job {
@@ -105,7 +137,8 @@
             font-size: 17px;
             font-style: normal;
             font-weight: 400;
-            line-height: normal; 
+            line-height: normal;
+            margin-top: 10px;
         }
 
         .user-profile__location {

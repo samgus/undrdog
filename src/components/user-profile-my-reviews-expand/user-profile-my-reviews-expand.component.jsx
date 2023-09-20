@@ -7,7 +7,9 @@ import { useAuth } from "../../contexts/auth.context";
 import { ratingsLabels, sideWorkLabels } from "../../globals";
 import ReviewForm from "../review-form-new/review-form-new.component";
 
-function UserProfileMyReviewsExpand({ selectedReview, setSelectedReview }) {
+import { Link } from "react-router-dom";
+
+function UserProfileMyReviewsExpand({ setReviewUpdate, selectedReview, setSelectedReview }) {
     const { userId } =  useParams();
     const { currentUser } = useAuth()
     const { setModal } = useModal();
@@ -19,17 +21,23 @@ function UserProfileMyReviewsExpand({ selectedReview, setSelectedReview }) {
         </div>
         <div className="user-profile__reviews-section user-profile__place-card">
             <div className="user-profile__place-card-left">
-                <div className="user-profile__review-rating">{selectedReview.overallRating}</div>
+                <div className={`user-profile__review-rating rating-type-${selectedReview.overallRating}`}>{selectedReview.overallRating}</div>
                 <div className="user-profile__place-info">
-                    <h3 className="user-profile__place-title">{selectedReview.placeName}</h3>
+                    <h3 className="user-profile__place-title"><Link to={`/place/${selectedReview.placeId}`}>{selectedReview.placeName}</Link> &#183; <span className="user-profile__review-job">{selectedReview.position}</span></h3>
                     <span className="user-profile__location">{selectedReview.placeFormattedAddress}</span>
-                    <span className="user-profile__review-job">{selectedReview.position}</span>
                 </div>
             </div>
             <div className="user-profile__place-card-right">
                 {currentUser && <div onClick={() => setModal({
                     modal: "review-form",
-                    children: <ReviewForm placeName={selectedReview.placeName} userId={userId} edit={true} currentReviewInfo={selectedReview} />,
+                    children: <ReviewForm 
+                        placeName={selectedReview.placeName} 
+                        userId={userId} edit={true} 
+                        onComplete={() => {
+                            setReviewUpdate(true)
+                            setModal({ show: false })
+                        }} 
+                        currentReviewInfo={selectedReview} />,
                     show: true
                   })}className="user-profile__edit-button">
                     Edit

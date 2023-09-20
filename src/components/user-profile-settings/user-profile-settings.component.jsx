@@ -13,7 +13,7 @@ function UserProfileSettings({ currentUser, setCurrentUser }) {
     const [deactivated, setDeactivated] = useState(currentUser.deactivated)
     return <div className="user-profile__page user-profile__page-settings">
         <h2>Settings</h2>
-        <div className="user-profile__settings-options">
+        <div className="user-profile__user-card user-profile__settings-options">
             <div className="user-profile__change-password" onClick={() => setModal({
                 modal: "reset-password",
                 children: <ResetPassword />,

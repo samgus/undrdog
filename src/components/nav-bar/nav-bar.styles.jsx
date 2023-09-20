@@ -77,6 +77,8 @@ export const NavItem = styled.li`
   align-items: center;
 `
 export const NavLinks = styled(LinkS)`
+  position: relative;
+  right: 15px;
   color: #fff;
   display: flex;
   align-items: center;
@@ -85,15 +87,33 @@ export const NavLinks = styled(LinkS)`
   height: 100%;
   cursor: pointer;
   padding-top: 10px;
+  /* padding: 30px 5px; */
+
+  &:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 12px;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+  &:hover:after { 
+    width: 50%; 
+    left: 25%; 
+  }
   &:hover {
-    color: #E5DDD4;
+    color: #fff !important;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
   }
 
   &.active {
     border-bottom: 3px solid #E5DDD4;
-    transition: all 0.1s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
 `
 
@@ -110,7 +130,7 @@ export const NavBtnLinkSignIn = styled.button`
    font-size: 14px;
    border-radius: 7px;
    background: transparent;
-   backdrop-filter: blur(20px);
+   backdrop-filter: blur(30px);
    padding: 9px 20px;
    color: #fff;
    outline: none;

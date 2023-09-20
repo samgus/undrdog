@@ -41,7 +41,7 @@ function ContactForm() {
         <textarea className='input textarea' placeholder='What can we help with?' value={message} onChange={handleMessageChange} />
       </label>
       <br />
-      <label>Add an attactment</label>
+      <label className='attachment_label'>Add an attachment</label>
       <button className='button' type="submit">Send message</button>
     </form>
   );

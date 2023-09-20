@@ -47,7 +47,7 @@ const TermsOfService = () => {
 
           <p className="content__body">We operate, as well as any other related products and services that refer or link to these legal terms.</p>
 
-          <p className="content__body">You can contact us by email at bettershift23@gmail.com, or by mail to:</p>
+          <p className="content__body">You can contact us by email at info@bettershift.io, or by mail to:</p>
 
           <p className="content__body">
             BetterShift LLC<br />
@@ -233,7 +233,7 @@ const TermsOfService = () => {
           <div className="content__list-item">
             <span className="content__list-item-header" id="table-item-19">19. Contact Us</span>
             <p className="content__body">
-              In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at: bettershift23@gmail.com or by post to:<br />
+              In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at: info@bettershift.io or by post to:<br />
               <br />
               BetterShift LLC<br />
               68 Dean Street<br />
@@ -283,6 +283,8 @@ const TermsOfService = () => {
             navigate("/contact")
           }}>Contact us</button>
         </div>
+        <div className="docs-page__bg-overlay"></div>
+
       </div> 
     </div>
   );

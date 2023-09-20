@@ -34,7 +34,7 @@ export async function createMember(member) {
               if(place) {
                 console.log("place", place);
                 if (place.photos) {
-                    photos = place.photos.slice(0,3).map((photo) => {
+                    photos = place.photos.slice(0,5).map((photo) => {
                         return photo.getUrl()
                     })
                 }
@@ -92,5 +92,5 @@ export async function getMemberByPlaceId(placeId) {
     const result = await response.json()
     return result.place
 }
-
+// Google Maps API KEY
 // API key : AIzaSyAsR6Qh9xei93zKLrjfRtz6wj4_Y5cwMmg

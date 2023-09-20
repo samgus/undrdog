@@ -1,27 +1,8 @@
 # BetterShift
 
 ### Overview
-- The purpose of this site is to solve the problem of not knowing where to work becasue people have been taken advantage of, or not able to make money where they were guarenteed a certain amount per week.
-- What the user when they open the website, and how will it make them feel?
-- Using Firebase as the backend of the website for user, estabishment, review data.
-- Using API from RapidAPI https://restaurants-near-me-usa.p.rapidapi.com/restaurants/location/state/NY/city/New%20York/0', which will be used for the search bar suggestions.
+Our community is continually growing, all based around one common goal: to ensure your voice is heard.BetterShift is a community platform where employees in hospitality are able to post reviews of their place of work. In turn, this showcases a more accurate description of what it is actually like to work in a potential establishment, before setting your foot in the door.
 
-## Project Plan
+If someone is interested in a particular place of employment, with BetterShift, they are now able to see how much money they can  make based on their job title, what benefits are on the table, or how future management / frequent guests might treat them. 
 
-### Frontend
-- Make search bar fully functional
-- Make a dynamic page where it will display the restaurant page and all of the ratings/additional info about the restaurant 
-- Make an about page from footer link
-- Make a help page from footer link
-- Make a Contact Us page from footer link
-- Make a Site Guide lines page from footer link
-- Make a Term of Service page from footer link (Need a lawyer)
-- Make a privacy policy page from footer link (Need a lawyer)
-- Make a copyright policy page from footer link (Need a lawyer)
-
-### Backend
-- Set up authentication for user profile/data
-- Set backend storing restaurant information, including specs about the place itself and review data
-
-### UI/UX Design
-- After there is a work product with the front and backend of the website we will start reaching out to designers to get their opinion
+With this type of platform, we are empowering prospective employees with the knowledge on whether an establishment would be an ideal work environment. Here at BetterShift we believe this is an often overlooked part of the industry, and is the first step in giving control back to our people.

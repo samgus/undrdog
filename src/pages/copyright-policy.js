@@ -125,6 +125,8 @@ const CopyrightPolicy = () => {
             navigate("/contact")
           }}>Contact us</button>
         </div>
+        <div className="docs-page__bg-overlay"></div>
+
       </div> 
     </div>
   );

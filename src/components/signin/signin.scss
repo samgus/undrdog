@@ -12,6 +12,7 @@
     font-size: 12px;
     line-height: 16px;
     color: #8D93A1;
+    margin-top: -10px;
 }
 
 .form-header-grouping {
@@ -21,7 +22,7 @@
     flex-direction: column;
     margin-bottom: 40px;
     h1 {
-        margin-bottom: 5px;
+        margin-bottom: 0px;
     }
 }
 
@@ -64,4 +65,52 @@
         text-decoration: none;
         font-weight: 500;
     }
+}
+
+.google__sign-in-button{
+    border: 1px solid #EDEDEF !important;
+    border-radius: 8px;
+    background-color: #fff !important;
+    color: #353E42 !important;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: -10px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        position: relative;
+        top: 0px !important;
+        right: 10px
+    }
+}
+
+.google__sign-in__divider {
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.google__sign-in__divider__text {
+    position: absolute;
+    left: calc(50% - 40px);
+    width: 80px;
+    background-color: rgb(255,255,255);
+    font-size: 12px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    color:  #8A8F95;
+    top: -11px;
+    
+}
+
+.google__sign-in__divider__line {
+    border-bottom: 1px solid #EDEDEF;
+    width: 100%;
 }

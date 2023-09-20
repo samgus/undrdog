@@ -27,3 +27,39 @@
       transform: translateY(0);
     }
   }
+
+  .info-section__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 502px;
+      position: relative;
+      left: 20px;
+      top: 10px
+    }
+  }
+
+  .inner-info-section {
+    width: 100%;
+
+  }
+  .info-section__left {
+    padding-right: 0px;
+  }
+
+  .info-section__left,
+  .info-section__right {
+    position: relative;
+    top: 100px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .info-section__left {
+    width: 55%;
+  }
+
+  .info-section__right {
+    width: 45%;
+  }

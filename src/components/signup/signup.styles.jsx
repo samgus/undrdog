@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`
-    min-height: 692px;
+    min-height: 600px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -60,9 +60,8 @@ export const Form = styled.form`
     z-index: 1;
     display: grid;
     margin: 0 auto;
-    padding: 80px 32px;
+    padding: 0px 32px;
     border-radius: 8px;
-
     @media screen and (max-width: 400px) {
         padding: 32px 32px;
     }

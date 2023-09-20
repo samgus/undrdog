@@ -12,6 +12,7 @@ import {
 } from './hero.styles'
 import SearchBar from '../search-bar/search-bar.component'
 
+import womanBarista from "../../images/womanBarista.svg";
 
 const HeroSection = () => {
   const [heroVisibility, setHeroVisibility] = useState(false);
@@ -38,15 +39,15 @@ const HeroSection = () => {
   return (
     <HeroContainer id='home'>
      
-      <HeroBg>
-        <VideoBg autoPlay loop muted src={Video} type='video/mp4' />
+      <HeroBg style={{ background: `url(${womanBarista})`}}>
+        
       </HeroBg> 
-      {/* <div data-aos="fade-up">      */}
         <AnimatedHero style={styles}>
         <div data-aos="fade-up" data-aos-duration="1400">
           <HeroH1>Have a voice, tell your story.</HeroH1>
           <HeroP>
-              Find a healthy work environment that suits you
+              {/* Find a healthy work environment that suits you */}
+              Rate your restaurant and help others find a healthy place to work
           </HeroP>
           <HeroBtnWrapper>
               <SearchBar />

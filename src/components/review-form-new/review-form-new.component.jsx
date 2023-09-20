@@ -6,7 +6,8 @@ import "./review-form-new.styles.scss";
 import step1 from "../../images/step1.svg"
 import step2 from "../../images/step2.svg"
 import step3 from "../../images/step3.svg"
-import check from "../../images/check.svg"
+import checkGrey from "../../images/check-grey.svg"
+import checkOlive from "../../images/check-olive.svg"
 
 
 import ReviewFormStep1 from './review-form-step-1.component';
@@ -15,7 +16,7 @@ import ReviewFormStep3 from './review-form-step-3.component';
 
 import 'rsuite/dist/rsuite.min.css';
 
-const ReviewForm = ({ placeId, placeName, edit, currentReviewInfo = {} }) => {  
+const ReviewForm = ({ placeId, placeName, edit, onComplete,  currentReviewInfo = {} }) => {  
   console.log("currentReviewInfo", currentReviewInfo)
   const [reviewObject, setReviewObject] = useState({
     shiftsWorked: currentReviewInfo.shiftsWorked || 4,
@@ -45,19 +46,19 @@ const ReviewForm = ({ placeId, placeName, edit, currentReviewInfo = {} }) => {
         {edit && <h2>Edit Review For {placeName}</h2>}
         <div className="review-form-container__steps">
             <div className={cx({ "review-form-container__steps--1": true, highlighted: currentStep >= 0, hidden: currentStep >= 3})}>
-                <img src={(currentStep > 0 ? check : step1)} />
+                <img src={(currentStep > 0 ? checkOlive : step1)} />
                 <span>Initial Questions</span>
             </div>
             <div className={cx({ "review-form-container__steps--1": true, highlighted: currentStep >= 1, hidden: currentStep >= 3 })}>
-                <img src={(currentStep > 1 ? check : step2)} />
+                <img src={(currentStep > 1 ? checkOlive : step2)} />
                 <span>More Details</span>
             </div>
             <div className={cx({ "review-form-container__steps--1": true, highlighted: currentStep >= 2, hidden: currentStep >= 3 })}>
-                <img src={(currentStep > 2 ? check : step3)} />
+                <img src={(currentStep > 2 ? checkGrey : step3)} />
                 <span>Finishing Up</span>
             </div>
             <div className={cx({ "review-form-container__steps--1": true, final: true, highlighted: currentStep >= 3, hidden: currentStep < 3  })}>
-                <img src={(currentStep > 2 ? check : step3)} />
+                <img src={(currentStep > 2 ? checkGrey : step3)} />
                 {edit && <span>You have succcessfully edited your review!</span>}
                 {!edit && <span>Thank you for your review!</span>}
                 {!edit && <label>You're empowering your peers with accurate information to find a healthy work environment!</label>}
@@ -86,7 +87,11 @@ const ReviewForm = ({ placeId, placeName, edit, currentReviewInfo = {} }) => {
              />}
         </div>}
         {currentStep === 3 &&  <button className="review-form__next-button" onClick={() => {
-            window.location.reload()
+            if (onComplete) {
+              onComplete()
+            } else {
+              window.location.reload()
+            }
         }}>Done</button>}
     </div>
   )
