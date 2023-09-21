@@ -63,8 +63,8 @@ export const FooterLink = styled(Link)`
     &:hover {
         color: #E5DDD4 !important;
         transition: 0.2s ease-out;
-        text-decoration: none;
-        font-weight: bold;
+        text-decoration: underline !important;
+        /* font-weight: bold; */
     }
 `
 
@@ -123,7 +123,7 @@ export const SocialIconLink = styled.a`
         margin-right: 0px;
     }
     &:hover {
-        color: #e3dcd4;
+        color: #e3dcd4 !important;
         transition: 0.3s ease-out;
         text-decoration: none;
     }

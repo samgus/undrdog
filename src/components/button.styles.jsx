@@ -17,7 +17,7 @@ export const Button = styled(Link)`
     font-family: "poppins";
     font-size: 19px;
 
-    &:hover, &:active {
+    &:hover, &:focus {
         text-decoration: none;
         color: #fff !important;
     }
