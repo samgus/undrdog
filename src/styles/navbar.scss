@@ -1,8 +1,20 @@
 .navbar__logo{
     width: 120px;
     cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+        width: 40px;
+        margin-top: 24px;
+        margin-left: 5px;
+        margin-bottom: 20px;;
+    }
 }
 
+.navbar__hamburger {
+    @media screen and (max-width: 768px) {
+        margin-top: -12px
+    }
+}
 .user-profile__navbar__avatar {
     width: 55px;
     height: 55px; 

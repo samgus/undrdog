@@ -10,13 +10,22 @@ import {
   HeroP, 
   HeroBtnWrapper, 
 } from './hero.styles'
+
+import { useMediaQuery } from 'react-responsive'
+
 import SearchBar from '../search-bar/search-bar.component'
 
 import womanBarista from "../../images/womanBarista.svg";
+import womanBaristaTablet from "../../images/WomanBaristaMobile.jpeg"
+
+import "../../styles/hero.scss";
 
 const HeroSection = () => {
   const [heroVisibility, setHeroVisibility] = useState(false);
   const {opacity} = useSpring({opacity: heroVisibility ? 1 : 0});
+  const isDesktop = useMediaQuery({
+    query: '(min-width: 768px)'
+  })
 
   const styles = useSpring({
     config: {duration: 500},
@@ -39,20 +48,23 @@ const HeroSection = () => {
   return (
     <HeroContainer id='home'>
      
-      <HeroBg style={{ background: `url(${womanBarista})`}}>
-        
-      </HeroBg> 
+
+        <HeroBg style={{ backgroundImage: (isDesktop) ? `url(${womanBarista})` : `url(${womanBaristaTablet})`}}>
+        </HeroBg> 
+        {!isDesktop && <div className="hero__bg-overlay"></div>}   
         <AnimatedHero style={styles}>
         <div data-aos="fade-up" data-aos-duration="1400">
-          <HeroH1>Have a voice, tell your story.</HeroH1>
-          <HeroP>
-              {/* Find a healthy work environment that suits you */}
-              Rate your restaurant and help others find a healthy place to work
-          </HeroP>
-          <HeroBtnWrapper>
-              <SearchBar />
-          </HeroBtnWrapper>
+          <div className="hero__content">
+            <HeroH1>Have a voice, tell your story.</HeroH1>
+            <HeroP>
+                {/* Find a healthy work environment that suits you */}
+                Rate your restaurant and help others find a healthy place to work
+            </HeroP>
+            <HeroBtnWrapper>
+                <SearchBar />
+            </HeroBtnWrapper>
           </div>
+        </div>
         </AnimatedHero>
         {/* </div> */}
     </HeroContainer>

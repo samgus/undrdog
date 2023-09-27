@@ -1,9 +1,22 @@
+.about {
+    max-width: 100%;
+
+}
 .about__top-section {
     display: flex;
     justify-content: space-between;
     height: 300px;
     overflow: hidden !important;
-    max-width: 100vw;
+    max-width: 100%;
+    @media screen and (max-width: 768px){
+        max-width: 100%;
+        width: 100vw;
+        box-sizing: border-box;
+        justify-content: flex-start;
+
+        flex-direction: column;
+        text-align: center;
+    }
     .about__top-section__left {
         width: 576px; 
         margin-left: 150px;
@@ -14,6 +27,25 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media screen and (max-width: 768px){
+            align-items: flex-start;
+            justify-content: flex-start;
+            height: auto;
+            width: 100%; 
+            margin-left: 0px;
+            padding: 20px;
+            padding-top: 5px;
+
+            h1 {
+                font-size: 24px !important;
+                span {
+                    font-size: 24px !important;
+
+                }
+
+            }
+        }
         h1 {
             color: #757575;
             font-family: "Montserrat";
@@ -50,6 +82,14 @@
         padding-bottom: 100px;
         margin-left: 108px;
         margin-right: 150px;
+
+        @media screen and (max-width: 768px){
+            height: auto;
+            width: 100%; 
+            margin-left: 0px;
+            padding: 20px;
+
+        }
     }
 
    
@@ -57,10 +97,20 @@
 }
 .about__image-section {
     width: 100%;
-    img{
+    .about__image{
         max-width: 100vw;
         width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 530px;
+        @media screen and (max-width: 768px){
+            height: 280px;
+            margin-top: 20px;
+            
+        }
     }
+    
 }
 
 .about__info-section {
@@ -69,26 +119,45 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+
+    @media screen and (max-width: 768px){
+       padding: 20px;
+    }
     .about__info-section-content {
         border-top: 1px solid #1F4B24;
         border-bottom: 1px solid #1F4B24;
         padding: 80px 0px;
         display: flex;
         flex-direction: column;
+        @media screen and (max-width: 768px){
+            padding: 20px;
+            border: none;
+            width: 100%;
+         }
         .about__info-section-content__wrapper {
             display: flex;
             margin-bottom: 64px;
+            @media screen and (max-width: 768px){
+                flex-direction: column;
+            }
         }
         .about__info-section-content__left {
             padding-right: 50px;
             h3 {
                 margin-top: -10px;
             }
+            @media screen and (max-width: 768px){
+                padding: 0px;
+                width: 100%;
+            }
         }
         .about__info-section-content__left,
         .about__info-section-content__right {
             width: 50%;
-
+            @media screen and (max-width: 768px){
+                width: 100%;
+                text-align: center;
+            }
             h3 {
                 color:#323232;
                 font-family: "Montserrat";
@@ -96,6 +165,10 @@
                 font-style: normal;
                 font-weight: 500;
                 line-height: normal; 
+
+                @media screen and (max-width: 768px){
+                    font-size: 24px;
+                }
             }
 
             h4 {
@@ -106,6 +179,10 @@
                 font-weight: 500;
                 line-height: normal; 
                 margin-bottom: 24px;
+                @media screen and (max-width: 768px){
+                    font-size: 17px;
+                    margin-top: 24px;
+                }
             }
 
             p {
@@ -116,6 +193,9 @@
                 font-weight: 400;
                 line-height: normal; 
                 margin-bottom: 15px;
+                @media screen and (max-width: 768px){
+                    font-size: 13px;
+                }
             }
         }
 
@@ -126,6 +206,12 @@
         display: flex;
         align-items: center;
         margin-top: 15px;
+        @media screen and (max-width: 768px){
+
+            margin: auto;
+            justify-content: center;
+            margin-bottom: 36px;
+        }
         img {
             margin-right: 16px;
         }
@@ -165,11 +251,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+    }
     .about__info-section__customer-service__left {
         display: flex;
         flex-direction: column;
         width: 50%;
         padding-left: 200px;
+        @media screen and (max-width: 768px){
+            padding-left: 0px;
+            width: 100%
+        }
         h2 {
             color: #FFF;
             font-family: "Montserrat";

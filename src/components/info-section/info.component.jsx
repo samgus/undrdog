@@ -16,6 +16,9 @@ import {
     Img 
 } from './info.styles';
 
+import { useMediaQuery } from 'react-responsive'
+
+
 import { useAuth } from "../../contexts/auth.context";
 import { useModal } from '../../contexts/modal.context';
 
@@ -43,6 +46,11 @@ const InfoSection = ({
     const navigate = useNavigate()
   const { currentUser } = useAuth()
   const { setShowModalSignUp } = useModal()
+
+  const isDesktop = useMediaQuery({
+    query: '(min-width: 768px)'
+  })
+
   return (
     <InfoContainer>
         <InfoWrapper>
@@ -78,6 +86,14 @@ const InfoSection = ({
             <div className="info-section__right">
                 <div className="info-section__image">
                     <img src={manWithApron} />
+                    {!isDesktop && <div className="info__bg-overlay">
+                        <div className="info__testimonial">
+                        <p className="info__testimonial-text">“ Quis autem vel eum iure repregenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariartur. Consectetur adipiscing elit, sed do eiusmod tempor. ”</p>
+                        <label className="info__testimonial-label">TESTIMONIAL BY</label>
+                        <span className="info__testimonial-subtitle">Waitress at Stumptown Coffee</span>
+                        </div>  
+                    </div>}
+                    
                 </div>
             </div>
         </InfoWrapper>

@@ -21,4 +21,14 @@ export const Button = styled(Link)`
         text-decoration: none;
         color: #fff !important;
     }
+    
+    @media screen and (max-width: 768px) {
+
+        font-family: "Poppins" !important;
+        font-size: 12px !important;;
+        font-style: normal;
+        font-weight: 300  !important;;
+        line-height: normal;
+
+    }
 `

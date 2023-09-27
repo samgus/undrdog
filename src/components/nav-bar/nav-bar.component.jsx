@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import betterShiftLogo from "../../images/betterShiftLogo.svg"
+import mobileBetterShiftLogo from "../../images/mobileLogoWhite.svg"
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaBars, FaChevronDown } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
@@ -24,6 +25,11 @@ import SearchBar from "../search-bar/search-bar.component";
 import { useAuth } from "../../contexts/auth.context";
 import { useModal } from '../../contexts/modal.context';
 
+import { useMediaQuery } from 'react-responsive'
+
+
+import hamburgerMenu from "../../images/hamburgerMenuWhite.svg"
+
 import "../../styles/navbar.scss";
 
 const NavBar = ({toggle}) => {
@@ -38,6 +44,10 @@ const NavBar = ({toggle}) => {
   const [showingMembers, setShowingMembers] = useState(false);
   const [scrollNav, setScrollNav] = useState(!location.pathname === '/');
   const [navBg, setNavBg] = useState(location.pathname === '/' ? 'rgba(0,0,0,0)' : `rgb(35,36,34)`);
+
+  const isDesktop = useMediaQuery({
+    query: '(min-width: 768px)'
+  })
 
   const changeNav = () => {
     const threshold = 100;
@@ -103,6 +113,7 @@ const NavBar = ({toggle}) => {
     setHideSearchBar(location.pathname === '/')
   }, [location.pathname])
 
+
   return (
     <>
     <IconContext.Provider value={{ color: '#fff' }}>
@@ -110,11 +121,11 @@ const NavBar = ({toggle}) => {
     <ModalSignUp showModalSignUp={showModalSignUp} setShowModalSignUp={setShowModalSignUp} setShowModal={setShowModal}/>
       <Nav navBg={navBg}>
         <NavBarContainer>
-          <img src={betterShiftLogo} className="navbar__logo" onClick={(e) => {
+          <img src={isDesktop ? betterShiftLogo : mobileBetterShiftLogo} className="navbar__logo" onClick={(e) => {
             navigate('/')
             }}/>
           <MobileIcon onClick={toggle}>
-            <FaBars />
+            <img src={hamburgerMenu} className="navbar__hamburger"/>
           </MobileIcon>
           <NavMenu>
             <NavItem>
@@ -165,15 +176,15 @@ const NavBar = ({toggle}) => {
             </NavItem>
           </NavMenu>
           <div className="navbar__options">
-            {(!hideSearchBar || forceSearchBar) && <NavItem>
+            {isDesktop && (!hideSearchBar || forceSearchBar) && <NavItem>
               <SearchBar isHeader={true} setShowingMembers={setShowingMembers}/>
             </NavItem>}
-            {!currentUser && <NavBtn>
+            {isDesktop && !currentUser && <NavBtn>
               <NavBtnLinkSignIn onClick={openModal}>Sign In</NavBtnLinkSignIn>
               {/* <NavBtnLinkSignUp onClick={openModalSignUp}>Sign Up</NavBtnLinkSignUp> */}
             </NavBtn>}
             {/* {currentUser && <div onClick={() => navigate("/user/"+currentUser._id)} className="navbar__options-btn cursor-pointer"><span>{currentUser.name}</span> <FaChevronDown /></div>} */}
-            {currentUser && <div onClick={() => navigate("/user/"+currentUser._id)} className="user-profile__navbar__avatar">{currentUser.name.charAt(0).toUpperCase()}</div>}
+            {isDesktop && currentUser && <div onClick={() => navigate("/user/"+currentUser._id)} className="user-profile__navbar__avatar">{currentUser.name.charAt(0).toUpperCase()}</div>}
             {/* {showDropdownMenu && currentUser && <ul className="navbar__options-dropdown" onMouseEnter={() => setShowDropdownMenu(true)} onMouseLeave={() => setShowDropdownMenu(false) }>
                 <li onClick={() => {
                     navigate("/user/"+currentUser._id+"?deepLink=profile")

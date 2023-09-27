@@ -90,7 +90,7 @@ const UserProfile = () => {
   
   return (
     <div
-    className="w-100"
+    className="user-profile-wrapper w-100"
       style={{
         backgroundColor: "#F6F6F6",
         display: 'flex',
@@ -100,6 +100,7 @@ const UserProfile = () => {
         minHeight: '60vh',
         padding: "100px 150px"
       }}
+      
     >  
         <ScrollToTop />       
         <div className="user-profile__header flex flex-column justify-center mb-2 ">

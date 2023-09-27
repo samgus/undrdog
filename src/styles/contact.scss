@@ -1,14 +1,27 @@
 .contact {
     padding: 0px 80px 100px 80px;
-
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+        padding: 0px;
+    }
     .contact__left,
     .contact__right {
         width: 50%;
+
+        @media screen and (max-width: 768px){
+            width: 100%;
+        }
     }
     .contact__right {
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
+        @media screen and (max-width: 768px){
+            &.success-state {
+                margin-top: -100px;
+            }
+            
+        }
     }
     .contact__left {
         margin-top: -50px;
@@ -16,6 +29,14 @@
         line-height: 40px;
         position: relative;
         left: 15px;
+
+        @media screen and (max-width: 768px){
+            height: 302px;
+            text-align: center;
+            padding: 40px;
+            left: 0;
+            margin-top: -80px;
+        }
         h1 {
             color:  #FFF;
             font-family: "Montserrat";
@@ -24,6 +45,10 @@
             font-weight: 500;
             line-height: normal; 
             margin-bottom: 16px;
+            @media screen and (max-width: 768px){
+                font-size: 24px;
+                line-height: normal;
+            }
         }
 
         p {
@@ -35,7 +60,12 @@
             line-height: 25px;
             padding-right: 120px;
             margin-bottom: 40px;
-            
+            @media screen and (max-width: 768px){
+                font-size: 13px;
+                line-height: normal;
+                padding: 0px;
+                margin-bottom: 24px;
+            }
         }
 
         span {
@@ -45,6 +75,9 @@
             font-style: normal;
             font-weight: 400;
             line-height: normal;
+            @media screen and (max-width: 768px){
+                font-size: 13px;
+            }
         }
     }
 
@@ -60,6 +93,9 @@
         box-shadow: 0px 12px 14px 0px rgba(0, 0, 0, 0.10); 
         display: flex;
         flex-direction: column;
+        @media screen and (max-width: 768px){
+            border-radius: 0px;
+        }
         h2 {
             color: #000;
             font-family: "Montserrat";
@@ -164,7 +200,6 @@
 }
 
 .contact__success {
-    padding: 40px;
     text-align: center;
     padding: 40px; 
     width: 516px;
@@ -177,6 +212,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width: 768px){
+        border-radius: 0px;
+        position: relative;
+        top: -150px;
+    }
     h2 {
         color: #000;
         font-family: "Montserrat";

@@ -23,6 +23,18 @@
         border-left: 0px solid #fff ;
     }
 
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        padding: 48px 32px;
+        text-align: left;
+        border-left: 0px solid #F1F1F1;
+        border-bottom: 1px solid #F1F1F1;
+        background:  #353E42;
+
+         &:last-child {
+            border-bottom: 0px solid #fff ;
+        }
+    }
 
     h3 {
         font-family: 'Montserrat';
@@ -35,6 +47,12 @@
         
         /* Primary / White */
         color: #FFFFFF;
+
+        @media screen and (max-width: 768px) {
+            text-align: left;
+        }
+    
+    
     }
 
     p {
@@ -46,7 +64,9 @@
         line-height: 22px;
 
         
-
+        @media screen and (max-width: 768px) {
+            text-align: left;
+        }
         /* Primary / White */
         color: #FFFFFF;
 
@@ -81,14 +101,23 @@
            white-space: nowrap;
         }
 
+        @media screen and (max-width: 768px) {
+            align-items: flex-start;
+            justify-content: flex-start;
+            left: 32px;
+        }
         .services__action-btn-wrapper {
             display: flex;
             align-items: center;
             cursor: pointer;
+            
         }
         .services__action-text {
             position: relative;
             left: 11.5px;
+            @media screen and (max-width: 768px) {
+                left: 0;
+            }
         }
 
         .services__action-arrow {

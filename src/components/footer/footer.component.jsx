@@ -2,6 +2,7 @@ import React from 'react'
 import { animateScroll as scroll } from 'react-scroll'
 import betterShiftLogo from "../../images/betterShiftLogo-Vanilla.svg";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from 'react-responsive'
 
 import { 
     FaFacebook, 
@@ -32,25 +33,33 @@ const Footer = () => {
         scroll.scrollToTop()
       }
 const navigate = useNavigate();
-
+const isDesktop = useMediaQuery({
+    query: '(min-width: 768px)'
+  })
+  
   return (
     <FooterContainer>
         <FooterWrap>
             <FooterLinksContainer>
                 <FooterLinksWrapper>
-                    <FooterLinkItems>
-                        <FooterLinkTitle>Site</FooterLinkTitle>
-                            <FooterLink to="/about">About</FooterLink>
+                    <FooterLinkItems isPrivacyCopy={false}>
+                            <FooterLink to="/about" isPrivacyCopy={false} >About</FooterLink>
                             {/* <FooterLink to="/help">Help</FooterLink> */}
-                            <FooterLink to="/contact">Contact Us</FooterLink>
-                            <FooterLink to="/site-guidelines">Site Guidelines</FooterLink>
+                            <FooterLink to="/contact" isPrivacyCopy={false} >Contact Us</FooterLink>
+                            <FooterLink to="/site-guidelines" isPrivacyCopy={false}>Site Guidelines</FooterLink>
                     </FooterLinkItems>
-                    <FooterLinkItems>
-                        <FooterLinkTitle>Legal</FooterLinkTitle>
-                            <FooterLink to="/terms-of-service">Terms of Service</FooterLink>
-                            <FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
-                            <FooterLink to="/copyright-policy">Copyright Policy</FooterLink>
+                    
+                    <FooterLinkItems isPrivacyCopy={true}>
+                            <FooterLink to="/terms-of-service" isPrivacyCopy={true}>Terms of Service</FooterLink>
+                            <FooterLink to="/privacy-policy" isPrivacyCopy={true}>Privacy Policy</FooterLink>
+                            <FooterLink to="/copyright-policy" isPrivacyCopy={true}>Copyright Policy</FooterLink>
                     </FooterLinkItems>
+                    {!isDesktop && <SocialIcons>
+                        {/* <SocialIconLink href="https://www.facebook.com/samgus93/" target="_blank" aria-label="Facebook"><FaFacebook /></SocialIconLink> */}
+                        <SocialIconLink href="https://www.instagram.com/bettershift/" target="_blank" aria-label="Instagram"><FaInstagram /></SocialIconLink>
+                        <SocialIconLink href="https://www.linkedin.com/in/samgustafsson93/" target="_blank" aria-label="LinkedIn"><FaLinkedin /></SocialIconLink>
+                    </SocialIcons>}
+                    {!isDesktop && <WebsiteRights>© {new Date().getFullYear()}, All Rights Reserved.</WebsiteRights>}
                 </FooterLinksWrapper>
             </FooterLinksContainer>
             <SocialMedia>
@@ -59,12 +68,12 @@ const navigate = useNavigate();
                         navigate('/')
                     }}/>
 
-                    <WebsiteRights>Bettershift © {new Date().getFullYear()}, All Rights Reserved.</WebsiteRights>
-                    <SocialIcons>
+                    {isDesktop && <WebsiteRights>Bettershift © {new Date().getFullYear()}, All Rights Reserved.</WebsiteRights>}
+                    {isDesktop && <SocialIcons>
                         {/* <SocialIconLink href="https://www.facebook.com/samgus93/" target="_blank" aria-label="Facebook"><FaFacebook /></SocialIconLink> */}
                         <SocialIconLink href="https://www.instagram.com/bettershift/" target="_blank" aria-label="Instagram"><FaInstagram /></SocialIconLink>
                         <SocialIconLink href="https://www.linkedin.com/in/samgustafsson93/" target="_blank" aria-label="LinkedIn"><FaLinkedin /></SocialIconLink>
-                    </SocialIcons>
+                    </SocialIcons>}
                 </SocialMediaWrap>
             </SocialMedia>
         </FooterWrap>

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollToTop from '../components/scrollToTop';
-import customerSupport from "../images/customerSupport.svg"
+import CustomerSupportSection from '../components/customer-support-section/customer-support-section.component';
 
 const CopyrightPolicy = () => {
   useEffect(() => {
@@ -117,17 +117,7 @@ const CopyrightPolicy = () => {
         </div>
       </div>
 
-      <div className="docs-page__contact-section" style={{ backgroundImage: `url(${customerSupport})`}}>
-        <div className="docs-page__contact-section-content">
-          <h3>Have a question? Our team is happy to help</h3>
-          <p>Ask about how you can get started -- our highly trained reps are standing by, ready to help.</p>
-          <button onClick={() => {
-            navigate("/contact")
-          }}>Contact us</button>
-        </div>
-        <div className="docs-page__bg-overlay"></div>
-
-      </div> 
+      <CustomerSupportSection />
     </div>
   );
 };

@@ -37,7 +37,6 @@ const Background = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-width: auto;
 height: 600px;
 overflow: hidden;
 box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
@@ -49,6 +48,10 @@ z-index: 10;
 border-radius: 8px;
 padding: 40px 30px;
 padding-bottom: 0px;
+@media screen and (max-width: 768px){
+    width: 95%;
+    margin: auto;
+    }
 `;
 
 const ModalImg = styled.img`

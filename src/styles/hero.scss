@@ -1,0 +1,16 @@
+.hero__content {
+    margin-top: 80px;
+
+    @media only screen and (max-device-width: 780px) {
+        width: 310px;
+    
+    }
+}
+
+.hero__bg-overlay {
+    height: 100%;
+    width: 100vw;
+    position: absolute;
+    z-index: 3;
+    background: linear-gradient(180deg, rgba(0,0,0,0.8757878151260504) 0%, rgba(0,0,0,0.2231267507002801) 60%, rgba(0,0,0,0.9542191876750701) 100%);
+}

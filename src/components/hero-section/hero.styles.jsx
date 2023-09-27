@@ -22,6 +22,11 @@ export const HeroContainer = styled.div`
             linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, transparent 100%); */
         z-index: 2;
     }
+
+    @media screen and (max-width: 768px) {
+        height: 480px
+    }
+
 `
 
 export const HeroBg = styled.div`
@@ -33,6 +38,12 @@ export const HeroBg = styled.div`
     width: 100%;
     height: 100%;
     overflow: hidden;
+    @media screen and (max-width: 768px) {
+        background-size: calc(893px * .82) calc(595px * .82);
+        background-position: center;
+        background-repeat: no-repeat;
+        
+    }
 `
 export const FadeUp = styled.div`
     opacity: 0;
@@ -79,11 +90,13 @@ export const HeroH1 = styled.h1`
     text-align: center;
 
     @media screen and (max-width: 768px) {
-        font-size: 40px;
-    }
-
-    @media screen and (max-width: 480px) {
-        font-size: 32px;
+        color: #FFF;
+        text-align: center;
+        font-family: "Montserrat";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 32px;
     }
 `
 
@@ -95,12 +108,15 @@ export const HeroP = styled.p`
     max-width: 650px;
 
     @media screen and (max-width: 768px) {
-        font-size: 24px;
+        color: #FFF;
+        text-align: center;
+        font-family: "Montserrat";
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px;
     }
 
-    @media screen and (max-width: 480px) {
-        font-size: 18px;
-    }
 `
 
 export const HeroBtnWrapper = styled.div`
@@ -108,6 +124,11 @@ export const HeroBtnWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media screen and (max-width: 768px) {
+        margin-top: 15px !important;
+
+    }
 `
 
 export const ArrowForward = styled(MdArrowForward)`

@@ -139,10 +139,12 @@ export const Background = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 11;
+  padding: 10px;
 `;
 
 export const ModalWrapper = styled.div`
   width: auto;
+  
   height: 500px;
   overflow: hidden;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
@@ -153,6 +155,10 @@ export const ModalWrapper = styled.div`
   z-index: 10;
   border-radius: 8px;
   padding: 40px 30px;
+  @media screen and (max-width: 768px){
+    width: 95%;
+    margin: auto;
+    }
 `;
 
 export const ModalImg = styled.img`

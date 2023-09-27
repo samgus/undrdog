@@ -14,6 +14,8 @@ import {
 import { useModal } from '../../contexts/modal.context';
 import { useAuth } from '../../contexts/auth.context';
 
+import { useMediaQuery } from 'react-responsive'
+
 import { useNavigate } from "react-router-dom";
 
 import "./services.scss";
@@ -27,6 +29,10 @@ const Services = ({
   const navigate = useNavigate()
   const { setShowModalSignUp } = useModal()
   const { currentUser } = useAuth()
+
+  const isDesktop = useMediaQuery({
+    query: '(min-width: 768px)'
+  })
   
   return (
     <ServicesContainer id="services">

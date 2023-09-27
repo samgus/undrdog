@@ -10,6 +10,11 @@ export const InfoContainer = styled.div`
     @media screen and (max-width: 768px) {
         padding: 100px 0;
     }
+
+    @media screen and (max-width: 768px) {
+        height: auto;
+        padding: 0px;
+    }
 `
 
 export const InfoWrapper = styled.div`
@@ -21,6 +26,10 @@ export const InfoWrapper = styled.div`
     margin-right: auto;
     margin-left: auto;
     justify-content: center;
+    @media screen and (max-width: 768px) {
+        height: auto !important;
+        flex-direction: column-reverse;
+    }
 `
 
 export const InfoRow = styled.div`
@@ -56,6 +65,12 @@ export const TextWrapper = styled.div`
     position: relative;
     bottom: 20px;
     flex: 1;
+    @media screen and (max-width: 768px) {
+        padding-bottom: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 `
 
 export const TopLine = styled.p`
@@ -77,8 +92,12 @@ export const Heading = styled.h1`
     font-weight: 500;
     color: black;
     font-family: "poppins";
-    @media screen and (max-width: 480px) {
-        font-size: 32px;
+    @media screen and (max-width: 768px) {
+        font-family: "Poppins";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
     }
 `
 
@@ -88,11 +107,26 @@ export const Subtitle = styled.p`
     font-size: 19px;
     line-height: 32px;
     color: black;
+
+    @media screen and (max-width: 768px) {
+        margin-bottom: 20px;
+        color:  #353E42;
+        text-align: center;
+        font-family: "Montserrat";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+    }
 `
 
 export const BtnWrap = styled.div`
     display: flex;
     justify-content: flex-start;
+
+    @media screen and (max-width: 768px) {
+        margin: auto;
+    }
 `
 
 export const ImgWrap = styled.div`

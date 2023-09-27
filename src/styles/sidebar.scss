@@ -1,0 +1,42 @@
+.sidebar__list {
+    margin-top: 48px;
+    width: 100%;
+    
+    li {
+        list-style-type: none;
+        color:#353E42;
+        font-family: "Montserrat";
+        font-size: 19px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px; 
+        padding: 16px 0px;
+        cursor: pointer;
+        &:first-child {
+            border-top: 1px solid rgba(0, 0, 0, 0.10);
+        }
+        border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+        a {
+            color:#353E42;
+  
+        }
+    }
+
+    
+}
+
+.sidebar__social-icons {
+    a {
+        color: #353E42;
+        font-size: 24px;
+        margin-right: 24px;
+        &:last-child {
+            margin-right: 0px;
+        }
+        &:hover {
+            opacity: .7;
+            transition: 0.3s ease-out;
+            text-decoration: none;
+        }
+    }
+}

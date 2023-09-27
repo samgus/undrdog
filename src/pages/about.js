@@ -1,12 +1,12 @@
 import React from 'react';
 import guyWithCap from '../images/guyWithCap.svg'
-import customerSupport from "../images/customerSupport.svg"
 import ScrollToTop from '../components/scrollToTop';
 import "../styles/about.scss";
 
 import samEmoji from "../images/sam-bitmoji.svg";
 import { useNavigate } from 'react-router-dom';
 
+import CustomerSupportSection from '../components/customer-support-section/customer-support-section.component';
 const About = () => {
   const navigate = useNavigate()
   return (
@@ -20,6 +20,7 @@ const About = () => {
         paddingTop: "70px",
         marginTop: '50px'
       }}
+      className="about"
     >
       <ScrollToTop />       
       <div className="about__top-section" data-aos="fade-up" data-aos-duration="1000">
@@ -31,7 +32,7 @@ const About = () => {
         </div>
       </div>
       <div className="about__image-section">
-        <img src={guyWithCap}/>
+        <div className="about__image" style={{ backgroundImage: `url(${guyWithCap})`}}></div>
       </div>
       <div className="about__info-section">
         <div className="about__info-section-content">
@@ -62,16 +63,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="about__info-section__customer-service" style={{ backgroundImage: `url(${customerSupport})`}}>
-        <div className='about__info-section__customer-service__left'>
-          <h2>Have a question? Our team is happy to help</h2>
-          <p>Ask about how you can get started -- our highly trained reps are standing by, ready to help.</p>
-          <button onClick={() => {
-            navigate("/contact")
-          }}>Contact us</button>
-        </div>
-        <div className='about__info-section__customer-service__right'></div>
-      </div>
+      <CustomerSupportSection />
     </div>
   );
 };

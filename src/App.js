@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {useState} from 'react';
 
 import Home from './pages/home';
 import Place from './pages/place';
@@ -18,6 +19,7 @@ import { AuthProvider } from "./contexts/auth.context";
 import Logout from './pages/logout';
 import ForgotPassword from './components/forgot-password/forgot-password.component';
 import ResetPassword from "./components/reset-password/reset-password"
+import Sidebar from './components/side-bar/side-bar.component';
 import 'react-tooltip/dist/react-tooltip.css'
 
 import "slick-carousel/slick/slick.css"; 
@@ -25,11 +27,17 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false)
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  }
+
   return (
     <Router>
       <AuthProvider>
         <ModalProvider>
-          <NavBar />
+          <Sidebar isOpen={isOpen} toggle={toggle}/>
+          <NavBar toggle={toggle} />
           <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/logout' element={<Logout />} />
