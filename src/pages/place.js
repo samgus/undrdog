@@ -10,6 +10,8 @@ import { useAuth } from '../contexts/auth.context';
 import Rating from '@mui/material/Rating';
 import { GoogleMap, MarkerF } from '@react-google-maps/api';
 
+import { useMediaQuery } from 'react-responsive'
+
 import check from "../images/check-grey.svg"
 import "../styles/place.scss";
 
@@ -27,6 +29,11 @@ const Place = () => {
   const [reviewCount, setReviewCount] = useState(0)
   const [userCanReview, setUserCanReview] = useState(false)
   const [filter, setFilter] = useState('recent')
+
+  const isDesktop = useMediaQuery({
+    query: '(min-width: 768px)'
+  })
+
     const { placeId } = useParams()
     useEffect(() => {
       getMemberByPlaceId(placeId).then(function(member){
@@ -134,6 +141,7 @@ const Place = () => {
           <button onClick={() => {
              setModal({
               modal: "success-modal",
+              children: null,
               show: false
             });
           }}>Done</button>
@@ -162,13 +170,15 @@ const Place = () => {
           padding: "80px 150px",
           backgroundColor: '#fff'
         }}
+        className="place-page"
       >
         <div
         style={{
           display: 'flex',
           alignItems: "start",
           width: "100%"
-        }}>
+        }}
+        className="place-page__wrapper">
 
         <div className="place-info-container" >
           <div className="place-info-container__header">
@@ -225,11 +235,11 @@ const Place = () => {
           <div className="place__review-container">
             <div className="place__review-container-header">
               <h2 className="place__subtitle">Worker Reviews</h2>
-              <select className="place__filter" value={filter} onChange={(e) => setFilter(e.target.value)}>
+              {isDesktop && <select className="place__filter" value={filter} onChange={(e) => setFilter(e.target.value)}>
                 <option value="recent">Most Recent</option>
                 <option value="highest-rated">Highest Rated</option>
                 <option value="lowest-rated">Lowest Rated</option>
-              </select>
+              </select>}
             </div>
             <div className="place__review-container-body">
               <div className="place__write-review-container">
@@ -260,7 +270,12 @@ const Place = () => {
                 </div>
                 {reviewCount > 0 && <div className={cx({
                   'write-review-btn': true
-                })} data-aos="fade-in" data-aos-duration="1500" onClick={writeAReview()}>Write a Review</div>}
+                })} data-aos="fade-in" data-aos-duration="1500" onClick={writeAReview}>Write a Review</div>}
+                {!isDesktop && <div className="place__filter-wrapper"><select className="place__filter" value={filter} onChange={(e) => setFilter(e.target.value)}>
+                <option value="recent">Most Recent</option>
+                <option value="highest-rated">Highest Rated</option>
+                <option value="lowest-rated">Lowest Rated</option>
+              </select></div>}
               </div>
               <div className="place__review-list" >
                 <ReviewList writeAReview={writeAReview} filter={filter} placeId={placeId}  placeName={place?.name}  setOverallRating={setOverallRating} setReviewCount={setReviewCount} />

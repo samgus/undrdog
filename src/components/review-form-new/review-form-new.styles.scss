@@ -4,6 +4,12 @@
     padding: 40px 50px;
     width: 460px;
     text-align: center;
+    @media screen and (max-width: 768px){
+        padding: 30px;
+        width: 100%;
+        margin: 0 10px;
+        max-width: 100%;
+    }
      h2 {
         font-family: 'Montserrat';
         font-style: normal;
@@ -22,7 +28,10 @@
         align-items: center;
         width: 100%;
         justify-content: center;
-
+        @media screen and (max-width: 768px){
+            overflow: hidden;
+            max-width: 100%;
+        }
         .review-form-container__steps--1,
         .review-form-container__steps--2,
         .review-form-container__steps--3 {
@@ -77,9 +86,11 @@
     }
     .review-form-container__content {
         width: 100%;
+        
     }
 
     .review-form-row {
+
         padding: 0px 16px;
         margin-top: 28px;
         display: flex;
@@ -88,6 +99,9 @@
         width: 100%;
         flex-direction: column;
         text-align: left;
+        @media screen and (max-width: 768px){
+            padding: 0px
+        }
         h3 {
             width: 100%;
             text-align: left;
@@ -276,6 +290,9 @@
     }
     .rs-slider-mark-content {
         display: flex;
+        @media screen and (max-width: 768px){
+            font-size: 11px !important;
+        }
         
     }
     .rs-slider__mark-long-line {

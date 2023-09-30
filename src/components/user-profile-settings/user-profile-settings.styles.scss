@@ -18,6 +18,10 @@
         align-items: center;
         height: 100%;
         justify-content: space-between;
+        @media screen and (max-width: 768px){
+            flex-direction: column;
+
+        }
     }
 }
 .user-profile__change-password {
@@ -41,7 +45,13 @@
 
     /* identical to box height */
     text-align: center;
-
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        margin-bottom: 12px;
+        margin-right:0px;
+    }
     
 }
 
@@ -68,7 +78,12 @@
 
     /* Primary / White */
     color: #FFFFFF;
-
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        min-width: 100%;
+    }
     
 }
 
@@ -98,5 +113,11 @@
     /* Primary / White */
     color: #FFFFFF;
 
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        min-width: 100%;
+    }
     
 }

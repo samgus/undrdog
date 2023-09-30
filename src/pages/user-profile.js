@@ -117,7 +117,7 @@ const UserProfile = () => {
       
         </div>
 
-        <div className="user-profile__content flex" data-aos="fade-up" data-aos-duration="1200">
+        <div className="user-profile__content flex">
           {/* <h2>My Reviews</h2>
           <ReviewList userId={userId} setReviewCount={null} /> */}
           <div className="user-profile__sidebar">

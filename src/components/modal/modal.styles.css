@@ -5,6 +5,7 @@
   left: 0;
   position: fixed;
   z-index: 110;
+  
 }
 
 .modal .modal__shadow-bg {
@@ -36,6 +37,11 @@
     height: fit-content;
 }
 
+@media screen and (max-width: 768px){
+    .modal__content {
+        overflow: hidden !important;
+    }
+}
 .modal .close-icon-wrapper {
     position: absolute;
     right: -10px;

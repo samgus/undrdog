@@ -31,6 +31,10 @@
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        @media screen and (max-width: 768px){
+            font-size: 17px;
+
+        }
     }
     p {
         color: #717E94;
@@ -39,6 +43,10 @@
         font-style: normal;
         font-weight: 400;
         line-height: normal; 
+        @media screen and (max-width: 768px){
+            font-size: 15px;
+
+        }
     }
 }
 .user-profile__place-card {
@@ -66,10 +74,19 @@
             font-style: normal;
             font-weight: 300;
             line-height: normal; 
+            @media screen and (max-width: 768px){
+                font-size: 13px;
+                padding: 4px 8px;
 
+            }
             img {
                 margin-left: 5px;
+                @media screen and (max-width: 768px){
+                    width: 12px;
+                    margin-left: 3px;
+                }
             }
+            
         }
         .user-profile__edit-button:hover{
             background: #FAFAFA; 
@@ -92,7 +109,13 @@
         justify-content: center;
         width: 80px;
         height: 80px;
+        @media screen and (max-width: 768px){
+            width: 40px;
+            height: 40px;
+            min-width: 40px;;
+            margin-right: 12px;
 
+        }
         &.rating-type-1 {
             background: #B53B2A;
             color: white;
@@ -129,6 +152,9 @@
             line-height: normal;
             margin-top: 3px; 
             margin-bottom: 3px;
+            @media screen and (max-width: 768px){
+                font-size: 15px;
+            }
         }
 
         .user-profile__review-job {
@@ -139,6 +165,9 @@
             font-weight: 400;
             line-height: normal;
             margin-top: 10px;
+            @media screen and (max-width: 768px){
+                font-size: 13px;
+            }
         }
 
         .user-profile__location {
@@ -148,6 +177,9 @@
             font-style: normal;
             font-weight: 300;
             line-height: normal; 
+            @media screen and (max-width: 768px){
+                font-size: 11px;
+            }
         }
     }
 
@@ -175,11 +207,19 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+
+    }
     .user-profile__more-defails-column {
         display: flex;
         flex-direction: column;
         width: 33%;
+        @media screen and (max-width: 768px){
+            width: 100%;
+            min-width: 100%;
 
+        }
         .user-profile__more-details-item {
             display: flex;
             flex-direction: column;

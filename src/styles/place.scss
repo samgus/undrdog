@@ -1,7 +1,34 @@
+.place-page {
+    @media screen and (max-width: 768px){
+        padding:  25px 20px !important;
+        margin-bottom: 40px;;
+        .place-page__wrapper {
+            flex-direction: column;
+            .map-container {
+                padding: 15px;
+                height: 350px !important;
+                min-height: 350px !important;
+                > div {
+                    height: 350px !important;
+                    min-height: 350px !important;
+
+                }
+                margin-bottom: 20px;
+            }
+         }
+    }
+
+   
+
+}
 .place-info-container {
     width: 55%;
     margin-top: -20px;
-
+    @media screen and (max-width: 768px){
+        width: 100% ;
+        padding-right: 0px !important;
+            flex-direction: column !important;
+    }
     h1 {
         font-family: 'Montserrat';
         font-style: normal;
@@ -48,6 +75,11 @@
             font-weight: 500;
             color: #353E42
         }
+
+        @media screen and (max-width: 768px){
+            text-align: center;
+            min-width: 100%;;
+        }
     }
 
     .place-info-container__body {
@@ -82,7 +114,6 @@
             height: 160px;
             max-width: 160px; 
             margin-right: 15px;
-
             &:last-of-type {
                 margin-right: 0px
             }
@@ -99,18 +130,29 @@
     }
 }
 
+.map-container {
+
+    min-width: 100% !important;
+}
 .place__review-container {
     margin-top: 88px;
     display: flex;
     flex-direction: column;
     width: 100%;
+    @media screen and (max-width: 768px){
+        margin-top: 0px;
+
+    }
     .place__review-container-header {
         margin-bottom: 30px;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media screen and (max-width: 768px){
+            justify-content: center;
 
+        }  
         .place__subtitle {
             font-family: 'Montserrat';
             font-style: normal;
@@ -139,14 +181,25 @@
 
         background: #353E42;
         border-radius: 8px;
+        @media screen and (max-width: 768px){
+            margin-bottom: 36px;
+        }
     }
 
     .place__review-container-body {
         display: flex;
         align-items: flex-start;
+        @media screen and (max-width: 768px){
+            flex-direction: column;
+        }
         .place__write-review-container {
             margin-right: 40px;
             width: 128px;
+            @media screen and (max-width: 768px){
+                flex-direction: column;
+                width: 100%;
+                margin: 0px;
+            }
         }
 
         .place__review-list {
@@ -167,7 +220,11 @@
         align-items: center;
         border-radius: 8px;
         border: 1px solid #D8D8DC;
-
+        @media screen and (max-width: 768px){
+            width: 128px;
+            margin: auto;
+            margin-bottom: 24px;
+        }
         span {
             font-family: 'Montserrat';
             font-style: normal;
@@ -219,6 +276,10 @@
 
 .pagination-wrapper {
     left: 0;
+
+    @media screen and (max-width: 768px){
+        padding-bottom: 24px;
+    }
 }
 
 .place__filter {
@@ -232,4 +293,14 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+    
+}
+
+.place__filter-wrapper {
+    @media screen and (max-width: 768px){
+       display: flex;
+       justify-content: flex-end;
+       margin-bottom: 16px;
+    }
 }

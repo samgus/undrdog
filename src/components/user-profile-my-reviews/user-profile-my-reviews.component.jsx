@@ -4,8 +4,15 @@ import "./user-profile-my-reviews.styles.scss";
 
 import reviewArrow from "../../images/reviewArrow.svg";
 
+import { useMediaQuery } from 'react-responsive'
+
+
 function UserProfileMyReviews({ reviews, setSelectedReview }) {
-    console.log("reviewsreviews", reviews)
+    console.log("reviewsreviews", reviews);
+    const isDesktop = useMediaQuery({
+        query: '(min-width: 768px)'
+    })
+    
     const reviewRows = reviews.map((review) => {
         return <tr onClick={() => setSelectedReview(review)} className="cursor-pointer">
             <td>{review.placeName}</td>
@@ -15,8 +22,8 @@ function UserProfileMyReviews({ reviews, setSelectedReview }) {
                 day: "2-digit",
             })}</td>
             <td className="rating"><span className={cx({ [`rating-type-${review.overallRating}`]: true })}>{review.overallRating}</span></td>
-            <td>{review.placeFormattedAddress.split(",").slice(1, 3)}</td>
-            <td className="description">{review.review}</td>
+            {isDesktop && <td>{review.placeFormattedAddress.split(",").slice(1, 3)}</td>}
+            {isDesktop && <td className="description">{review.review}</td>}
             <td className="arrow"><img src={reviewArrow} /></td>
         </tr>
     })
@@ -34,12 +41,12 @@ function UserProfileMyReviews({ reviews, setSelectedReview }) {
                     <th>
                         Rating
                     </th>
-                    <th>
+                    {isDesktop && <th>
                         Location
-                    </th>
-                    <th>
+                    </th>}
+                    {isDesktop && <th>
                         Description
-                    </th>
+                    </th>}
                     <th></th>
                 </thead>
                 <tbody>

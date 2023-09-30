@@ -15,6 +15,8 @@
       width: 100%;
     }
      margin: 25px auto;
+
+    
  }
 
  .header-search-bar .search-bar input {
@@ -136,6 +138,7 @@
      cursor: default;
      border-radius: 3px;
      display: none;
+
  }
 
  .autocom-box li:hover {
@@ -147,7 +150,6 @@
   box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, .2);
 }
  .list-items{
-
     padding: 0px;
     list-style: none;
     color: #000;
@@ -166,6 +168,7 @@
     overflow-y: auto;
     top:55px;
     border-top: 0.25px solid #54686E;
+    z-index: 1000 !important;
   }
   
   .list-items.list-items-show{
@@ -195,6 +198,7 @@
   .list-items .list-item {
     padding: 10px;
     text-align: left;
+
  }
  .list-items .list-item:hover {
     background-color: rgb(230,230,230);

@@ -44,7 +44,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/">Search For A Restaurant</Link></li>
             <li><Link to="/about">About Us</Link></li>
-            <li onClick={() => {toggle(); setShowModalSignUp(true)}}>Get Started</li>
+            {!currentUser && <li onClick={() => {toggle(); setShowModalSignUp(true)}}>Get Started</li>}
             <li><Link to="/contact">Contact Us</Link></li>
             {currentUser && <li onClick={() => {navigate("/user/"+currentUser._id)}}>Profile</li>}
             {!currentUser && <li onClick={() => {toggle(); setShowModal(true)}}>Log In</li>}

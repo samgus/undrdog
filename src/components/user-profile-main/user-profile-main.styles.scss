@@ -7,17 +7,22 @@
     align-items: center;
     margin-top: 10px;
     justify-content: space-between;
-
+    @media screen and (max-width: 768px){
+        padding: 20px;
+    }
     .user-profile__user-card-left {
         display: flex;
         align-items: center;
+        
         .user-profile__user-card__avatar {
             width: 80px;
             height: 80px; 
+            
             border-radius: 50%;
             background-color: rgb(240,240,240);
             color: #4E696F;
             font-size: 46px;
+
             font-family: "Montserrat";
             font-weight: bold;
             align-items: center;
@@ -30,6 +35,17 @@
             img{
                 width: 50px;
                 height: 50px;
+            }
+            @media screen and (max-width: 768px){
+                width: 40px;
+                height: 40px; 
+                font-size: 23px;
+                padding-top: 3px;
+
+                img{
+                    width: 30px;
+                    height: 30px;
+                }
             }
         }
 
@@ -44,6 +60,9 @@
                 font-style: normal;
                 font-weight: 400;
                 line-height: normal; 
+                @media screen and (max-width: 768px){
+                    font-size: 15px;
+                }
             }
 
             .user-profile__user-card__large-label {
@@ -53,6 +72,9 @@
                 font-style: normal;
                 font-weight: 400;
                 line-height: normal; 
+                @media screen and (max-width: 768px){
+                    font-size: 11px;
+                }
             }
 
             .user-profile__user-card__small-label {
@@ -62,6 +84,9 @@
                 font-style: normal;
                 font-weight: 300;
                 line-height: normal; 
+                @media screen and (max-width: 768px){
+                    font-size: 11px;
+                }
             }
             
         }
@@ -87,6 +112,12 @@
             
             img {
                 margin-left: 5px;
+            }
+
+            @media screen and (max-width: 768px){
+                font-size: 13px;
+                padding: 4px 8px;
+
             }
         }
         .user-profile__edit-button:hover{
