@@ -9,6 +9,7 @@ import { useModal } from '../contexts/modal.context';
 import { useAuth } from '../contexts/auth.context';
 import Rating from '@mui/material/Rating';
 import { GoogleMap, MarkerF } from '@react-google-maps/api';
+import ScrollToTop from '../components/scrollToTop';
 
 import { useMediaQuery } from 'react-responsive'
 
@@ -54,68 +55,6 @@ const Place = () => {
       }
     
     }, [currentUser])
-
-    // const parseOpeningHours = (openingHours) => {
-    //   console.log(openingHours)
-    //   const today = new Date();
-    //   const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    //   const currentDay = dayOfWeek[today.getDay()];
-
-
-    //   const matchingOpeningHours = openingHours.find((openingHour) => {
-    //     return currentDay === openingHour.split(":")[0].trim()
-    //   });
-
-    //   const startEndTime = matchingOpeningHours.split(currentDay+":")[1].trim().split("–")
-    //   if (startEndTime.indexOf("Closed") > -1) {
-    //     return [false, "Closed"]
-    //   }
-    //   const isAMOpening = startEndTime[0].indexOf('AM') > -1;
-    //   const isAMClosing= startEndTime[1].indexOf('AM') > -1;
-    //   let hoursOpening, hoursClosing
-    //   let minutesOpening, minutesClosing
-      
-    //   // get opening hours
-    //   if (isAMOpening) {
-    //     const hoursMinutesSplit = startEndTime[0].split('AM')[0].trim().split(':')
-    //     hoursOpening = parseInt(hoursMinutesSplit[0])
-    //     minutesOpening = parseInt(hoursMinutesSplit[1])
-    //   } else {
-    //     const hoursMinutesSplit = startEndTime[0].trim().split(':')
-    //     hoursOpening = parseInt(hoursMinutesSplit[0]) + 12
-    //     minutesOpening = parseInt(hoursMinutesSplit[1])
-    //   }
-
-    //   let useNextDay = false;
-    //   if (isAMClosing) {
-
-    //     const hoursMinutesSplit = startEndTime[1].split('AM')[0].trim().split(':')
-    //     useNextDay = true 
-    //     hoursClosing = parseInt(hoursMinutesSplit[0])
-    //     minutesClosing = parseInt(hoursMinutesSplit[1])
-    //   } else {
-    //     const hoursMinutesSplit = startEndTime[1].split('PM')[0].trim().split(':')
-    //     hoursClosing = parseInt(hoursMinutesSplit[0]) + 12
-    //     minutesClosing = parseInt(hoursMinutesSplit[1])
-    //   }
-
-
-    //   // get closing hours
-
-    //   const dateOpening = new Date();
-    //   dateOpening.setHours(hoursOpening)
-    //   dateOpening.setMinutes(minutesOpening)
-    //   let dateClosing = new Date()
-    //   if (useNextDay) {
-    //       dateClosing.setDate(dateClosing.getDate() + 1)
-    //   }
-    //   dateClosing.setHours(hoursClosing)
-    //   dateClosing.setMinutes(minutesClosing)
-
-    //   const isOpen = (today.getTime() > dateOpening.getTime()) && (today.getTime() < dateClosing.getTime())
-
-    //   return [isOpen, matchingOpeningHours.slice(matchingOpeningHours.indexOf(':')+1)]
-    // }
   
   const getTodayOpeningHours = (openingHours) => {
     const today = new Date();
@@ -179,7 +118,7 @@ const Place = () => {
           width: "100%"
         }}
         className="place-page__wrapper">
-
+        <ScrollToTop />
         <div className="place-info-container" >
           <div className="place-info-container__header">
             <h1>{place?.name}</h1>
@@ -191,7 +130,6 @@ const Place = () => {
           <div className="place-info-container__body">
           {place?.phoneNumber && <span className="place-info-container__body-row"><b>Phone:</b> {place?.phoneNumber}</span>}
           {place?.website && <span className="place-info-container__body-row"><b>Website:</b> <a target="_blank" href={place?.website}>{place?.website}</a></span>}
-          {/* {place?.openingHours && <span className="place-info-container__body-row"><b>openingHours:</b> {place?.phoneNumber}</span>} */}
           {place?.openingHours && place?.openingHours.length > 0 && <div className="place-info-container__opening-hours">
               {todayOpeningHours && <span className="place-info-container__body-row" style={{cursor: "pointer"}}onClick={() => {
                 setShowAllOpeningHours(!showAllOpeningHours)
@@ -206,14 +144,9 @@ const Place = () => {
                   return <img src={photo} />
                 })}
                 <div className="place-info-container__body-photos-shadow"></div>
-          </div>}
+            </div>}
           </div>
-
-          
-          </div>
-       
-          
-          
+        </div>
           <div className="map-container flex align-center justify-center">
           {place && <GoogleMap
             mapContainerStyle={containerStyle}
@@ -243,25 +176,6 @@ const Place = () => {
             </div>
             <div className="place__review-container-body">
               <div className="place__write-review-container">
-                
-                {/* <div className={cx({
-              'create-review-btn': true
-            })} onClick={() => {
-              if (currentUser) {
-                setModal({
-                  modal: "review-form",
-                  children: <ReviewForm placeId={placeId}  placeName={place?.name} edit={false} />,
-                  show: true
-                });
-              } else {
-                // opens up the sign in modal
-                setShowModal(true)
-              }
-            }}>{(!currentUser) ? "Sign in to " : ''}Leave Review</div>
-            <div className="reviews-section">
-            <ReviewList placeId={placeId} setOverallRating={setOverallRating} setReviewCount={setReviewCount} />
-            
-            </div> */}
                 <div className="overall-review-container" data-aos="fade-in" data-aos-duration="1500">
                   <span>{(overallRating) ? overallRating : "0.0"}</span>
                   {!!overallRating &&  <Rating readOnly defaultValue={parseFloat(parseFloat(overallRating).toFixed(1))} precision={0.1}  />}

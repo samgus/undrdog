@@ -93,6 +93,12 @@
         left: 0px;
       top: 0px;
       }
+
+      @media screen and (max-width: 1280px) and (min-width: 768px) {
+        width: 350px;
+        padding-right: 40px;
+        top: 100px;
+      }
     }
   }
 
@@ -121,10 +127,19 @@
       width: 100% !important;
       top: 0px;
     }
+
+    @media screen and (max-width: 1280px) and (min-width: 768px) {
+
+      top: 50px;
+    }
   }
 
   .info-section__left {
     width: 55%;
+
+    @media screen and (max-width: 1280px) and (min-width: 768px) {
+      padding: 40px;
+    }
   }
 
   .info-section__right {

@@ -88,9 +88,9 @@ const InfoSection = ({
                     <img src={manWithApron} />
                     {!isDesktop && <div className="info__bg-overlay">
                         <div className="info__testimonial">
-                        <p className="info__testimonial-text">“ Quis autem vel eum iure repregenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariartur. Consectetur adipiscing elit, sed do eiusmod tempor. ”</p>
-                        <label className="info__testimonial-label">TESTIMONIAL BY</label>
-                        <span className="info__testimonial-subtitle">Waitress at Stumptown Coffee</span>
+                        <p className="info__testimonial-text">“Where transparency meets opportunity. Together, we can build a community that promotes healthy work environments within the restaurant industry.”</p>
+                        <label className="info__testimonial-label">Sam Gustafsson</label>
+                        <span className="info__testimonial-subtitle">FOUNDER/CEO</span>
                         </div>  
                     </div>}
                     

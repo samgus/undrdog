@@ -29,7 +29,7 @@ const Home = () => {
     <>
       <ScrollToTop />       
       <Sidebar isOpen={isOpen} toggle={toggle}/>
-      <NavBar toggle={toggle}/>
+      {/* <NavBar toggle={toggle}/> */}
       <HeroSection />
       <InfoSection {...homeObjOne}/>
       {/* <InfoCarousel /> */}

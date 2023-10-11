@@ -44,7 +44,6 @@ const isDesktop = useMediaQuery({
                 <FooterLinksWrapper>
                     <FooterLinkItems isPrivacyCopy={false}>
                             <FooterLink to="/about" isPrivacyCopy={false} >About</FooterLink>
-                            {/* <FooterLink to="/help">Help</FooterLink> */}
                             <FooterLink to="/contact" isPrivacyCopy={false} >Contact Us</FooterLink>
                             <FooterLink to="/site-guidelines" isPrivacyCopy={false}>Site Guidelines</FooterLink>
                     </FooterLinkItems>

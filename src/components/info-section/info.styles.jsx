@@ -30,6 +30,10 @@ export const InfoWrapper = styled.div`
         height: auto !important;
         flex-direction: column-reverse;
     }
+
+    @media screen and (max-width: 1280px) and (min-width: 768px) {
+        height: auto !important;
+    }
 `
 
 export const InfoRow = styled.div`
@@ -39,7 +43,7 @@ export const InfoRow = styled.div`
     grid-template-areas: ${({ imgStart }) => (imgStart ? 
         `'col2 col1'` : `'col1 col2'`)};
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1280px) {
         grid-template-areas: ${({ imgStart }) => (imgStart ? 
             `'col1' 'col2'` : `'col1 col1' 'col2 col2'`)};
     }

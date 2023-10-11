@@ -11,7 +11,7 @@ export const Nav = styled.nav`
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  position: sticky;
+position: sticky;
   top: 0;
   z-index: 10;
 
@@ -28,6 +28,7 @@ export const NavBarContainer = styled.div`
   width: 100%;
   padding: 0 24px;
   max-width: 1300px;
+  box-sizing: border-box;
 `
 export const NavLogo = styled(LinkR)`
 color: #fff;

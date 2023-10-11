@@ -51,7 +51,7 @@
         @media screen and (max-width: 768px) {
             text-align: left;
         }
-    
+        
     
     }
 
@@ -81,9 +81,6 @@
         flex-direction: column;
         position: absolute;
         bottom: 46px;
-        
-        
-
 
         font-family: 'Montserrat';
         font-style: normal;
@@ -91,6 +88,13 @@
         font-size: 15px;
         line-height: 22px;
 
+        @media screen and (max-width: 1280px) and (min-width: 768px) {
+            bottom: 30px;
+            font-size: 11px;
+            &:last-child {
+                left: -5px;
+            }
+        }
         /* identical to box height */
 
         /* Primary / White */
@@ -125,13 +129,18 @@
             margin-left: 15px;
             position: relative;
             left: 11.5px;
+            @media screen and (max-width: 1280px) and (min-width: 768px) {
+                margin-left: 5px;
+            }
         }
         .services__half-line {
             margin-top: 10px;
             background-color: white;
             height: 1px;
             width: 88px;
-
+            @media screen and (max-width: 1280px) and (min-width: 768px) {
+                margin-top: 5px;
+            }
         }
     }
 }

@@ -5,7 +5,6 @@ import {useState} from 'react';
 import Home from './pages/home';
 import Place from './pages/place';
 import About from './pages/about'
-import Help from './pages/help';
 import ContactPage from './pages/contact';
 import SiteGuidelines from './pages/site-guidelines';
 import TermsOfService from './pages/terms-of-service';
@@ -44,7 +43,6 @@ function App() {
             <Route path='/place/:placeId' element={<Place/>} />
             <Route path='/user/:userId' element={<UserProfile/>} />
             <Route path='/about' element={<About/>} />
-            <Route path='/help' element={<Help/>} />
             <Route path='/contact' element={<ContactPage/>} />
             <Route path='/site-guidelines' element={<SiteGuidelines/>} />
             <Route path='/privacy-policy' element={<PrivacyPolicy/>} />

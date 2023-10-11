@@ -1,4 +1,7 @@
 .place-page {
+    .map-container {
+        min-width: unset !important;
+    }
     @media screen and (max-width: 768px){
         padding:  25px 20px !important;
         margin-bottom: 40px;;

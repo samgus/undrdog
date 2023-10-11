@@ -57,7 +57,6 @@ const HeroSection = () => {
           <div className="hero__content">
             <HeroH1>Have a voice, tell your story.</HeroH1>
             <HeroP>
-                {/* Find a healthy work environment that suits you */}
                 Rate your restaurant and help others find a healthy place to work
             </HeroP>
             <HeroBtnWrapper>
