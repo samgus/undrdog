@@ -43,6 +43,8 @@ import { useAuth } from '../../contexts/auth.context';
 
   }
 
+  const touchEvent = ('ontouchstart' in window) ? 'touchstart' : 'click';
+
    return (
      <div onMouseLeave={(e) => {
       if (members && members.length > 0 && name.length > 0) {
@@ -67,6 +69,9 @@ import { useAuth } from '../../contexts/auth.context';
        <ul className={name.length > 0 ? 'list-items list-items-show': 'list-items'}>
          {members.map((memberObject, i) => (
            <li className="list-item" onClick={() => {
+            console.log("memberObject", memberObject)
+            handleClick(memberObject)
+           }} onTouchStart={() => {
             console.log("memberObject", memberObject)
             handleClick(memberObject)
            }} key={i}>

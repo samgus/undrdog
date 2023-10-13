@@ -1,5 +1,5 @@
 export async function signup(userInfo) {
-    const response = await fetch('http://localhost:8080/signup', {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/signup`, {
         method: 'post',
         mode: 'cors',
         headers: {
@@ -13,7 +13,7 @@ export async function signup(userInfo) {
 }
 
 export async function login(userInfo) {
-    const response = await fetch('http://localhost:8080/login', {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
         method: 'post',
         mode: 'cors',
         headers: {
@@ -27,7 +27,7 @@ export async function login(userInfo) {
 }
 
 export async function getUserById(userId) {
-    const response = await fetch('http://localhost:8080/user/'+userId, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/user/`+userId, {
         method: 'get',
         mode: 'cors',
         headers: {
@@ -40,7 +40,7 @@ export async function getUserById(userId) {
 }
 
 export async function updateUserById(userId, userInfo) {
-    const response = await fetch('http://localhost:8080/user/' + userId, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/user/` + userId, {
         method: 'put',
         mode: 'cors',
         headers: {
@@ -54,7 +54,7 @@ export async function updateUserById(userId, userInfo) {
 }
 
 export async function getLoggedInUser() {
-    const response = await fetch('http://localhost:8080/loggedInUser', {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/loggedInUser`, {
         method: 'get',
         mode: 'cors',
         headers: {
@@ -67,7 +67,7 @@ export async function getLoggedInUser() {
 }
 
 export async function logout() {
-    const response = await fetch('http://localhost:8080/logout', {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/logout`, {
         method: 'put',
         mode: 'cors',
         headers: {
@@ -80,7 +80,7 @@ export async function logout() {
 }
 
 export async function forgotPassword(email) {
-    const response = await fetch('http://localhost:8080/forgot-password', {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/forgot-password`, {
         method: 'post',
         mode: 'cors',
         headers: {
@@ -96,7 +96,7 @@ export async function forgotPassword(email) {
 }
 
 export async function resetPassword(passwordInfo) {
-    const response = await fetch('http://localhost:8080/reset-password', {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/reset-password`, {
         method: 'post',
         mode: 'cors',
         headers: {
@@ -109,7 +109,7 @@ export async function resetPassword(passwordInfo) {
     return result;
 }
 export async function activateUser(userId) {
-    const response = await fetch(`http://localhost:8080/reactivate-user?userId=${userId}`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/reactivate-user?userId=${userId}`, {
         method: 'put',
         mode: 'cors',
         headers: {
@@ -122,7 +122,7 @@ export async function activateUser(userId) {
 }
 
 export async function deactivateUser(userId) {
-    const response = await fetch(`http://localhost:8080/deactivate-user?userId=${userId}`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/deactivate-user?userId=${userId}`, {
         method: 'put',
         mode: 'cors',
         headers: {

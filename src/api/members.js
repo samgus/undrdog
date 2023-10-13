@@ -55,7 +55,7 @@ export async function createMember(member) {
                }
             }
 
-            const response = await fetch('http://localhost:8080/place', {
+            const response = await fetch(`${process.env.API_URL}/place`, {
                 method: 'post',
                 mode: 'cors',
                 headers: {
@@ -80,9 +80,8 @@ export async function createMember(member) {
     })
     
 }
-
 export async function getMemberByPlaceId(placeId) {
-    const response = await fetch('http://localhost:8080/place/' + placeId, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/place/` + placeId, {
         method: 'get',
         mode: 'cors',
         headers: {

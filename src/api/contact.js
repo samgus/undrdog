@@ -1,5 +1,5 @@
 export async function emailContact(body) {
-    const response = await fetch('http://localhost:8080/contact-submit', {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/contact-submit`, {
         method: 'POST',
         body
     })
