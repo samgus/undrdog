@@ -55,7 +55,7 @@ export async function createMember(member) {
                }
             }
 
-            const response = await fetch(`${process.env.API_URL}/place`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/place`, {
                 method: 'post',
                 mode: 'cors',
                 headers: {

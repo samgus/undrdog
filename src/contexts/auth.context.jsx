@@ -26,7 +26,7 @@ export function AuthProvider({ children }) {
         client_id: '828517644755-ug8shge2b0fct0m4qq8g8fki2772po49.apps.googleusercontent.com',
         ux_mode: 'redirect',
         scope: "email \ profile",
-        redirect_uri: "http://localhost:8080/auth-callback",
+        redirect_uri: `https://bettershift-api-1f864e63a8d3.herokuapp.com/auth-callback`,
         state: "REDIRECT_STATE"
       });
       setGoogleClient(googleClient)

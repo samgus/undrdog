@@ -56,7 +56,7 @@ const isDesktop = useMediaQuery({
                     {!isDesktop && <SocialIcons>
                         {/* <SocialIconLink href="https://www.facebook.com/samgus93/" target="_blank" aria-label="Facebook"><FaFacebook /></SocialIconLink> */}
                         <SocialIconLink href="https://www.instagram.com/bettershift/" target="_blank" aria-label="Instagram"><FaInstagram /></SocialIconLink>
-                        <SocialIconLink href="https://www.linkedin.com/in/samgustafsson93/" target="_blank" aria-label="LinkedIn"><FaLinkedin /></SocialIconLink>
+                        <SocialIconLink href="https://www.linkedin.com/company/better-shift/" target="_blank" aria-label="LinkedIn"><FaLinkedin /></SocialIconLink>
                     </SocialIcons>}
                     {!isDesktop && <WebsiteRights>© {new Date().getFullYear()}, All Rights Reserved.</WebsiteRights>}
                 </FooterLinksWrapper>
